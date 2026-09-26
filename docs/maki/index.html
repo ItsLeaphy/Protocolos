@@ -17,57 +17,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #EFE3DC;
-  --bg-card: #F7EFE9;
-  --bg-deep: #E4D3C8;
-  --ink: #3B2A2E;
-  --ink-soft: #8A6F6A;
-  --ink-faint: #B7A199;
-  --rose: #C97B6B;
-  --rose-deep: #A85D52;
-  --clay: #B98868;
-  --sage: #8E9B7E;
-  --sage-deep: #5E6B4F;
-  --mustard: #D4A24C;
-  --mustard-deep: #A87824;
-  --wine: #7A3B3F;
-  --cream: #FBF6F0;
-  --line: rgba(59,42,46,0.13);
-  --line-strong: rgba(59,42,46,0.24);
-  --legs-c: #C97B6B;
-  --upper-c: #8E9B7E;
-  --day-seg: var(--rose-deep);
-  --day-ter: var(--sage-deep);
-  --day-qua: var(--mustard-deep);
-  --day-qui: var(--sage-deep);
-  --day-sex: var(--wine);
+  --bg: #F0EAE0;
+  --bg-card: #F7F4EE;
+  --bg-deep: #E6DCCE;
+  --ink: #2B2420;
+  --ink-soft: #6B5D52;
+  --ink-faint: #9C8C7E;
+  --accent: #B5563D;
+  --accent-ink: #F7F4EE;
+  --line: rgba(43,36,32,0.12);
+  --line-strong: rgba(43,36,32,0.24);
+  --cream: #FBF8F3;
+
+  --day-seg: #B5563D;
+  --day-ter: #6B7052;
+  --day-qua: #B08830;
+  --day-qui: #3A4048;
+  --day-sex: #6B3A3E;
+  --day-sab: #5C6E64;
 }
 
-:root[data-theme="dark"] {
-  --bg: #1F1518;
-  --bg-card: #29191D;
-  --bg-deep: #170F11;
-  --ink: #F2E6DF;
-  --ink-soft: #C2A79E;
-  --ink-faint: #7A6259;
-  --rose: #E0917F;
-  --rose-deep: #E8A392;
-  --clay: #CBA07D;
-  --sage: #A9B79A;
-  --sage-deep: #B8C6A9;
-  --mustard: #E3B968;
-  --mustard-deep: #EFC97C;
-  --wine: #C08087;
-  --cream: #241820;
-  --line: rgba(242,230,223,0.1);
-  --line-strong: rgba(242,230,223,0.2);
-  --legs-c: #E0917F;
-  --upper-c: #A9B79A;
-  --day-seg: var(--rose-deep);
-  --day-ter: var(--sage-deep);
-  --day-qua: var(--mustard-deep);
-  --day-qui: var(--sage-deep);
-  --day-sex: var(--wine);
+[data-theme="dark"] {
+  --bg: #1A1613;
+  --bg-card: #211C17;
+  --bg-deep: #14100D;
+  --ink: #EDE6DA;
+  --ink-soft: #A89684;
+  --ink-faint: #6B5D52;
+  --accent: #D9C9A8;
+  --accent-ink: #211C17;
+  --line: rgba(237,230,218,0.1);
+  --line-strong: rgba(237,230,218,0.2);
+  --cream: #241C16;
+
+  --day-seg: #D68465;
+  --day-ter: #99A17A;
+  --day-qua: #D2AA5C;
+  --day-qui: #7E8A96;
+  --day-sex: #A56269;
+  --day-sab: #8CA396;
 }
 
 html { transition: background 0.25s ease; }
@@ -141,43 +129,28 @@ body { position: relative; }
   color: var(--ink-soft);
 }
 
-.masthead .issue { color: var(--rose-deep); font-weight: 500; margin-left: auto; }
+.masthead .issue { color: var(--accent); font-weight: 500; margin-left: auto; margin-right: 1.4rem; }
 
 .theme-toggle {
-  position: fixed;
-  top: 1.1rem;
-  right: 1.1rem;
-  z-index: 900;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1.5px solid var(--line-strong);
-  background: var(--bg-card);
-  color: var(--ink);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  background: none;
   padding: 0;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-  transition: transform 0.15s ease, background 0.25s ease, border-color 0.25s ease;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 1px;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
-.theme-toggle:hover { transform: rotate(-8deg) scale(1.08); }
+.theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
 
-.theme-toggle svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--ink);
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.theme-toggle .icon-moon { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-:root[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+.theme-toggle .label-dark { display: none; }
+[data-theme="dark"] .theme-toggle .label-light { display: none; }
+[data-theme="dark"] .theme-toggle .label-dark { display: inline; }
 
 .editorial-letter {
   padding: 2.2rem 0.2rem 1.6rem;
@@ -230,7 +203,7 @@ body { position: relative; }
   position: absolute;
   width: 22px;
   height: 22px;
-  border-color: var(--rose-deep);
+  border-color: var(--accent);
   opacity: 0.55;
 }
 .frame-corner.tl { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
@@ -243,7 +216,7 @@ body { position: relative; }
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  border: 1.5px solid var(--mustard-deep);
+  border: 1.5px solid var(--accent);
   opacity: 0.5;
 }
 .hero-ring::before {
@@ -251,7 +224,7 @@ body { position: relative; }
   position: absolute;
   inset: 12px;
   border-radius: 50%;
-  border: 1px solid var(--rose-deep);
+  border: 1px solid var(--accent);
   opacity: 0.7;
 }
 
@@ -262,7 +235,7 @@ body { position: relative; }
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--rose-deep);
+  color: var(--accent);
   margin-bottom: 1.4rem;
 }
 
@@ -276,7 +249,7 @@ body { position: relative; }
   color: var(--ink);
 }
 
-.hero-title .it { font-style: italic; font-weight: 400; color: var(--rose-deep); }
+.hero-title .it { font-style: italic; font-weight: 400; color: var(--accent); }
 
 .hero-right {
   grid-column: 2;
@@ -293,7 +266,7 @@ body { position: relative; }
   color: var(--ink);
 }
 
-.hero-manifesto b { font-style: normal; font-weight: 600; color: var(--rose-deep); }
+.hero-manifesto b { font-style: normal; font-weight: 600; color: var(--accent); }
 
 .hero-meta-row {
   margin-top: 4rem;
@@ -310,7 +283,7 @@ body { position: relative; }
   padding: 1.1rem 1.2rem;
 }
 
-.hero-meta-cell .num { font-family: 'Fraunces', serif; font-size: 1.9rem; color: var(--rose-deep); line-height: 1; }
+.hero-meta-cell .num { font-family: 'Fraunces', serif; font-size: 1.9rem; color: var(--accent); line-height: 1; }
 .hero-meta-cell .lbl { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-top: 0.4rem; }
 
 /* ================= SECTION LABEL ================= */
@@ -322,7 +295,7 @@ body { position: relative; }
   margin: 4.5rem 0.2rem 1.6rem;
 }
 
-.section-label .n { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--rose-deep); }
+.section-label .n { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); }
 .section-label h2 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.7rem; margin: 0; }
 .section-label .rule { flex: 1; height: 1px; background: var(--line-strong); }
 
@@ -410,7 +383,7 @@ body { position: relative; }
 }
 
 .panel-grid .frame-corner.tl,
-.panel-grid .frame-corner.br { border-color: var(--sage-deep); }
+.panel-grid .frame-corner.br { border-color: var(--accent); }
 
 .panel-seal {
   position: absolute;
@@ -459,7 +432,7 @@ body { position: relative; }
   padding-right: 2.2rem;
 }
 
-.panel-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 0.8rem; }
+.panel-eyebrow { font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.8rem; }
 
 .panel-heading {
   font-family: 'Fraunces', serif;
@@ -478,7 +451,7 @@ body { position: relative; }
 }
 
 .side-block { margin-top: 1.8rem; }
-.side-block .label { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.5rem; }
+.side-block .label { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0.5rem; }
 .side-block .val { font-size: 13px; color: var(--ink); line-height: 1.6; }
 
 .skill-plate {
@@ -488,7 +461,7 @@ body { position: relative; }
   border: 1px solid var(--line);
 }
 
-.skill-plate .label { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rose-deep); margin-bottom: 0.5rem; }
+.skill-plate .label { font-family: 'Inter', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--day-c, var(--accent)); margin-bottom: 0.5rem; }
 .skill-plate .name { font-family: 'Fraunces', serif; font-size: 1.2rem; }
 .skill-plate .stage { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--ink-soft); margin-top: 3px; }
 
@@ -499,7 +472,40 @@ body { position: relative; }
 .ex-row {
   border-bottom: 1px solid var(--line);
   cursor: pointer;
+  display: flex;
+  align-items: stretch;
 }
+
+.ex-row-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.reorder-arrows {
+  display: none;
+  flex-direction: column;
+  flex: 0 0 auto;
+  border-right: 1px solid var(--line);
+}
+
+.day-panel.reorder-active .reorder-arrows { display: flex; }
+
+.arrow-btn {
+  flex: 1 1 50%;
+  border: none;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+  width: 30px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.arrow-btn:first-child { border-bottom: 1px solid var(--line); }
+.arrow-btn:disabled { opacity: 0.25; cursor: default; }
+.arrow-btn:not(:disabled):hover { background: var(--line); }
 
 .ex-row-head {
   display: grid;
@@ -511,21 +517,217 @@ body { position: relative; }
 
 .ex-row-head .idx { font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--ink-faint); }
 .ex-row-head .name { font-size: 14.5px; font-weight: 500; }
-.ex-row-head .rir { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--rose-deep); white-space: nowrap; }
+.ex-row-head .rir { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--day-c, var(--accent)); white-space: nowrap; }
 .ex-row-head .plus { font-family: 'Fraunces', serif; font-size: 18px; color: var(--ink-faint); width: 16px; text-align: center; }
 
-.ex-row-body { max-height: 0; overflow: hidden; transition: max-height 0.2s ease; }
-.ex-row.open .ex-row-body { max-height: 160px; }
-
-.ex-row-body-inner {
-  padding: 0 4px 16px 46px;
-  font-size: 12.5px;
-  color: var(--ink-soft);
-  line-height: 1.6;
-  max-width: 480px;
+.done-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-left: 7px;
+  vertical-align: middle;
 }
 
-.ex-row-body-inner b { color: var(--rose-deep); font-weight: 600; }
+.done-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 11.5px;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+  user-select: none;
+}
+
+.done-check input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+.done-check .box {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s ease;
+}
+
+.done-check .box::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  opacity: 0;
+  transform: scale(0.4);
+  transition: opacity 0.12s ease, transform 0.12s ease;
+}
+
+.done-check input:checked ~ .box { border-color: var(--accent); }
+.done-check input:checked ~ .box::after { opacity: 1; transform: scale(1); }
+.done-check:hover .box { border-color: var(--ink-soft); }
+
+.weight-track {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.weight-last {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  color: var(--ink-soft);
+  margin-bottom: 8px;
+}
+
+.weight-last b { color: var(--ink); font-weight: 600; }
+
+.weight-form { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+
+.weight-input {
+  width: 62px;
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  padding: 7px 9px;
+}
+
+.weight-input:focus, .weight-type:focus { outline: none; border-color: var(--accent); }
+
+.weight-type {
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  padding: 7px 8px;
+}
+
+/* Sistema de botão único: .btn + modificador de peso visual */
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  padding: 8px 14px;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-primary {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.btn-primary:hover { opacity: 0.88; }
+
+.btn-secondary {
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+}
+.btn-secondary:hover, .btn-secondary.active { background: var(--ink); color: var(--bg); }
+
+.btn-ghost {
+  border: none;
+  background: none;
+  color: var(--ink-soft);
+  padding: 4px 6px;
+  font-weight: 500;
+}
+.btn-ghost:hover { color: var(--ink); }
+
+.weight-save { }
+.weight-saved-tag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-left: 4px;
+}
+
+.quick-register-row { display: flex; justify-content: center; margin-top: 16px; }
+
+.reorder-toggle-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  opacity: 0.5;
+}
+
+.reorder-toggle-row:hover { opacity: 1; }
+
+.progress-select {
+  width: 100%;
+  border: 1.5px solid var(--line-strong);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px;
+  padding: 9px 10px;
+  margin-bottom: 16px;
+}
+
+.progress-empty { font-size: 13px; color: var(--ink-soft); font-style: italic; }
+
+.progress-svg {
+  width: 100%;
+  height: auto;
+  border: 1.5px solid var(--line-strong);
+  background: var(--bg);
+}
+
+.progress-current {
+  margin-top: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.progress-current b { color: var(--ink); }
+
+.ex-row-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.2s ease;
+}
+
+.ex-row-body > .ex-row-body-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.ex-row.open .ex-row-body { grid-template-rows: 1fr; }
+
+.ex-row-body-inner {
+  padding: 0 4px 0 46px;
+  max-width: 480px;
+  max-height: 0;
+  transition: padding 0.2s ease;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+.ex-row.open .ex-row-body-inner {
+  padding: 0 4px 16px 46px;
+  max-height: none;
+}
+
+.ex-row-body-inner b { color: var(--accent); font-weight: 600; }
 
 .cooldown-line {
   margin-top: 1.6rem;
@@ -548,10 +750,19 @@ body { position: relative; }
   cursor: pointer;
 }
 
-.appendix-cell .num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--rose-deep); margin-bottom: 0.6rem; }
+.appendix-cell .num { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--accent); margin-bottom: 0.6rem; }
 .appendix-cell h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.25rem; margin: 0 0 0.7rem; }
-.appendix-cell .body { font-size: 13px; line-height: 1.7; color: var(--ink-soft); max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
-.appendix-cell.open .body { max-height: 500px; }
+.appendix-cell .body {
+  display: grid;
+  grid-template-rows: 0fr;
+  overflow: hidden;
+  transition: grid-template-rows 0.25s ease;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+.appendix-cell .body > .body-inner { overflow: hidden; min-height: 0; }
+.appendix-cell.open .body { grid-template-rows: 1fr; margin-top: 0.9rem; }
 .appendix-cell .body b { color: var(--ink); font-weight: 600; }
 .appendix-cell .toggle-hint { font-family: 'IBM Plex Mono', monospace; font-size: 9.5px; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; }
 
@@ -640,14 +851,12 @@ body { position: relative; }
 
 <div class="wrap">
 
-  <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-    <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-    <svg class="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
-  </button>
-
   <div class="masthead">
     <span>Protocolo — edição privada</span>
     <span class="issue">Nº III · MAKI</span>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema">
+      <span class="label-light">papel</span><span class="label-dark">noite</span>
+    </button>
   </div>
 
   <div class="editorial-letter">
@@ -678,34 +887,34 @@ body { position: relative; }
     <div class="section-label"><span class="n">01</span><h2>a semana</h2><span class="rule"></span></div>
     <div class="week-index">
       <div class="week-row">
-        <div class="day-num">01<span class="dot" style="width:6px; height:6px; background:var(--rose-deep); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
+        <div class="day-num">01<span class="dot" style="width:6px; height:6px; background:var(--day-seg); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
         <div><div class="day-name">Segunda</div><div class="day-title">Legs A</div></div>
-        <div class="week-tag" style="background:color-mix(in srgb, var(--rose-deep) 15%, transparent); color:var(--rose-deep);">Quadríceps · Glúteo</div>
+        <div class="week-tag" style="background:color-mix(in srgb, var(--day-seg) 15%, transparent); color:var(--day-seg);">Quadríceps · Glúteo</div>
       </div>
       <div class="week-row">
-        <div class="day-num">02<span class="dot" style="width:6px; height:6px; background:var(--sage-deep); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
-        <div><div class="day-name">Terça</div><div class="day-title">Upper</div></div>
-        <div class="week-tag" style="background:color-mix(in srgb, var(--sage-deep) 18%, transparent); color:var(--sage-deep);">Costas · Ombro</div>
+        <div class="day-num">02<span class="dot" style="width:6px; height:6px; background:var(--day-ter); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
+        <div><div class="day-name">Terça</div><div class="day-title">Costas + Ombro</div></div>
+        <div class="week-tag" style="background:color-mix(in srgb, var(--day-ter) 18%, transparent); color:var(--day-ter);">Largura · Espessura · Deltoide</div>
       </div>
       <div class="week-row">
-        <div class="day-num">03<span class="dot" style="width:6px; height:6px; background:var(--mustard-deep); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
+        <div class="day-num">03<span class="dot" style="width:6px; height:6px; background:var(--day-qua); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
         <div><div class="day-name">Quarta</div><div class="day-title">Legs B</div></div>
-        <div class="week-tag" style="background:color-mix(in srgb, var(--mustard-deep) 20%, transparent); color:var(--mustard-deep);">Glúteo · Posterior</div>
+        <div class="week-tag" style="background:color-mix(in srgb, var(--day-qua) 20%, transparent); color:var(--day-qua);">Glúteo-dominante · Posterior</div>
       </div>
       <div class="week-row">
-        <div class="day-num">04<span class="dot" style="width:6px; height:6px; background:var(--sage-deep); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
-        <div><div class="day-name">Quinta</div><div class="day-title">Upper + Core</div></div>
-        <div class="week-tag" style="background:color-mix(in srgb, var(--sage-deep) 18%, transparent); color:var(--sage-deep);">Peito · Core</div>
+        <div class="day-num">04<span class="dot" style="width:6px; height:6px; background:var(--day-qui); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
+        <div><div class="day-name">Quinta</div><div class="day-title">Peito + Braço + Core</div></div>
+        <div class="week-tag" style="background:color-mix(in srgb, var(--day-qui) 18%, transparent); color:var(--day-qui);">Harmonia · Braço dedicado · Cintura</div>
       </div>
       <div class="week-row">
-        <div class="day-num">05<span class="dot" style="width:6px; height:6px; background:var(--wine); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
+        <div class="day-num">05<span class="dot" style="width:6px; height:6px; background:var(--day-sex); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
         <div><div class="day-name">Sexta</div><div class="day-title">Legs C</div></div>
-        <div class="week-tag" style="background:color-mix(in srgb, var(--wine) 14%, transparent); color:var(--wine);">Unilateral</div>
+        <div class="week-tag" style="background:color-mix(in srgb, var(--day-sex) 14%, transparent); color:var(--day-sex);">Unilateral · Funcional</div>
       </div>
       <div class="week-row">
-        <div class="day-num">06</div>
-        <div><div class="day-name">Sábado</div><div class="day-title">Opcional</div></div>
-        <div class="week-tag" style="background:transparent; color:var(--ink-faint); border:1px solid var(--line-strong);">Sem obrigação</div>
+        <div class="day-num">06<span class="dot" style="width:6px; height:6px; background:var(--day-sab); position:static; display:inline-block; margin-left:6px; vertical-align:middle;"></span></div>
+        <div><div class="day-name">Sábado</div><div class="day-title">Costas/Ombro B + Core B</div></div>
+        <div class="week-tag" style="background:color-mix(in srgb, var(--day-sab) 18%, transparent); color:var(--day-sab);">Espessura · Trapézio · Anti-lateral</div>
       </div>
       <div class="week-row" style="border-bottom:none;">
         <div class="day-num">07</div>
@@ -713,15 +922,20 @@ body { position: relative; }
         <div class="week-tag" style="background:transparent; color:var(--ink-faint); border:1px solid var(--line-strong);">—</div>
       </div>
     </div>
-    <p class="week-note">Legs bate três vezes, Upper duas — reflete a prioridade real dela: pernas, glúteos, cintura fina, depois costas e ombro. O sábado existe porque ela mesma sugeriu, não porque o sistema exige.</p>
+    <p class="week-note">Legs bate três vezes, Costas/Ombro duas, Peito e Braço uma cada — reflete a prioridade real dela: pernas, depois costas, depois abdômen, depois braço, com harmonia no resto. Sábado é dia formal, a pedido dela — não cópia do treino de Dani.</p>
   </section>
 
   <nav class="tabs-nav" id="tabsNav"></nav>
 
   <div id="panels"></div>
 
+  <section id="progressao">
+    <div class="section-label"><span class="n">02</span><h2>progressão</h2><span class="rule"></span></div>
+    <div id="progressaoContent"></div>
+  </section>
+
   <section id="apendice">
-    <div class="section-label"><span class="n">02</span><h2>notas</h2><span class="rule"></span></div>
+    <div class="section-label"><span class="n">03</span><h2>notas</h2><span class="rule"></span></div>
     <div class="appendix-grid" id="accordion"></div>
   </section>
 
@@ -743,124 +957,190 @@ body { position: relative; }
 </div>
 
 <script>
-const DAY_COLORS = {
-  legs: { bg: 'var(--legs-c)', light: 'var(--rose-deep)' },
-  upper: { bg: 'var(--upper-c)', light: 'var(--sage-deep)' }
-};
-
 const DAY_ACCENT = {
   seg: { bg: 'var(--day-seg)' },
   ter: { bg: 'var(--day-ter)' },
   qua: { bg: 'var(--day-qua)' },
   qui: { bg: 'var(--day-qui)' },
-  sex: { bg: 'var(--day-sex)' }
+  sex: { bg: 'var(--day-sex)' },
+  sab: { bg: 'var(--day-sab)' }
 };
+
+const commonAccordion = [
+  {
+    title: 'Execução e progressão',
+    body: '<b>Estrutura:</b> séries e reps variam por papel do exercício — composto principal 4x8, composto secundário 3-4x10, isolador 3x12-15, panturrilha/trapézio reps mais altas (15-20). Progressão dupla: não bate o topo da faixa → segura peso; bate em tudo → sobe peso.<br><br><b>RIR calibrado por papel:</b> principal RIR 2 (sustenta o resto do treino), secundários RIR 1-2, isoladores RIR 0-1. Ela já tem experiência real e consegue empurrar perto do limite — RIR mais agressivo que antes, sem o conservadorismo extra que um iniciante precisaria.<br><br>Skill fica fora do sistema de séries — progride por qualidade de execução, nunca por quantidade forçada.'
+  },
+  {
+    title: 'Prioridade real',
+    body: 'Ordem declarada: <b>pernas &gt; costas &gt; abdômen (cintura fina) &gt; braço</b> — mas harmonia total, nenhum grupo negligenciado. Pernas recebem 3x/semana (a maior frequência), costas+ombro 2x, abdômen 2x, braço ganhou pela primeira vez um exercício isolado dedicado. Peito e trapézio entram por harmonia, mesmo não sendo prioridade — um corpo bem treinado não pode ter buracos.'
+  },
+  {
+    title: 'Origem do protocolo',
+    body: 'Construído a partir de dados atuais da Helena: 1,61m, 48kg. Quer muito calistenia mas ainda não tem força de base — por isso entram como skill em progressão assistida, nunca como movimento avançado jogado sem preparo. Prefere <b>desligar a cabeça</b> durante o treino. Sábado deixou de ser opcional e virou dia formal, a pedido dela — mas com identidade própria, não cópia do treino de Dani.'
+  }
+];
 
 const days = [
   {
     id: 'seg', label: 'Seg', num: '01', type: 'legs',
     title: 'Legs A', subtitle: 'quadríceps · glúteo',
-    intro: 'Prioridade número um dela — quadríceps e glúteo abrem a semana frescos, com o composto principal levando o peso real do dia.',
-    warmup: 'hip 90/90 · ativação de glúteo · mobilidade de tornozelo',
-    skill: { name: 'Búlgaro', desc: 'Progressão · peso corporal' },
+    intro: 'Prioridade número um dela — quadríceps abre a semana fresco, com o composto principal levando o peso real do dia.',
+    warmup: 'agachamento sem peso 2x10 · hip 90/90 2x40s',
+    skill: { name: 'Pistol squat', desc: 'Progressão · caixa/apoio' },
     exercises: [
-      { name: 'Agachamento livre', rir: 'RIR 2', role: 'Composto principal', detail: 'Quadríceps — motor do dia.' },
-      { name: 'Hip thrust (barra)', rir: 'RIR 2', role: 'Composto', detail: 'Glúteo — prioridade nº2 dela.' },
-      { name: 'Leg press', rir: 'RIR 1-2', role: 'Composto', detail: 'Quadríceps, sem carga axial.' },
-      { name: 'Cadeira extensora', rir: 'RIR 0-1', role: 'Isolador', detail: 'Quadríceps — finalização.' },
-      { name: 'Panturrilha', rir: 'RIR 0-1', role: 'Isolador', detail: '' }
+      { name: 'Agachamento livre', rir: 'RIR 2', sets: '4x8', role: 'Composto principal', detail: 'Quadríceps — motor do dia.' },
+      { name: 'Leg press', rir: 'RIR 1-2', sets: '3x10', role: 'Composto', detail: 'Quadríceps, sem carga axial.' },
+      { name: 'Cadeira extensora', rir: 'RIR 0-1', sets: '3x12-15', role: 'Isolador', detail: 'Quadríceps — finalização.' },
+      { name: 'Afundo (halteres)', rir: 'RIR 1-2', sets: '3x10 (cada perna)', role: 'Unilateral', detail: 'Quadríceps + glúteo, com componente de equilíbrio.' },
+      { name: 'Panturrilha em pé', rir: 'RIR 0-1', sets: '4x15-20', role: 'Isolador', detail: 'Gastrocnêmio.' }
     ],
-    cooldown: 'Alongamento de quadríceps e flexor de quadril.'
+    cooldown: 'Alongamento de quadríceps e flexor de quadril.',
+    appendix: [
+      {
+        title: 'Por que Legs A é assim',
+        body: 'Abre a semana porque pernas é a prioridade nº1 dela — merece o corpo mais fresco possível. Agachamento livre é o composto principal (RIR 2, sustenta o resto do dia); Leg press entra logo depois porque tira a carga axial da lombar e ainda ataca quadríceps. Afundo fecha com componente unilateral — controle, não só carga bruta.'
+      },
+      {
+        title: 'Execução completa',
+        body: '<b>Agachamento livre:</b> barra nas costas, pés na largura dos ombros, desce até coxa paralela ou abaixo, joelho segue a direção do pé. Composto principal — quadríceps e glúteo.<br><br><b>Leg press:</b> pés na parte média/baixa da plataforma, desce controlado até ~90° de joelho, sem travar o joelho no topo.<br><br><b>Cadeira extensora:</b> isola quadríceps sem carga na coluna — segurança pra volume extra depois do agachamento.<br><br><b>Afundo (halteres):</b> um halter em cada mão, passo à frente, desce o joelho de trás quase tocando o chão, sobe pela perna da frente. Unilateral — cada perna trabalha de forma independente.<br><br><b>Panturrilha em pé:</b> amplitude completa, desce até alongar bem, sobe até a ponta do pé.'
+      }
+    ]
   },
   {
     id: 'ter', label: 'Ter', num: '02', type: 'upper',
-    title: 'Upper', subtitle: 'costas · ombro',
-    intro: 'Costas e ombro fecham a proporção — prioridade real, mas não a primeira. Elevação lateral entra pelo contraste visual que dá à cintura.',
-    warmup: 'rotação torácica · band pull-apart · mobilidade de ombro',
-    skill: { name: 'Barra fixa', desc: 'Negativas · assistida' },
+    title: 'Costas + Ombro', subtitle: 'largura · espessura · deltoide',
+    intro: 'Costas e ombro são a segunda prioridade dela — puxada de largura abre o dia, elevação lateral entra pelo contraste visual que dá à cintura.',
+    warmup: 'band pull-apart 2x15 · shoulder dislocates 2x10',
+    skill: { name: 'Barra fixa assistida', desc: 'Elástico ou graviton' },
     exercises: [
-      { name: 'Puxada aberta', rir: 'RIR 2', role: 'Composto — largura', detail: 'Costas.' },
-      { name: 'Remada curvada/máquina', rir: 'RIR 2', role: 'Composto — espessura', detail: 'Costas.' },
-      { name: 'Desenvolvimento', rir: 'RIR 2', role: 'Composto', detail: 'Ombro.' },
-      { name: 'Elevação lateral', rir: 'RIR 0-1', role: 'Isolador', detail: 'Ombro lateral — contraste visual pra cintura.' },
-      { name: 'Face pull', rir: 'RIR 1', role: 'Isolador', detail: 'Postura.' }
+      { name: 'Puxada aberta', rir: 'RIR 2', sets: '4x8', role: 'Composto — largura', detail: 'Costas — composto principal do dia.' },
+      { name: 'Remada curvada', rir: 'RIR 1-2', sets: '3x10', role: 'Composto — espessura', detail: 'Costas.' },
+      { name: 'Desenvolvimento (halteres)', rir: 'RIR 1-2', sets: '3x10', role: 'Composto', detail: 'Ombro.' },
+      { name: 'Elevação lateral', rir: 'RIR 0-1', sets: '4x15', role: 'Isolador', detail: 'Deltoide lateral — contraste visual pra cintura, volume mais alto que isolador comum.' },
+      { name: 'Face pull', rir: 'RIR 1', sets: '3x15', role: 'Isolador', detail: 'Deltoide posterior — postura.' }
     ],
-    cooldown: 'Alongamento de dorsais e ombro.'
+    cooldown: 'Alongamento de dorsais e ombro.',
+    appendix: [
+      {
+        title: 'Por que Costas + Ombro é assim',
+        body: 'Puxada aberta abre o dia como composto principal (largura de costas, RIR 2). Elevação lateral recebe volume mais alto (4x15) porque deltoide lateral é o exercício de maior retorno visual pro contraste de cintura — ombro largo faz a cintura parecer mais fina por comparação, sem precisar mexer na cintura em si. Face pull fecha o dia contrabalançando a postura.'
+      },
+      {
+        title: 'Execução completa',
+        body: '<b>Puxada aberta:</b> sentado na máquina, pegada larga no puxador, puxa até a barra tocar a parte superior do peito, controla a subida.<br><br><b>Remada curvada:</b> tronco inclinado ~45°, barra ou halteres puxam em direção ao abdômen, cotovelo passa perto do corpo.<br><br><b>Desenvolvimento (halteres):</b> sentado ou em pé, halteres na altura do ombro, empurra até quase estender o cotovelo sem travar.<br><br><b>Elevação lateral:</b> halteres ao lado do corpo, eleva lateralmente até a linha do ombro, cotovelo levemente flexionado fixo.<br><br><b>Face pull:</b> corda na polia alta, puxa em direção ao rosto separando as mãos no final, cotovelos altos.'
+      }
+    ]
   },
   {
     id: 'qua', label: 'Qua', num: '03', type: 'legs',
     title: 'Legs B', subtitle: 'glúteo-dominante · posterior',
-    intro: 'Segunda dose de perna — muda o ângulo pra glúteo médio e posterior, sem repetir o estímulo de segunda.',
-    warmup: 'alongamento dinâmico de posterior · ativação de glúteo',
-    skill: { name: 'Búlgaro', desc: 'Progressão · continuação' },
+    intro: 'Segunda dose de perna — muda o ângulo pra glúteo e posterior de coxa, sem repetir o estímulo de segunda.',
+    warmup: 'glute bridge 2x15 · leg swing 2x10',
+    skill: { name: 'Hip thrust unilateral', desc: 'Peso corporal' },
     exercises: [
-      { name: 'RDL', rir: 'RIR 2', role: 'Composto', detail: 'Posterior/glúteo.' },
-      { name: 'Cadeira abdutora', rir: 'RIR 0-1', role: 'Isolador', detail: 'Glúteo médio.' },
-      { name: 'Cadeira flexora', rir: 'RIR 0-1', role: 'Isolador', detail: 'Posterior.' },
-      { name: 'Elevação pélvica', rir: 'RIR 0-1', role: 'Isolador', detail: 'Glúteo extra — prioridade nº2 dela.' },
-      { name: 'Panturrilha (ângulo diferente)', rir: 'RIR 0-1', role: 'Isolador', detail: '' }
+      { name: 'RDL', rir: 'RIR 2', sets: '4x8', role: 'Composto principal', detail: 'Posterior de coxa + glúteo — motor do dia.' },
+      { name: 'Hip thrust (barra)', rir: 'RIR 1-2', sets: '4x10', role: 'Composto', detail: 'Glúteo sob carga alta.' },
+      { name: 'Cadeira flexora', rir: 'RIR 0-1', sets: '3x12', role: 'Isolador', detail: 'Posterior de coxa.' },
+      { name: 'Cadeira abdutora', rir: 'RIR 0-1', sets: '3x15', role: 'Isolador', detail: 'Glúteo médio — estabilidade de quadril.' },
+      { name: 'Panturrilha sentado', rir: 'RIR 0-1', sets: '4x15-20', role: 'Isolador', detail: 'Sóleo — ângulo diferente de segunda.' }
     ],
-    cooldown: 'Alongamento de posterior de coxa.'
+    cooldown: 'Alongamento de posterior de coxa.',
+    appendix: [
+      {
+        title: 'Por que Legs B é assim',
+        body: 'RDL vira composto principal do dia (RIR 2) — cobre posterior de coxa e glúteo ao mesmo tempo. Hip thrust entra logo depois com a maior carga possível de glúteo isolado, já que RDL aqueceu o padrão de quadril. Cadeira abdutora ataca glúteo médio, que nem RDL nem Hip thrust cobrem sozinhos — estabilidade de quadril, não só volume.'
+      },
+      {
+        title: 'Execução completa',
+        body: '<b>RDL:</b> pernas quase retas, quadril "dobra pra trás" (não é agachamento), barra ou halteres deslizam rente à perna, sente alongar o posterior.<br><br><b>Hip thrust (barra):</b> costas apoiadas no banco, barra sobre o quadril, empurra o quadril pra cima até extensão total, aperta o glúteo no topo.<br><br><b>Cadeira flexora:</b> deitada ou sentada, flexiona o joelho contra a resistência — isola posterior sem envolver lombar.<br><br><b>Cadeira abdutora:</b> sentada, empurra as pernas pra fora contra a resistência.<br><br><b>Panturrilha sentado:</b> joelho flexionado muda a ênfase pro sóleo.'
+      }
+    ]
   },
   {
     id: 'qui', label: 'Qui', num: '04', type: 'upper',
-    title: 'Upper + Core', subtitle: 'peito · core',
-    intro: 'Supino/flexão assistida constrói base real pra flexão de verdade. Core usa anti-rotação — protege a cintura fina sem engrossar.',
-    warmup: 'mobilidade geral de ombro e quadril',
-    skill: { name: 'Flexão + Barra', desc: 'Progressão · continuação' },
+    title: 'Peito + Braço + Core', subtitle: 'harmonia · braço dedicado · cintura',
+    intro: 'Peito entra por harmonia, não por prioridade. Braço ganha pela primeira vez um exercício isolado de verdade. Core usa anti-rotação — protege a cintura fina sem engrossar.',
+    warmup: 'rotação torácica 2x10 · scapular push-up 2x12',
+    skill: { name: 'Flexão assistida', desc: 'Joelho ou inclinada' },
     exercises: [
-      { name: 'Supino ou flexão assistida com carga', rir: 'RIR 2', role: 'Composto', detail: 'Peito — constrói pra flexão real.' },
-      { name: 'Crucifixo/Crossover', rir: 'RIR 1-2', role: 'Isolador', detail: 'Peito.' },
-      { name: 'Cable crunch', rir: 'RIR 0-1', role: 'Core', detail: 'Tronco.' },
-      { name: 'Pallof press', rir: 'RIR 1', role: 'Core', detail: 'Anti-rotação — protege a cintura sem engrossar.' },
-      { name: 'Hanging leg raise (regressiva se precisar)', rir: 'RIR 0-1', role: 'Core', detail: 'Quadril.' }
+      { name: 'Chest press (máquina)', rir: 'RIR 1-2', sets: '3x10', role: 'Composto', detail: 'Peito — harmonia, sem ser o foco do dia.' },
+      { name: 'Crucifixo (peck-deck)', rir: 'RIR 0-1', sets: '3x12', role: 'Isolador', detail: 'Peito.' },
+      { name: 'Rosca direta (halteres)', rir: 'RIR 0-1', sets: '3x12', role: 'Isolador — bíceps', detail: 'Braço — primeiro exercício isolado dedicado pra braço.' },
+      { name: 'Tríceps corda', rir: 'RIR 0-1', sets: '3x12', role: 'Isolador — tríceps', detail: 'Braço.' },
+      { name: 'Cable crunch', rir: 'RIR 1', sets: '3x15', role: 'Core — flexão', detail: 'Reto abdominal.' },
+      { name: 'Pallof press', rir: 'RIR 1', sets: '3x12 (cada lado)', role: 'Core — anti-rotação', detail: 'Protege a cintura fina sem engrossar — anti-rotação em vez de rotação carregada.' }
     ],
-    cooldown: 'Alongamento peitoral.'
+    cooldown: 'Alongamento peitoral.',
+    appendix: [
+      {
+        title: 'Por que Peito + Braço + Core é assim',
+        body: 'Chest press cobre peito com segurança pra treinar perto da falha sozinha, sem spotter — a flexão de peso corporal completa ainda é meta futura (é o skill do dia, não o exercício de força). Rosca direta e Tríceps corda são a primeira vez que braço recebe atenção isolada de verdade — antes só aparecia de carona em outros exercícios. Pallof press protege a cintura: rotação carregada engrossaria o oblíquo, anti-rotação não.'
+      },
+      {
+        title: 'Sobre a cintura',
+        body: 'Não é treinável direto — vem do contraste entre ombro/costas largos e quadril/glúteo cheio, mais baixo percentual de gordura. Por isso o Pallof press entra no lugar de qualquer rotação carregada, que engrossaria em vez de afinar.'
+      },
+      {
+        title: 'Execução completa',
+        body: '<b>Chest press (máquina):</b> sentado, empurra os punhos/alças à frente até quase estender o cotovelo sem travar.<br><br><b>Crucifixo (peck-deck):</b> braços abertos em arco, foco em alongar e depois "abraçar" no fechamento.<br><br><b>Rosca direta (halteres):</b> em pé ou sentada, cotovelos fixos ao lado do corpo, flexiona até contrair o bíceps no topo.<br><br><b>Tríceps corda:</b> polia alta, corda desce e as mãos se separam no final do movimento.<br><br><b>Cable crunch:</b> ajoelhada de frente pra polia alta, flexiona o tronco puxando o cabo, curva a coluna.<br><br><b>Pallof press:</b> de lado pra polia, empurra o cabo pra frente do peito resistindo à rotação que o cabo puxa.'
+      }
+    ]
   },
   {
     id: 'sex', label: 'Sex', num: '05', type: 'legs',
     title: 'Legs C', subtitle: 'unilateral · funcional',
-    intro: 'Fecha a semana de perna — búlgaro evolui pra halteres, peso corporal vira carga real.',
-    warmup: 'mobilidade de quadril',
-    skill: { name: 'Búlgaro', desc: 'Evolução · halteres' },
+    intro: 'Fecha a semana de perna com foco unilateral — controle e equilíbrio, não só carga bruta.',
+    warmup: 'búlgaro sem peso 2x8 (cada perna) · mobilidade de tornozelo 2x10 (cada lado)',
+    skill: { name: 'Búlgaro', desc: 'Peso corporal' },
     exercises: [
-      { name: 'Búlgaro (halteres)', rir: 'RIR 1-2', role: 'Unilateral', detail: 'Evolução final da semana.' },
-      { name: 'Afundo ou stiff unilateral', rir: 'RIR 1-2', role: 'Funcional', detail: '' },
-      { name: 'Abdutora', rir: 'RIR 0-1', role: 'Isolador', detail: 'Glúteo médio.' },
-      { name: 'Panturrilha unilateral', rir: 'RIR 0-1', role: 'Isolador', detail: '' }
+      { name: 'Búlgaro (halteres)', rir: 'RIR 1-2', sets: '3x10 (cada perna)', role: 'Unilateral principal', detail: 'Quadríceps + glúteo, controle.' },
+      { name: 'Stiff unilateral (halteres)', rir: 'RIR 1-2', sets: '3x10 (cada perna)', role: 'Unilateral', detail: 'Posterior de coxa.' },
+      { name: 'Elevação pélvica', rir: 'RIR 0-1', sets: '3x15', role: 'Isolador', detail: 'Glúteo — ângulo diferente da Cadeira abdutora de quarta.' },
+      { name: 'Panturrilha unilateral', rir: 'RIR 0-1', sets: '3x15 (cada perna)', role: 'Isolador', detail: 'Componente extra de equilíbrio.' }
     ],
-    cooldown: 'Alongamento geral de perna.'
+    cooldown: 'Alongamento geral de perna.',
+    appendix: [
+      {
+        title: 'Por que Legs C é assim',
+        body: 'Terceiro e último estímulo de perna na semana — todo unilateral, fechando o volume que a prioridade nº1 pede sem repetir o padrão bilateral de segunda/quarta. Elevação pélvica aqui, não Cadeira abdutora de novo (quarta já cobre isso) — evita empilhar o mesmo exercício em dois dias sem propósito.'
+      },
+      {
+        title: 'Execução completa',
+        body: '<b>Búlgaro (halteres):</b> pé de trás apoiado num banco, desce o joelho da frente controlado, sobe pela perna da frente.<br><br><b>Stiff unilateral (halteres):</b> em pé numa perna só, halter na mão oposta, dobra o quadril pra frente mantendo a perna quase reta, volta controlado.<br><br><b>Elevação pélvica:</b> deitada, pés apoiados, eleva o quadril apertando o glúteo no topo.<br><br><b>Panturrilha unilateral:</b> uma perna de cada vez, amplitude completa, com apoio pra equilíbrio se precisar.'
+      }
+    ]
   },
   {
-    id: 'sab', label: 'Sáb', num: '06', type: 'rest',
-    title: 'Sábado opcional', subtitle: 'cardio leve ou calistenia solta',
-    intro: 'Sem obrigação — ela mesma sugeriu esse dia. Entra como extra, nunca como cobrança.',
-    rest: true
+    id: 'sab', label: 'Sáb', num: '06', type: 'upper',
+    title: 'Costas/Ombro B + Core B', subtitle: 'espessura · trapézio · anti-lateral',
+    intro: 'Dia formal, pedido por ela — não é cópia do treino de Dani. Segundo estímulo de costas e abdômen na semana, com ângulos que terça e quinta não cobrem.',
+    warmup: 'active hang leve 2x20s · rotação torácica 2x10',
+    skill: { name: 'Scapular pull-ups', desc: 'Negativas de barra' },
+    exercises: [
+      { name: 'Remada unilateral (halteres)', rir: 'RIR 2', sets: '3x10 (cada lado)', role: 'Composto principal', detail: 'Espessura de costas, ângulo diferente da remada curvada de terça.' },
+      { name: 'Puxada fechada (triângulo)', rir: 'RIR 1-2', sets: '3x10', role: 'Composto — largura', detail: 'Pegada diferente da puxada aberta de terça.' },
+      { name: 'Encolhimento', rir: 'RIR 0-1', sets: '3x15', role: 'Isolador — trapézio', detail: 'Trapézio — não existia antes, harmonia.' },
+      { name: 'Hanging leg raise', rir: 'RIR 1', sets: '3x12', role: 'Core — flexão', detail: 'Flexores de quadril/reto inferior.' },
+      { name: 'Side plank', rir: 'RIR 1-2', sets: '3x30-40s (cada lado)', role: 'Core — anti-lateral', detail: 'Terceiro papel de core da semana — anti-flexão lateral, que nem quinta nem o resto cobre.' }
+    ],
+    cooldown: 'Alongamento de dorsais.',
+    appendix: [
+      {
+        title: 'Por que Costas/Ombro B + Core B é assim',
+        body: 'Sábado virou dia formal a pedido dela, mas com identidade própria — nenhum exercício repete terça no mesmo ângulo. Remada unilateral (halteres) em vez de remada curvada, Puxada fechada em vez de aberta. Encolhimento entra pela primeira vez, cobrindo trapézio, que não tinha nenhum exercício dedicado antes. Side plank fecha o trio de papéis de core da semana: quinta cobre flexão (Cable crunch) e anti-rotação (Pallof press), sábado cobre anti-lateral.'
+      },
+      {
+        title: 'Execução completa',
+        body: '<b>Remada unilateral (halteres):</b> um joelho e uma mão apoiados no banco, halter na outra mão, puxa em direção ao quadril.<br><br><b>Puxada fechada (triângulo):</b> pegada neutra no triângulo, puxa até o peito.<br><br><b>Encolhimento:</b> em pé, halteres nas mãos, eleva os ombros em direção às orelhas sem rodar, segura no topo.<br><br><b>Hanging leg raise:</b> pendurada na barra, eleva as pernas controlando o balanço, sem impulso.<br><br><b>Side plank:</b> apoiada num antebraço de lado, corpo reto, quadril não cai — mantém o tempo sem perder o alinhamento.'
+      }
+    ]
   },
   {
     id: 'dom', label: 'Dom', num: '07', type: 'rest',
     title: 'Descanso', subtitle: '',
     intro: 'Recuperação real, sem culpa.',
     rest: true
-  }
-];
-
-const accordionData = [
-  {
-    title: 'Sobre a cintura',
-    body: 'Não é treinável direto — vem do contraste entre ombro/costas largos e quadril/glúteo cheio, mais baixo percentual de gordura. Por isso o <b>Pallof press</b> (anti-rotação) entra no lugar de qualquer rotação carregada, que engrossaria em vez de afinar — mesmo princípio já usado no Protocolo Toji.'
-  },
-  {
-    title: 'Execução e progressão',
-    body: '<b>Estrutura:</b> 3-4 séries de 10-12 reps, progressão dupla. <b>RIR calibrado por papel:</b> composto principal 2, secundários 1-2, isoladores 0-1. Ela já tem experiência real — sente resultado, empurra perto do limite — então não precisa do conservadorismo extra que o Diego ainda precisa. Skills progridem por qualidade de execução, nunca por quantidade forçada.'
-  },
-  {
-    title: 'Prioridade real',
-    body: 'Pernas, glúteos, cintura fina, depois costas e ombro, depois shape geral — nessa ordem, segundo as próprias respostas dela. A frequência semanal reflete isso de verdade: <b>Legs 3x, Upper 2x</b> — não é distribuição igual por padrão, é peso proporcional à prioridade declarada.'
-  },
-  {
-    title: 'Origem do protocolo',
-    body: 'Construído a partir de dados atuais da Helena: 17 anos, 1,61m, 48kg, treina hoje 5x/semana, sem dor ou lesão. Quer muito calistenia mas ainda não tem força de base — por isso entram como skill em progressão. Prefere <b>desligar a cabeça</b> durante o treino — abordagem não hiper-técnica na hora de executar.'
   }
 ];
 
@@ -879,13 +1159,98 @@ function buildTabs() {
 function selectDay(id) {
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.id === id));
   document.querySelectorAll('.day-panel').forEach(p => p.classList.toggle('active', p.dataset.id === id));
+  buildAccordion(id);
 }
 
-function buildPanels() {
+// --- Reordenação manual por dia ---
+function getOrder(dayId, count) {
+  const def = Array.from({ length: count }, (_, i) => i);
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem('ordem-' + dayId)); } catch (e) {}
+  if (!Array.isArray(saved) || saved.length !== count) return def;
+  const valid = saved.every(n => Number.isInteger(n) && n >= 0 && n < count) &&
+                new Set(saved).size === count;
+  return valid ? saved : def;
+}
+
+function hasCustomOrder(dayId) {
+  try { return !!localStorage.getItem('ordem-' + dayId); } catch (e) { return false; }
+}
+
+function saveOrder(dayId, order) {
+  try { localStorage.setItem('ordem-' + dayId, JSON.stringify(order)); } catch (e) {}
+}
+
+function clearOrder(dayId) {
+  try { localStorage.removeItem('ordem-' + dayId); } catch (e) {}
+}
+
+// --- Completude semanal (reseta sozinho ao virar a semana ISO) ---
+function getWeekKey(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+  return d.getUTCFullYear() + '-S' + weekNo;
+}
+
+function getCompletion(dayId) {
+  const key = 'progresso-' + getWeekKey(new Date());
+  let all = {};
+  try { all = JSON.parse(localStorage.getItem(key)) || {}; } catch (e) {}
+  return all[dayId] || {};
+}
+
+function toggleCompletion(dayId, exIdx) {
+  const key = 'progresso-' + getWeekKey(new Date());
+  let all = {};
+  try { all = JSON.parse(localStorage.getItem(key)) || {}; } catch (e) {}
+  if (!all[dayId]) all[dayId] = {};
+  all[dayId][exIdx] = !all[dayId][exIdx];
+  try { localStorage.setItem(key, JSON.stringify(all)); } catch (e) {}
+  return all[dayId][exIdx];
+}
+
+// --- Histórico de peso (append-only por exercício) ---
+function historyKey(dayId, exIdx) {
+  return 'historico-' + dayId + '-' + exIdx;
+}
+
+function getHistory(dayId, exIdx) {
+  let arr = [];
+  try { arr = JSON.parse(localStorage.getItem(historyKey(dayId, exIdx))) || []; } catch (e) {}
+  return Array.isArray(arr) ? arr : [];
+}
+
+function getLastEntry(dayId, exIdx) {
+  const hist = getHistory(dayId, exIdx);
+  return hist.length ? hist[hist.length - 1] : null;
+}
+
+function addHistoryEntry(dayId, exIdx, valor, tipo) {
+  const hist = getHistory(dayId, exIdx);
+  const todayStr = new Date().toISOString().slice(0, 10);
+  if (hist.length && hist[hist.length - 1].data === todayStr) {
+    hist[hist.length - 1] = { data: todayStr, valor, tipo };
+  } else {
+    hist.push({ data: todayStr, valor, tipo });
+  }
+  try { localStorage.setItem(historyKey(dayId, exIdx), JSON.stringify(hist)); } catch (e) {}
+}
+
+function formatWeight(entry) {
+  if (!entry) return null;
+  return entry.tipo === 'lado' ? entry.valor + ' kg por lado' : entry.valor + ' kg';
+}
+
+function buildPanels(activeId) {
   const container = document.getElementById('panels');
+  const currentActive = activeId || document.querySelector('.day-panel.active')?.dataset.id || (days[0] && days[0].id);
+  container.innerHTML = '';
   days.forEach((d, i) => {
     const panel = document.createElement('div');
-    panel.className = 'day-panel' + (i === 0 ? ' active' : '');
+    panel.className = 'day-panel' + (d.id === currentActive ? ' active' : '');
     panel.dataset.id = d.id;
 
     if (d.rest) {
@@ -909,10 +1274,10 @@ function buildPanels() {
       return;
     }
 
-    const c = DAY_ACCENT[d.id] || DAY_COLORS[d.type];
-    let html = `<div class="panel-grid">
-      <span class="frame-corner tl"></span>
-      <span class="frame-corner br"></span>
+    const c = DAY_ACCENT[d.id];
+    let html = `<div class="panel-grid" style="border-top: 3px solid ${c.bg}; --day-c: ${c.bg};">
+      <span class="frame-corner tl" style="border-color:${c.bg};"></span>
+      <span class="frame-corner br" style="border-color:${c.bg};"></span>
       <div class="panel-seal" style="border-color:${c.bg}; color:${c.bg};">${d.num}</div>
       ${d.id === todayId ? '<span class="today-mark">hoje</span>' : ''}
       <span class="page-num">p. ${d.num}</span>
@@ -937,17 +1302,44 @@ function buildPanels() {
     html += `</div><div>
       <div class="ex-list">`;
 
-    d.exercises.forEach((ex, idx) => {
-      html += `<div class="ex-row" data-idx="${idx}">
+    const order = getOrder(d.id, d.exercises.length);
+    const completion = getCompletion(d.id);
+    order.forEach((realIdx, pos) => {
+      const ex = d.exercises[realIdx];
+      const done = !!completion[realIdx];
+      html += `<div class="ex-row" data-idx="${realIdx}">
+        <div class="reorder-arrows">
+          <button type="button" class="arrow-btn" data-dir="up" ${pos === 0 ? 'disabled' : ''} aria-label="Mover para cima">↑</button>
+          <button type="button" class="arrow-btn" data-dir="down" ${pos === order.length - 1 ? 'disabled' : ''} aria-label="Mover para baixo">↓</button>
+        </div>
+        <div class="ex-row-main">
         <div class="ex-row-head">
-          <div class="idx">${String(idx + 1).padStart(2, '0')}</div>
-          <div class="name">${ex.name}</div>
-          ${ex.rir ? `<div class="rir">${ex.rir}</div>` : '<div></div>'}
+          <div class="idx">${String(pos + 1).padStart(2, '0')}</div>
+          <div class="name">${ex.name}${done ? '<span class="done-dot" aria-label="Feito esta semana"></span>' : ''}</div>
+          <div class="rir">${[ex.sets, ex.rir].filter(Boolean).join(' / ')}</div>
           <div class="plus">+</div>
         </div>
-        <div class="ex-row-body"><div class="ex-row-body-inner"><b>${ex.role}</b>${ex.detail ? ' — ' + ex.detail : ''}</div></div>
+        <div class="ex-row-body"><div class="ex-row-body-inner">
+          <b>${ex.role}</b>${ex.detail ? ' — ' + ex.detail : ''}
+          <label class="done-check">
+            <input type="checkbox" class="done-checkbox" data-day="${d.id}" data-idx="${realIdx}" ${done ? 'checked' : ''}>
+            <span class="box"></span>
+            <span>feito essa semana</span>
+          </label>
+          <div class="weight-track" data-day="${d.id}" data-idx="${realIdx}"></div>
+        </div></div>
+        </div>
       </div>`;
     });
+
+    html += `<div class="quick-register-row">
+      <button type="button" class="quick-register btn btn-secondary" data-day="${d.id}">registro rápido ⌄</button>
+    </div>`;
+
+    html += `<div class="reorder-toggle-row">
+      <button type="button" class="reorder-toggle btn btn-ghost" data-day="${d.id}">reordenar ⇅</button>
+      <button type="button" class="reorder-reset btn btn-ghost" data-day="${d.id}" style="display:${hasCustomOrder(d.id) ? 'inline-block' : 'none'};">restaurar ordem padrão</button>
+    </div>`;
 
     html += `</div><div class="cooldown-line">${d.cooldown}</div></div></div>`;
 
@@ -962,17 +1354,199 @@ function buildPanels() {
       row.querySelector('.plus').textContent = isOpen ? '+' : '−';
     });
   });
+
+  document.querySelectorAll('.reorder-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.closest('.day-panel').classList.toggle('reorder-active');
+    });
+  });
+
+  document.querySelectorAll('.reorder-reset').forEach(btn => {
+    btn.addEventListener('click', () => {
+      clearOrder(btn.dataset.day);
+      buildPanels(btn.dataset.day);
+      document.querySelector(`.day-panel[data-id="${btn.dataset.day}"]`)?.classList.add('reorder-active');
+    });
+  });
+
+  document.querySelectorAll('.arrow-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const row = btn.closest('.ex-row');
+      const dayId = btn.closest('.day-panel').dataset.id;
+      const day = days.find(d => d.id === dayId);
+      const order = getOrder(dayId, day.exercises.length);
+      const realIdx = parseInt(row.dataset.idx, 10);
+      const pos = order.indexOf(realIdx);
+      const swapWith = btn.dataset.dir === 'up' ? pos - 1 : pos + 1;
+      if (swapWith < 0 || swapWith >= order.length) return;
+      [order[pos], order[swapWith]] = [order[swapWith], order[pos]];
+      saveOrder(dayId, order);
+      buildPanels(dayId);
+      document.querySelector(`.day-panel[data-id="${dayId}"]`)?.classList.add('reorder-active');
+    });
+  });
+
+  document.querySelectorAll('.done-checkbox').forEach(box => {
+    box.addEventListener('change', () => {
+      const dayId = box.dataset.day;
+      const exIdx = parseInt(box.dataset.idx, 10);
+      const nowDone = toggleCompletion(dayId, exIdx);
+      const nameEl = box.closest('.ex-row').querySelector('.name');
+      let dot = nameEl.querySelector('.done-dot');
+      if (nowDone && !dot) {
+        dot = document.createElement('span');
+        dot.className = 'done-dot';
+        dot.setAttribute('aria-label', 'Feito esta semana');
+        nameEl.appendChild(dot);
+      } else if (!nowDone && dot) {
+        dot.remove();
+      }
+    });
+  });
+
+  document.querySelectorAll('.weight-track').forEach(el => renderWeightTrack(el));
+
+  document.querySelectorAll('.quick-register').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.closest('.day-panel');
+      const rows = panel.querySelectorAll('.ex-row');
+      const willOpen = !panel.classList.contains('all-open');
+      rows.forEach(row => {
+        row.classList.toggle('open', willOpen);
+        row.querySelector('.plus').textContent = willOpen ? '−' : '+';
+      });
+      panel.classList.toggle('all-open', willOpen);
+      btn.classList.toggle('active', willOpen);
+      btn.textContent = willOpen ? 'fechar registro ⌃' : 'registro rápido ⌄';
+    });
+  });
 }
 
-function buildAccordion() {
+function renderWeightTrack(el) {
+  const dayId = el.dataset.day;
+  const exIdx = parseInt(el.dataset.idx, 10);
+  const last = getLastEntry(dayId, exIdx);
+  const lastLabel = formatWeight(last);
+  const defaultTipo = last ? last.tipo : 'total';
+
+  el.innerHTML = `
+    ${lastLabel ? `<div class="weight-last">última vez: <b>${lastLabel}</b> (${last.data.split('-').reverse().join('/')})</div>` : `<div class="weight-last">ainda sem registro</div>`}
+    <div class="weight-form">
+      <input type="number" step="0.5" min="0" class="weight-input" placeholder="peso" value="${last ? last.valor : ''}">
+      <select class="weight-type">
+        <option value="total" ${defaultTipo === 'total' ? 'selected' : ''}>total</option>
+        <option value="lado" ${defaultTipo === 'lado' ? 'selected' : ''}>por lado</option>
+      </select>
+      <button type="button" class="weight-save btn btn-primary">salvar</button>
+      <span class="weight-saved-tag" style="display:none;">salvo ✓</span>
+    </div>`;
+
+  const input = el.querySelector('.weight-input');
+  const select = el.querySelector('.weight-type');
+  const btn = el.querySelector('.weight-save');
+  const tag = el.querySelector('.weight-saved-tag');
+  const lastLine = el.querySelector('.weight-last');
+
+  btn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const valor = parseFloat(input.value);
+    if (!valor && valor !== 0) return;
+    const tipo = select.value;
+    addHistoryEntry(dayId, exIdx, valor, tipo);
+    const novo = getLastEntry(dayId, exIdx);
+    lastLine.innerHTML = `última vez: <b>${formatWeight(novo)}</b> (${novo.data.split('-').reverse().join('/')})`;
+    tag.style.display = 'inline';
+    setTimeout(() => { tag.style.display = 'none'; }, 1800);
+    buildProgressao();
+  });
+
+  [input, select].forEach(field => field.addEventListener('click', e => e.stopPropagation()));
+}
+
+function buildProgressao() {
+  const container = document.getElementById('progressaoContent');
+  if (!container) return;
+
+  const options = [];
+  days.forEach(d => {
+    if (d.rest) return;
+    d.exercises.forEach((ex, idx) => {
+      const hist = getHistory(d.id, idx);
+      if (hist.length > 0) {
+        options.push({ dayId: d.id, dayLabel: d.title, idx, name: ex.name, hist });
+      }
+    });
+  });
+
+  if (options.length === 0) {
+    container.innerHTML = `<p class="progress-empty">Nenhum registro de peso ainda. Registre um peso em qualquer exercício pra começar a ver a progressão aqui.</p>`;
+    return;
+  }
+
+  const selectId = 'progressaoSelect';
+  let html = `<select id="${selectId}" class="progress-select">`;
+  options.forEach((o, i) => {
+    html += `<option value="${i}">${o.dayLabel} — ${o.name}</option>`;
+  });
+  html += `</select><div id="progressaoChart"></div>`;
+  container.innerHTML = html;
+
+  const select = document.getElementById(selectId);
+  const draw = () => renderProgressChart(options[parseInt(select.value, 10)]);
+  select.addEventListener('change', draw);
+  draw();
+}
+
+function renderProgressChart(opt) {
+  const chartEl = document.getElementById('progressaoChart');
+  const hist = opt.hist;
+
+  if (hist.length === 1) {
+    chartEl.innerHTML = `<p class="progress-empty">Só tem 1 registro (${formatWeight(hist[0])}, ${hist[0].data.split('-').reverse().join('/')}) — precisa de pelo menos 2 pra desenhar progressão.</p>`;
+    return;
+  }
+
+  const W = 600, H = 220, padL = 40, padR = 16, padT = 16, padB = 30;
+  const valores = hist.map(h => h.valor);
+  const min = Math.min(...valores), max = Math.max(...valores);
+  const range = (max - min) || 1;
+  const yFor = v => padT + (H - padT - padB) * (1 - (v - min) / range);
+  const xFor = i => padL + (W - padL - padR) * (hist.length === 1 ? 0.5 : i / (hist.length - 1));
+
+  const points = hist.map((h, i) => `${xFor(i)},${yFor(h.valor)}`).join(' ');
+  const dots = hist.map((h, i) => `<circle cx="${xFor(i)}" cy="${yFor(h.valor)}" r="3.5" fill="var(--accent)" />`).join('');
+  const labels = hist.map((h, i) => {
+    if (hist.length > 8 && i % Math.ceil(hist.length / 8) !== 0 && i !== hist.length - 1) return '';
+    const d = h.data.split('-');
+    return `<text x="${xFor(i)}" y="${H - 8}" font-size="9" fill="var(--ink-soft)" text-anchor="middle">${d[2]}/${d[1]}</text>`;
+  }).join('');
+
+  chartEl.innerHTML = `
+    <svg viewBox="0 0 ${W} ${H}" class="progress-svg">
+      <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${H - padB}" stroke="var(--line-strong)" stroke-width="1" />
+      <line x1="${padL}" y1="${H - padB}" x2="${W - padR}" y2="${H - padB}" stroke="var(--line-strong)" stroke-width="1" />
+      <text x="${padL - 6}" y="${yFor(max) + 4}" font-size="10" fill="var(--ink-soft)" text-anchor="end">${max}</text>
+      <text x="${padL - 6}" y="${yFor(min) + 4}" font-size="10" fill="var(--ink-soft)" text-anchor="end">${min}</text>
+      <polyline points="${points}" fill="none" stroke="var(--accent)" stroke-width="2" />
+      ${dots}
+      ${labels}
+    </svg>
+    <div class="progress-current">atual: <b>${formatWeight(hist[hist.length - 1])}</b> · ${hist.length} registros</div>`;
+}
+
+function buildAccordion(dayId) {
   const container = document.getElementById('accordion');
-  accordionData.forEach((item, i) => {
+  container.innerHTML = '';
+  const day = days.find(d => d.id === dayId) || days[0];
+  const items = day.rest ? commonAccordion : [...(day.appendix || []), ...commonAccordion];
+  items.forEach((item, i) => {
     const el = document.createElement('div');
     el.className = 'appendix-cell';
     el.innerHTML = `
       <div class="num">${String(i + 1).padStart(2, '0')}</div>
       <h3>${item.title}</h3>
-      <div class="body">${item.body}</div>
+      <div class="body"><div class="body-inner">${item.body}</div></div>
       <div class="toggle-hint">ler mais</div>`;
     el.addEventListener('click', () => {
       const isOpen = el.classList.contains('open');
@@ -1034,7 +1608,7 @@ function initTheme() {
   const theme = saved || 'light';
   const metaTheme = document.querySelector('meta[name="theme-color"]');
   function applyMeta(t) {
-    metaTheme.setAttribute('content', t === 'dark' ? '#1F1518' : '#EFE3DC');
+    metaTheme.setAttribute('content', t === 'dark' ? '#1A1613' : '#F0EAE0');
   }
   document.documentElement.setAttribute('data-theme', theme);
   applyMeta(theme);
@@ -1054,9 +1628,11 @@ initTheme();
 initPWA();
 buildTabs();
 buildPanels();
-buildAccordion();
 
-if (days.find(d => d.id === todayId)) selectDay(todayId);
+const startId = days.find(d => d.id === todayId) ? todayId : days[0].id;
+buildAccordion(startId);
+buildProgressao();
+selectDay(startId);
 </script>
 
 </body>
