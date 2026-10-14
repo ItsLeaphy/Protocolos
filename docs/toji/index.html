@@ -1572,11 +1572,16 @@ function buildAccordion(dayId) {
 }
 
 function initPWA() {
+  // start_url/scope absolutos (pasta desta página): num manifest vindo de Blob, '.' não resolve
+  // pra pasta do Toji, e o app instalado acabava abrindo o seletor dos 3 protocolos.
+  const base = new URL('.', location.href).href;
   const manifest = {
+    id: base,
     name: 'Protocolo Toji',
     short_name: 'Toji',
     description: 'Harmonia, não hierarquia — rotina de treino PPL.',
-    start_url: '.',
+    start_url: base,
+    scope: base,
     display: 'standalone',
     background_color: '#F2EDE1',
     theme_color: '#F2EDE1',
