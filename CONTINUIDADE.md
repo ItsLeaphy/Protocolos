@@ -2,12 +2,12 @@
 
 Leia [CLAUDE.md](CLAUDE.md) primeiro. Este documento só resume e aponta; os detalhes ficam nos documentos indicados.
 
-**Conferido em:** 03/11/2026 · HEAD `2ba1f83` (`main`). Reconfira o HEAD antes de agir.
+**Conferido em:** 03/11/2026 · HEAD `077dad7` (`main`). Patch de ficha aplicado localmente; commit/publicação pendentes.
 
 ## Estado atual
 
 - Desenvolvimento ativo **somente no Toji** (musculação, facial, mobilidade). Maki e Megumi congelados.
-- A **V4** da musculação está no site desde 10/10/2026. Facial e mobilidade ainda não têm conteúdo nem implementação.
+- A **V4** foi atualizada localmente com o patch pós-V4. O commit/publicação no remoto ainda está pendente. Facial e mobilidade seguem sem conteúdo consolidado.
 - Houve uma auditoria técnica em 03/11/2026. **Não refazer.** O relatório completo não está no repositório (ver lacuna L-1 em `DECISOES.md`).
 - A etapa de documentação foi concluída sem alterar código, fichas, armazenamento nem históricos.
 
@@ -15,7 +15,7 @@ Leia [CLAUDE.md](CLAUDE.md) primeiro. Este documento só resume e aponta; os det
 
 - **Escopo e frentes:** só Toji; três frentes (D-17, D-18).
 - **Arquitetura:** modular simples, HTML/CSS/JS nativos, GitHub Pages; armazenamento local versionado com IDs estáveis; backup (exportar/importar com validação) obrigatório; histórico independente da posição; privacidade; offline desejado (D-19 a D-24).
-- **Ficha de musculação pós-V4:** oito decisões aprovadas (D-09 a D-16), listadas em `docs/TOJI.md` §5.
+- **Ficha pós-V4:** D-09, D-10, D-12, D-13 e D-16 aplicadas localmente; D-11, D-14 e D-15 já estavam na V4.
 
 ## O que está implementado
 
@@ -24,7 +24,7 @@ Leia [CLAUDE.md](CLAUDE.md) primeiro. Este documento só resume e aponta; os det
 
 ## O que está pendente
 
-1. **Ficha:** aplicar as decisões D-09, D-10, D-12, D-13, D-16 (as demais já refletem o site). Antes, resolver L-2 (dips) e L-3 (peck-deck/fly).
+1. **Ficha:** testar no navegador, revisar o diff e commitar/publicar o patch. L-2 (dips) e L-3 (peck-deck/fly) estão resolvidas; não reabrir.
 2. **Técnico** (achados da auditoria): chaves de armazenamento, datas em UTC, histórico de um registro por data, backup, IDs permanentes, service worker via Blob.
 3. **Privacidade:** decidir o que fazer com os dados pessoais já expostos (D-23, L-9). Nada foi feito.
 4. **Conteúdo:** facial e mobilidade (L-4).
@@ -32,7 +32,7 @@ Leia [CLAUDE.md](CLAUDE.md) primeiro. Este documento só resume e aponta; os det
 
 ## Próxima tarefa
 
-**Não há próxima tarefa definida em decisão registrada.** O usuário escolhe. Ponto de partida natural (sugestão, não aprovada): com o relatório de 03/11 em mãos, ordenar as correções do item 2 e 3 acima, com backup antes de qualquer mudança de armazenamento.
+**Próxima tarefa:** testar a ficha atualizada no navegador, revisar o diff e commitar/publicar. As correções técnicas de armazenamento permanecem separadas e exigem backup/validação.
 
 ## Onde consultar
 
