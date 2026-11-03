@@ -851,7 +851,7 @@ footer {
   <footer>
     <span>PROTOCOLO TOJI</span>
     <span>~1,72M · ~60KG</span>
-    <span>SEM DIPS · SEM RODA ABDOMINAL</span>
+    <span>DIPS EM PROGRESSÃO · SEM RODA ABDOMINAL</span>
   </footer>
 
 </div>
@@ -867,7 +867,7 @@ const days = [
   {
     id: 'seg', label: 'SEG', type: 'push',
     title: 'Push A', subtitle: 'peito · ombro · tríceps · core',
-    intro: 'Dia pesado de empurrar: supino reto no início, ombro lateral com prioridade alta pro shape em V e tríceps com volume próprio. Core entra no fim (flexão + anti-rotação), longe dos dias de perna.',
+    intro: 'Dia pesado de empurrar: supino reto e inclinado, crossover alto-baixo para complementar o peito, ombro lateral e tríceps. Core entra no fim, longe dos dias de perna.',
     warmupList: [
       { name: 'Rotação torácica' },
       { name: 'Wall slides' },
@@ -879,19 +879,20 @@ const days = [
       { id: 'desenvolvimento-halteres', name: 'Desenvolvimento (halteres)', rir: 'RIR 1-2', sets: '3x8-10', role: 'Composto', detail: 'Ombro. Vem antes do inclinado pra o ombro chegar mais fresco.' },
       { id: 'supino-inclinado', name: 'Supino inclinado (halteres)', rir: 'RIR 1-2', sets: '3x8-12', role: 'Composto', detail: 'Peito superior (porção clavicular).' },
       { id: 'lateral-cabo', name: 'Elevação lateral (cabo)', rir: 'RIR 0-1', sets: '4x12-20', role: 'Isolador', detail: 'Deltoide lateral — prioridade máxima pro shape em V. Cabo mantém tensão desde o início do movimento.' },
+      { id: 'crossover-alto-baixo', name: 'Crossover (polia alta → baixa)', rir: 'RIR 1-2', sets: '2x12-15', role: 'Isolador — peito', detail: 'Polias acima da linha dos ombros; fecha as mãos em arco descendente à frente do tronco. Complementa os supinos com adução horizontal em trajetória alto-baixo.' },
       { id: 'triceps-frances', name: 'Tríceps francês (halter, unilateral, overhead)', rir: 'RIR 0-1', sets: '4x10-15', role: 'Isolador', detail: 'Tríceps cabeça longa, em posição alongada.' },
-      { id: 'cable-crunch', name: 'Cable crunch', rir: 'RIR 1-2', sets: '3x12-15', role: 'Core — reto abdominal', detail: 'Flexão de tronco carregada. Curva a coluna, não só dobra o quadril.' },
+      { id: 'abdominal-maquina', name: 'Abdominal na máquina', rir: 'RIR 1-2', sets: '3x12-15', role: 'Core — reto abdominal', detail: 'Flexão de tronco contra a resistência da máquina. Mantém o quadril estável e aproxima o tronco da pelve sem transformar o movimento em uma simples dobradiça de quadril.' },
       { id: 'pallof-press', name: 'Pallof press', rir: 'RIR 1-2', sets: '2x12 (cada lado)', role: 'Core — anti-rotação', detail: 'Anti-rotação em vez de rotação carregada, que engrossaria a cintura.' }
     ],
     cooldown: 'Alongamento de peitoral e ombro anterior.',
     appendix: [
       {
         title: 'Por que Push A é assim',
-        body: 'Push A é o dia de supino reto e desenvolvimento: composto principal no início com RIR 2 pra sustentar o resto. Elevação lateral (4 séries) entra com RIR baixo porque deltoide lateral é o que mais "abre" a silhueta, e a quinta repete o estímulo (4 séries) pra chegar a 8 por semana. Tríceps tem 4 séries aqui (francês, alongado) e 4 na quinta (corda). Core fica no fim: flexão (cable crunch) e anti-rotação (Pallof), sem competir com as pernas.'
+        body: 'Push A combina supino reto e inclinado com crossover alto-baixo (2 séries) para completar o trabalho de peito. Elevação lateral soma 4 séries neste dia e 4 na quinta. Tríceps recebe o trabalho isolado do francês; o core fica no fim, com máquina abdominal e Pallof, sem competir com as pernas.'
       },
       {
         title: 'Variantes (segunda × quinta)',
-        body: 'A e B não são cópias: cada exercício do B muda o ângulo ou a função em relação ao A.<br><br><table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">função</td><td style="color:var(--ink-soft); font-weight:400;">segunda</td><td style="color:var(--ink-soft); font-weight:400;">quinta</td></tr><tr><td>Peito principal</td><td>Reto</td><td>Declinado</td></tr><tr><td>Peito complementar</td><td>Inclinado (halteres)</td><td>Crossover polia baixa → alta</td></tr><tr><td>Ombro</td><td>Desenvolvimento + lateral (cabo)</td><td>Lateral (máquina/halter) + face pull</td></tr><tr><td>Tríceps</td><td>Francês (alongado)</td><td>Corda</td></tr><tr><td>Core</td><td>Cable crunch + Pallof</td><td>Dragon flag + prancha</td></tr><tr><td>Skill</td><td>Handstand</td><td>Handstand</td></tr></table><br>Desenvolvimento não repete na quinta: só aumentaria a sobreposição no deltoide anterior sem cobrir lacuna nova.'
+        body: 'A e B não são cópias: cada exercício do B muda o ângulo ou a função em relação ao A.<br><br><table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">função</td><td style="color:var(--ink-soft); font-weight:400;">segunda</td><td style="color:var(--ink-soft); font-weight:400;">quinta</td></tr><tr><td>Peito principal</td><td>Reto</td><td>Declinado</td></tr><tr><td>Peito complementar</td><td>Inclinado + crossover alta → baixa</td><td>Crossover baixa → alta</td></tr><tr><td>Ombro</td><td>Desenvolvimento + lateral (cabo)</td><td>Lateral (máquina/halter) + face pull</td></tr><tr><td>Tríceps</td><td>Francês (alongado)</td><td>Corda</td></tr><tr><td>Core</td><td>Máquina abdominal + Pallof</td><td>Dragon flag + prancha</td></tr><tr><td>Skill</td><td>Handstand</td><td>Handstand</td></tr></table><br>Desenvolvimento não repete na quinta: só aumentaria a sobreposição no deltoide anterior sem cobrir lacuna nova.'
       },
       {
         title: 'Postura e respiração',
@@ -903,7 +904,7 @@ const days = [
       },
       {
         title: 'Execução completa',
-        body: '<b>Handstand:</b> depois do aquecimento, antes de qualquer carga. 6-8 min em tentativas curtas (10-20 s), parando quando a linha corporal cai. Qualidade, não tempo acumulado.<br><br><b>Supino reto (barra livre):</b> deitado no banco, pegada um pouco mais larga que os ombros, barra desce até tocar o peito na linha do mamilo, cotovelos a ~45° do tronco (não 90°). Descida controlada, subida com intenção de acelerar. Peito médio, também recruta tríceps e deltoide anterior.<br><br><b>Desenvolvimento (halteres):</b> sentado ou em pé, halteres na altura do ombro, empurra até quase estender o cotovelo sem travar. Deltoide anterior/medial como motor, tríceps como auxiliar.<br><br><b>Supino inclinado (halteres):</b> banco a 30-45°, halteres permitem amplitude maior que barra. Peito superior — ângulo que o supino reto não cobre bem.<br><br><b>Elevação lateral (cabo):</b> cabo na polia baixa, puxa lateralmente até a linha do ombro, cotovelo levemente flexionado fixo. Cabo mantém tensão constante no músculo (diferente do halter, que perde tensão no início do movimento).<br><br><b>Tríceps francês (halter, unilateral, overhead):</b> halter atrás da cabeça, cotovelo fixo apontando pro teto, desce controlado. Overhead alonga mais a cabeça longa do tríceps que a extensão por trás do corpo.<br><br><b>Cable crunch:</b> ajoelhado de frente pra polia alta, flexiona o tronco puxando o cabo, curva a coluna (não só dobra o quadril).<br><br><b>Pallof press:</b> de lado pra polia, empurra o cabo pra frente do peito resistindo à rotação que o cabo puxa. Anti-rotação.'
+        body: '<b>Handstand:</b> depois do aquecimento, antes de qualquer carga. 6-8 min em tentativas curtas (10-20 s), parando quando a linha corporal cai. Qualidade, não tempo acumulado.<br><br><b>Supino reto (barra livre):</b> deitado no banco, pegada um pouco mais larga que os ombros, barra desce até tocar o peito na linha do mamilo, cotovelos a ~45° do tronco (não 90°). Descida controlada, subida com intenção de acelerar. Peito médio, também recruta tríceps e deltoide anterior.<br><br><b>Desenvolvimento (halteres):</b> sentado ou em pé, halteres na altura do ombro, empurra até quase estender o cotovelo sem travar. Deltoide anterior/medial como motor, tríceps como auxiliar.<br><br><b>Supino inclinado (halteres):</b> banco a 30-45°, halteres permitem amplitude maior que barra. Peito superior — ângulo que o supino reto não cobre bem.<br><br><b>Elevação lateral (cabo):</b> cabo na polia baixa, puxa lateralmente até a linha do ombro, cotovelo levemente flexionado fixo. Cabo mantém tensão constante no músculo (diferente do halter, que perde tensão no início do movimento).<br><br><b>Tríceps francês (halter, unilateral, overhead):</b> halter atrás da cabeça, cotovelo fixo apontando pro teto, desce controlado. Overhead alonga mais a cabeça longa do tríceps que a extensão por trás do corpo.<br><br><b>Abdominal na máquina:</b> ajusta o apoio para permitir flexão confortável do tronco; aproxima o tronco da pelve contra a resistência, controla a volta e evita puxar apenas com os braços.<br><br><b>Pallof press:</b> de lado pra polia, empurra o cabo pra frente do peito resistindo à rotação que o cabo puxa. Anti-rotação.'
       }
     ]
   },
@@ -933,7 +934,7 @@ const days = [
       },
       {
         title: 'Variantes (terça × sexta)',
-        body: 'Terça enfatiza agachamento e RDL; sexta combina leg press, unilateral e extensão de quadril.<br><br><table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">função</td><td style="color:var(--ink-soft); font-weight:400;">terça</td><td style="color:var(--ink-soft); font-weight:400;">sexta</td></tr><tr><td>Joelho</td><td>Agachamento + extensora</td><td>Leg press + búlgaro</td></tr><tr><td>Quadril</td><td>RDL</td><td>Hip thrust + hiperextensão</td></tr><tr><td>Flexora</td><td>Deitada</td><td>Sentada</td></tr><tr><td>Panturrilha</td><td>Em pé (gastrocnêmio)</td><td>Sentada (sóleo)</td></tr><tr><td>Abdutora</td><td>—</td><td>2 séries</td></tr><tr><td>Skill</td><td>Pistol assistido</td><td>Saltos verticais</td></tr><tr><td>Core</td><td>Hanging leg raise</td><td>— (core nos dias de Push)</td></tr></table>'
+        body: 'Terça enfatiza agachamento e RDL; sexta combina leg press, unilateral e extensão de quadril.<br><br><table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">função</td><td style="color:var(--ink-soft); font-weight:400;">terça</td><td style="color:var(--ink-soft); font-weight:400;">sexta</td></tr><tr><td>Joelho</td><td>Agachamento + extensora</td><td>Leg press + búlgaro</td></tr><tr><td>Quadril</td><td>RDL</td><td>Hip thrust + hiperextensão</td></tr><tr><td>Flexora</td><td>Deitada</td><td>Sentada</td></tr><tr><td>Panturrilha</td><td>Em pé (gastrocnêmio)</td><td>Sentada (sóleo)</td></tr><tr><td>Abdutora</td><td>—</td><td>2 séries</td></tr><tr><td>Adutora</td><td>—</td><td>2 séries</td></tr><tr><td>Skill</td><td>Pistol assistido</td><td>Saltos verticais</td></tr><tr><td>Core</td><td>Hanging leg raise</td><td>— (core nos dias de Push)</td></tr></table>'
       },
       {
         title: 'Execução completa',
@@ -956,7 +957,7 @@ const days = [
     exercises: [
       { id: 'barra-fixa', name: 'Barra fixa (pronada)', rir: 'RIR 2', sets: '4x6-10', role: 'Composto — força/largura', detail: 'Pronada na quarta; no sábado muda a pegada.' },
       { id: 'tbar', name: 'T-bar (apoio no peito)', rir: 'RIR 1-2', sets: '4x8-12', role: 'Composto — espessura', detail: 'Remada apoiada: estímulo de costas sem carga na lombar e sem depender de estabilizar o tronco.' },
-      { id: 'puxada-aberta', name: 'Puxada aberta (pegada larga)', rir: 'RIR 1-2', sets: '3x10-12', role: 'Composto — largura', detail: 'Puxador largo, segunda puxada vertical do dia.' },
+      { id: 'puxada-neutra-anatomica', name: 'Puxada neutra (pegador anatômico pequeno)', rir: 'RIR 1-2', sets: '3x10-12', role: 'Composto — largura', detail: 'Pegada neutra com pegador anatômico pequeno. Segunda puxada vertical do dia, complementando a barra fixa pronada.' },
       { id: 'rosca-scott', name: 'Rosca Scott', rir: 'RIR 0-1', sets: '3x10-12', role: 'Isolador — bíceps (encurtado)', detail: 'Cabeça curta do bíceps, isolada do resto do corpo pelo apoio.' },
       { id: 'rosca-inclinada', name: 'Rosca inclinada (supinada)', rir: 'RIR 0-1', sets: '3x10-12', role: 'Isolador — bíceps (alongado)', detail: 'Banco inclinado alonga o bíceps na origem — cabeça longa, o pico que a rosca reta não pega.' },
       { id: 'encolhimento', name: 'Encolhimento', rir: 'RIR 1-2', sets: '3x12-20', role: 'Isolador — trapézio', detail: 'Trapézio superior — sustentação de carga e presença de ombro.' },
@@ -967,11 +968,11 @@ const days = [
     appendix: [
       {
         title: 'Por que Pull A é assim',
-        body: 'Pull acontece 2x/semana (quarta e sábado) e o volume total de costas é ~17 séries: 10 de puxada vertical (barra + puxada) e 7 de remada. A quarta usa T-bar com apoio no peito: dá espessura de costas sem exigir estabilização do tronco nem carga na lombar. Bíceps tem uma variante encurtada (Scott) e uma alongada (inclinada). Antebraço: flexores aqui, extensores e braquiorradial no sábado.'
+        body: 'Pull acontece 2x/semana (quarta e sábado). A quarta combina barra pronada com puxada neutra de pegador anatômico pequeno, além da T-bar apoiada. O volume de costas permanece em 17 séries semanais: 10 verticais e 7 de remada. Bíceps recebe uma variante encurtada (Scott) e uma alongada (inclinada); antebraço recebe flexores aqui e extensores/braquiorradial no sábado.'
       },
       {
         title: 'Variantes (quarta × sábado)',
-        body: 'Só varia com justificativa real de função. Troca só de pegada ou de máquina não conta como variação.<br><br><table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">função</td><td style="color:var(--ink-soft); font-weight:400;">quarta</td><td style="color:var(--ink-soft); font-weight:400;">sábado</td></tr><tr><td>Puxada vertical</td><td>Barra pronada + puxada aberta</td><td>Barra neutra ou supinada</td></tr><tr><td>Remada</td><td>T-bar (apoiada)</td><td>Curvada supinada (livre)</td></tr><tr><td>Deltoide posterior</td><td>— (face pull na quinta)</td><td>Peck-deck reverso</td></tr><tr><td>Bíceps</td><td>Scott (encurtado) + inclinada (alongado)</td><td>Bayesian (alongado, cabo) + martelo</td></tr><tr><td>Antebraço</td><td>Rosca de punho (flexores)</td><td>Rosca inversa + extensão de punho</td></tr><tr><td>Trapézio/pegada</td><td>Encolhimento</td><td>Farmer walk</td></tr><tr><td>Pescoço</td><td>Sim</td><td>Sim</td></tr></table>'
+        body: 'Só varia com justificativa real de função. Troca só de pegada ou de máquina não conta como variação.<br><br><table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">função</td><td style="color:var(--ink-soft); font-weight:400;">quarta</td><td style="color:var(--ink-soft); font-weight:400;">sábado</td></tr><tr><td>Puxada vertical</td><td>Barra pronada + puxada neutra</td><td>Barra neutra ou supinada</td></tr><tr><td>Remada</td><td>T-bar (apoiada)</td><td>Curvada supinada (livre)</td></tr><tr><td>Deltoide posterior</td><td>— (face pull na quinta)</td><td>Peck-deck reverso</td></tr><tr><td>Bíceps</td><td>Scott (encurtado) + inclinada (alongado)</td><td>Bayesian (alongado, cabo) + martelo</td></tr><tr><td>Antebraço</td><td>Rosca de punho (flexores)</td><td>Rosca inversa + extensão de punho</td></tr><tr><td>Trapézio/pegada</td><td>Encolhimento</td><td>Farmer walk</td></tr><tr><td>Pescoço</td><td>Sim</td><td>Sim</td></tr></table>'
       },
       {
         title: 'Postura e respiração',
@@ -979,14 +980,14 @@ const days = [
       },
       {
         title: 'Execução completa',
-        body: '<b>Barra fixa (pronada):</b> palmas pra frente, um pouco mais larga que ombro, puxa até o queixo passar a barra, desce controlado até braço quase reto. Composto de força/largura.<br><br><b>T-bar (apoio no peito):</b> peito apoiado no suporte, puxa as alças em direção ao abdômen, cotovelos passando perto do corpo e escápulas fechando no final. O apoio tira a exigência de estabilizar o tronco: o estímulo vai pra costas.<br><br><b>Puxada aberta (pegada larga):</b> sentado na máquina, pegada larga no puxador, puxa até a barra tocar a parte superior do peito, controla a subida.<br><br><b>Rosca Scott:</b> apoio no banco Scott, isola o bíceps do resto do corpo, sem balanço. Cabeça curta do bíceps.<br><br><b>Rosca inclinada (supinada):</b> banco a 45-60°, braço pendurado atrás do tronco, alonga o bíceps na origem antes de flexionar. Trabalha o pico que a rosca reta não pega.<br><br><b>Encolhimento:</b> em pé, barra ou halteres nas mãos, eleva os ombros em direção às orelhas sem rodar, segura no topo. Trapézio superior.<br><br><b>Rosca de punho:</b> antebraço apoiado, só o punho flexiona, segurando a barra. Flexores do antebraço e grip.<br><br><b>Pescoço:</b> flexão, extensão e lateral, devagar e sem balanço, com carga mínima. Detalhes de carga e progressão no card do exercício.'
+        body: '<b>Barra fixa (pronada):</b> palmas pra frente, um pouco mais larga que ombro, puxa até o queixo passar a barra, desce controlado até braço quase reto. Composto de força/largura.<br><br><b>T-bar (apoio no peito):</b> peito apoiado no suporte, puxa as alças em direção ao abdômen, cotovelos passando perto do corpo e escápulas fechando no final. O apoio tira a exigência de estabilizar o tronco: o estímulo vai pra costas.<br><br><b>Puxada neutra (pegador anatômico pequeno):</b> sentado na máquina, segura os pegadores com as palmas voltadas uma para a outra, cotovelos descem em direção ao tronco e a volta é controlada.<br><br><b>Rosca Scott:</b> apoio no banco Scott, isola o bíceps do resto do corpo, sem balanço. Cabeça curta do bíceps.<br><br><b>Rosca inclinada (supinada):</b> banco a 45-60°, braço pendurado atrás do tronco, alonga o bíceps na origem antes de flexionar. Trabalha o pico que a rosca reta não pega.<br><br><b>Encolhimento:</b> em pé, barra ou halteres nas mãos, eleva os ombros em direção às orelhas sem rodar, segura no topo. Trapézio superior.<br><br><b>Rosca de punho:</b> antebraço apoiado, só o punho flexiona, segurando a barra. Flexores do antebraço e grip.<br><br><b>Pescoço:</b> flexão, extensão e lateral, devagar e sem balanço, com carga mínima. Detalhes de carga e progressão no card do exercício.'
       }
     ]
   },
   {
     id: 'qui', label: 'QUI', type: 'push',
     title: 'Push B', subtitle: 'peito · ombro · tríceps · core',
-    intro: 'Segunda metade do push semanal: declinado como composto, ombro lateral de novo (máquina/halter), tríceps na corda e face pull pra postura. Core de anti-extensão no fim. Muay Thai às 16h (aula técnica).',
+    intro: 'Segunda metade do push semanal: supino declinado, crossover baixo-alto, dips em progressão assistida até livres, ombro lateral, tríceps e face pull. Core de anti-extensão no fim. Muay Thai às 16h (aula técnica).',
     warmupList: [
       { name: 'Rotação torácica' },
       { name: 'Wall slides' },
@@ -997,6 +998,7 @@ const days = [
       { id: 'supino-declinado', name: 'Supino declinado (barra)', rir: 'RIR 1-2', sets: '4x8-12', role: 'Composto', detail: 'Peito inferior. Substitui o chest press; reto e inclinado ficam na segunda.' },
       { id: 'lateral-maquina', name: 'Elevação lateral (máquina ou halter)', rir: 'RIR 0-1', sets: '4x12-20', role: 'Isolador', detail: 'Deltoide lateral, segunda vez na semana. Perfil de resistência diferente do cabo de segunda.' },
       { id: 'crossover-baixo', name: 'Crossover (polia baixa → alta)', rir: 'RIR 0-1', sets: '3x12-15', role: 'Isolador', detail: 'Peito superior e contração. O declinado já cobre a parte inferior.' },
+      { id: 'dips-assistido', name: 'Dips nas paralelas (assistido → livre)', rir: 'RIR 1-2', sets: '2x8-12', role: 'Composto — tríceps/peito', detail: 'Comece na máquina assistida, usando auxílio suficiente para repetições controladas. Reduza a assistência progressivamente conforme completar a faixa com técnica estável, até executar os dips livres nas paralelas. Descanso de 2–3 min; não substitui o supino declinado.' },
       { id: 'triceps-corda', name: 'Tríceps corda', rir: 'RIR 0-1', sets: '4x10-15', role: 'Isolador', detail: 'Tríceps cabeça lateral.' },
       { id: 'face-pull', name: 'Face pull', rir: 'RIR 1-2', sets: '3x12-20', role: 'Isolador', detail: 'Deltoide posterior, rotadores externos e controle escapular — contrabalança o volume de empurrar da semana.' },
       { id: 'dragon-flag', name: 'Dragon flag (progressão)', rir: '', sets: '3x4-8', role: 'Core — cadeia completa', detail: 'Tuck, uma perna ou negativa, o que permitir técnica limpa. Reto abdominal + estabilizadores profundos.' },
@@ -1006,11 +1008,11 @@ const days = [
     appendix: [
       {
         title: 'Por que Push B é assim',
-        body: 'Push B complementa a segunda com outros ângulos: declinado no lugar do chest press (um exercício de peito a menos), crossover de polia baixa pra parte superior e contração, e lateral de novo pra chegar a 8 séries semanais de deltoide lateral. Tríceps de corda fecha 8 séries semanais de tríceps direto (4 + 4). Face pull fica aqui porque contrabalança o volume de empurrar, não só pra combinar com o nome do dia. Core de anti-extensão (dragon flag, prancha) fica no fim.'
+        body: 'Push B complementa a segunda: mantém o supino declinado, o crossover baixo-alto e a elevação lateral. Os dips entram depois do crossover, começando na máquina assistida e progredindo até a execução livre; não substituem o supino declinado. A corda permanece no trabalho isolado de tríceps, o face pull equilibra o volume de empurrar e o core de anti-extensão fica no fim.'
       },
       {
         title: 'Variantes (segunda × quinta)',
-        body: 'Veja a tabela na segunda: peito principal (reto × declinado), complemento (inclinado × crossover), ombro, tríceps (francês × corda) e core (cable crunch + Pallof × dragon flag + prancha). Desenvolvimento não repete na quinta.'
+        body: 'Veja a tabela na segunda: peito principal (reto × declinado), complementos (inclinado + crossover alto-baixo × crossover baixo-alto), ombro, tríceps e core (máquina abdominal + Pallof × dragon flag + prancha). Os dips são uma progressão adicional no Push B, sem substituir o supino.'
       },
       {
         title: 'Postura e respiração',
@@ -1018,7 +1020,7 @@ const days = [
       },
       {
         title: 'Execução completa',
-        body: '<b>Handstand:</b> depois do aquecimento, 6-8 min em tentativas curtas, parando quando a linha cai.<br><br><b>Supino declinado (barra):</b> banco declinado, pegada um pouco mais larga que os ombros, barra desce até a parte baixa do peito, cotovelos a ~45°. Peito inferior; amplitude menor que o reto.<br><br><b>Elevação lateral (máquina ou halter):</b> sobe até a linha do ombro com cotovelo levemente flexionado. No halter a tensão é maior no alto do movimento; na máquina, mais constante.<br><br><b>Crossover (polia baixa → alta):</b> polias embaixo, puxa em arco subindo até a frente do peito, cotovelo levemente flexionado. Peito superior e contração no final.<br><br><b>Tríceps corda:</b> polia alta, corda desce e as mãos se separam no final do movimento. Cabeça lateral do tríceps.<br><br><b>Face pull:</b> corda na polia alta, puxa em direção ao rosto separando as mãos no final, cotovelos altos. Deltoide posterior e rotadores externos — postura.<br><br><b>Dragon flag (progressão):</b> deitado no banco, segura atrás da cabeça, eleva o corpo a partir do quadril e desce controlado sem tocar o banco. Comece pela versão tuck ou negativa. Substitui roda abdominal.<br><br><b>Prancha com sobrecarga:</b> prancha padrão com peso nas costas — anti-extensão de tronco sob carga.'
+        body: '<b>Handstand:</b> depois do aquecimento, 6-8 min em tentativas curtas, parando quando a linha cai.<br><br><b>Supino declinado (barra):</b> banco declinado, pegada um pouco mais larga que os ombros, barra desce até a parte baixa do peito, cotovelos a ~45°. Peito inferior; amplitude menor que o reto.<br><br><b>Elevação lateral (máquina ou halter):</b> sobe até a linha do ombro com cotovelo levemente flexionado. No halter a tensão é maior no alto do movimento; na máquina, mais constante.<br><br><b>Crossover (polia baixa → alta):</b> polias embaixo, puxa em arco subindo até a frente do peito, cotovelo levemente flexionado. Peito superior e contração no final.<br><br><b>Dips na máquina assistida:</b> apoia as mãos nas barras, estabiliza os ombros e desce apenas até a amplitude confortável, sem perder o controle escapular. A máquina reduz parte do peso corporal; diminui a assistência gradualmente até realizar as repetições com o peso do corpo. Mantém o supino declinado no treino.<br><br><b>Tríceps corda:</b> polia alta, corda desce e as mãos se separam no final do movimento. Cabeça lateral do tríceps.<br><br><b>Face pull:</b> corda na polia alta, puxa em direção ao rosto separando as mãos no final, cotovelos altos. Deltoide posterior e rotadores externos — postura.<br><br><b>Dragon flag (progressão):</b> deitado no banco, segura atrás da cabeça, eleva o corpo a partir do quadril e desce controlado sem tocar o banco. Comece pela versão tuck ou negativa. Substitui roda abdominal.<br><br><b>Prancha com sobrecarga:</b> prancha padrão com peso nas costas — anti-extensão de tronco sob carga.'
       }
     ]
   },
@@ -1038,6 +1040,7 @@ const days = [
       { id: 'bulgaro', name: 'Búlgaro (halteres)', rir: 'RIR 1-2', sets: '3x8-10 (cada perna)', role: 'Unilateral', detail: 'Controle e equilíbrio; quadríceps e glúteo.' },
       { id: 'flexora-sentada', name: 'Cadeira flexora (sentada)', rir: 'RIR 0-1', sets: '3x10-15', role: 'Isolador', detail: 'Posterior com o quadril flexionado: o músculo fica mais alongado que na deitada de terça. Segundo dia de posterior na semana.' },
       { id: 'abdutora', name: 'Cadeira abdutora', rir: 'RIR 0-1', sets: '2x12-20', role: 'Isolador', detail: 'Glúteo médio e estabilidade de quadril.' },
+      { id: 'adutora', name: 'Cadeira adutora', rir: 'RIR 0-1', sets: '2x12-20', role: 'Isolador', detail: 'Adutores da coxa; complementa o trabalho de estabilidade e controle do quadril.' },
       { id: 'panturrilha-sentado', name: 'Panturrilha sentado', rir: 'RIR 1-2', sets: '4x15-20', role: 'Isolador', detail: 'Sóleo.' },
       { id: 'hiperextensao', name: 'Hiperextensão (banco 45°)', rir: 'RIR 2', sets: '2x12-15', role: 'Isolador', detail: 'Lombar, ângulo seguro.' }
     ],
@@ -1045,7 +1048,7 @@ const days = [
     appendix: [
       {
         title: 'Por que Legs B é assim',
-        body: 'Muda o ângulo da terça: leg press no lugar do agachamento, hip thrust e búlgaro pra glúteo e unilateral, flexora sentada pra dar o segundo estímulo de posterior (alongado). Os saltos vêm primeiro porque potência precisa de músculo fresco. O core saiu deste dia: antes ele empilhava 33 séries; agora são 21, sem contar os saltos.'
+        body: 'Muda o ângulo da terça: leg press no lugar do agachamento, hip thrust e búlgaro pra glúteo e unilateral, flexora sentada para posterior alongado, além de abdutora e adutora. Os saltos vêm primeiro porque potência precisa de músculo fresco. O core permanece fora deste dia.'
       },
       {
         title: 'Variantes (terça × sexta)',
@@ -1053,7 +1056,7 @@ const days = [
       },
       {
         title: 'Execução completa',
-        body: '<b>Saltos verticais:</b> 3x3-5, descanso longo entre as séries, aterrissagem silenciosa. Qualidade e potência, não cansaço.<br><br><b>Leg press (pé baixo/médio):</b> pés na parte baixa/média da plataforma, desce controlado até ~90° de joelho. Ênfase em quadríceps.<br><br><b>Hip thrust (barra livre):</b> costas apoiadas no banco, barra sobre o quadril, empurra o quadril pra cima até extensão total, aperta o glúteo no topo.<br><br><b>Búlgaro (halteres):</b> pé de trás apoiado num banco, desce o joelho da frente controlado. Unilateral — exige controle e equilíbrio.<br><br><b>Cadeira flexora (sentada):</b> encosto firme, flexiona o joelho controlando a volta. Posterior em posição alongada.<br><br><b>Cadeira abdutora:</b> sentado, empurra as pernas pra fora contra a resistência. Estabilidade lateral de quadril.<br><br><b>Panturrilha sentado:</b> joelho flexionado muda a ênfase pro sóleo (diferente da panturrilha em pé, que prioriza gastrocnêmio).<br><br><b>Hiperextensão (banco 45°):</b> quadril apoiado no banco, desce o tronco controlado e sobe até alinhar com as pernas, sem hiperextender além disso. Lombar em ângulo seguro.'
+        body: '<b>Saltos verticais:</b> 3x3-5, descanso longo entre as séries, aterrissagem silenciosa. Qualidade e potência, não cansaço.<br><br><b>Leg press (pé baixo/médio):</b> pés na parte baixa/média da plataforma, desce controlado até ~90° de joelho. Ênfase em quadríceps.<br><br><b>Hip thrust (barra livre):</b> costas apoiadas no banco, barra sobre o quadril, empurra o quadril pra cima até extensão total, aperta o glúteo no topo.<br><br><b>Búlgaro (halteres):</b> pé de trás apoiado num banco, desce o joelho da frente controlado. Unilateral — exige controle e equilíbrio.<br><br><b>Cadeira flexora (sentada):</b> encosto firme, flexiona o joelho controlando a volta. Posterior em posição alongada.<br><br><b>Cadeira abdutora:</b> sentado, empurra as pernas pra fora contra a resistência. Estabilidade lateral de quadril.<br><br><b>Cadeira adutora:</b> sentado, aproxima as pernas contra a resistência, controlando a volta. Trabalho direto dos adutores.<br><br><b>Panturrilha sentado:</b> joelho flexionado muda a ênfase pro sóleo (diferente da panturrilha em pé, que prioriza gastrocnêmio).<br><br><b>Hiperextensão (banco 45°):</b> quadril apoiado no banco, desce o tronco controlado e sobe até alinhar com as pernas, sem hiperextender além disso. Lombar em ângulo seguro.'
       }
     ]
   },
@@ -1114,7 +1117,7 @@ const commonAccordion = [
   },
   {
     title: 'Volume semanal (séries diretas)',
-    body: '<table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">músculo</td><td style="color:var(--ink-soft); font-weight:400;">séries/semana</td></tr><tr><td>Peito</td><td>14</td></tr><tr><td>Deltoide lateral</td><td>8</td></tr><tr><td>Deltoide posterior</td><td>6 (face pull 3 + peck-deck reverso 3)</td></tr><tr><td>Tríceps</td><td>8</td></tr><tr><td>Costas (vertical + remada)</td><td>17 (10 vertical + 7 remada)</td></tr><tr><td>Bíceps</td><td>12</td></tr><tr><td>Antebraço direto</td><td>7 (flexores 3, extensores 2, inversa 2)</td></tr><tr><td>Trapézio</td><td>3 + farmer walk</td></tr><tr><td>Quadríceps</td><td>14</td></tr><tr><td>Posterior de coxa</td><td>9</td></tr><tr><td>Glúteo</td><td>8</td></tr><tr><td>Panturrilha</td><td>8</td></tr><tr><td>Core</td><td>13</td></tr></table><br>Total ~129 séries dinâmicas, sem contar pistol, saltos, farmer walk e pescoço. Séries indiretas (supino pro tríceps, barra pro bíceps) não entram na conta.'
+    body: '<table class="variant-table"><tr><td style="color:var(--ink-soft); font-weight:400;">músculo</td><td style="color:var(--ink-soft); font-weight:400;">séries/semana</td></tr><tr><td>Peito</td><td>16</td></tr><tr><td>Deltoide lateral</td><td>8</td></tr><tr><td>Deltoide posterior</td><td>6 (face pull 3 + peck-deck reverso 3)</td></tr><tr><td>Tríceps</td><td>8 isoladoras + 2 dips</td></tr><tr><td>Costas (vertical + remada)</td><td>17 (10 vertical + 7 remada)</td></tr><tr><td>Bíceps</td><td>12</td></tr><tr><td>Antebraço direto</td><td>7 (flexores 3, extensores 2, inversa 2)</td></tr><tr><td>Trapézio</td><td>3 + farmer walk</td></tr><tr><td>Quadríceps</td><td>14</td></tr><tr><td>Posterior de coxa</td><td>9</td></tr><tr><td>Glúteo</td><td>8</td></tr><tr><td>Adutores</td><td>2</td></tr><tr><td>Panturrilha</td><td>8</td></tr><tr><td>Core</td><td>13</td></tr></table><br>Total ~133 séries dinâmicas (135 com os 2 dips), sem contar pistol, saltos, farmer walk e pescoço. Dips aparecem à parte por também envolverem peito; as séries indiretas não entram na conta.'
   },
   {
     title: 'Isometria e tendões',
@@ -1122,7 +1125,7 @@ const commonAccordion = [
   },
   {
     title: 'Restrições e dados de partida',
-    body: 'Sem Dips e sem roda abdominal (dragon flag e hanging leg raise no lugar). Teto de 2h30. Sem depender de suplementação pesada.<br><br>Altura ~1,72 m, peso ~60 kg. Lombar: melhorou com o treino; RDL, remada curvada e hiperextensão mantêm o estímulo. Perna historicamente negligenciada: agora com cobertura completa de quadríceps, posterior, glúteo e panturrilha.<br><br>Muay Thai terça e quinta às 16h (aula técnica). Ciclismo de sábado tranquilo (16 km ida, 16 km volta). Peso: pesar toda semana, em jejum. Se não sobe, o limite provavelmente é comida, não exercício.'
+    body: 'Dips fazem parte do Push B em progressão da máquina assistida até as paralelas livres. Sem roda abdominal: dragon flag e hanging leg raise ocupam o trabalho de core. Teto de 2h30.<br><br>Altura ~1,72 m, peso ~60 kg. Lombar: melhorou com o treino; RDL, remada curvada e hiperextensão mantêm o estímulo. Perna historicamente negligenciada: agora com cobertura completa de quadríceps, posterior, glúteo, adutores e panturrilha.<br><br>Muay Thai terça e quinta às 16h (aula técnica). Ciclismo de sábado tranquilo (16 km ida, 16 km volta). Peso: pesar toda semana, em jejum. Se não sobe, o limite provavelmente é comida, não exercício.'
   }
 ];
 
@@ -1654,8 +1657,8 @@ function initTodayTape() {
 const LEGACY_HISTORY = {
   seg: [['seg','supino-reto'], ['seg','desenvolvimento-halteres'], ['seg','supino-inclinado'], ['seg','lateral-cabo'], ['seg','triceps-frances']],
   ter: [['ter','agachamento-livre'], ['ter','rdl'], ['ter','flexora-deitada'], ['ter','extensora'], ['ter','panturrilha-em-pe'],
-        ['seg','cable-crunch'], ['qui','prancha-sobrecarga'], ['seg','pallof-press'], ['ter','hanging-leg-raise']],
-  qua: [['qua','barra-fixa'], ['qua','puxada-aberta'], null, ['qua','encolhimento'], ['qua','rosca-inclinada'], ['qua','rosca-scott'], null, ['qua','rosca-punho']],
+        null, ['qui','prancha-sobrecarga'], ['seg','pallof-press'], ['ter','hanging-leg-raise']],
+  qua: [['qua','barra-fixa'], null, null, ['qua','encolhimento'], ['qua','rosca-inclinada'], ['qua','rosca-scott'], null, ['qua','rosca-punho']],
   qui: [null, null, null, ['qui','face-pull'], ['qui','triceps-corda']],
   sex: [['sex','leg-press'], ['sex','hip-thrust'], ['sex','abdutora'], ['sex','bulgaro'], ['sex','hiperextensao'], ['sex','panturrilha-sentado'],
         null, ['qui','dragon-flag'], null, null],

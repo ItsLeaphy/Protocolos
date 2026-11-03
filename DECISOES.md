@@ -1,6 +1,6 @@
 # DECISOES.md — Registro cronológico de decisões
 
-Estado conferido contra o HEAD `2ba1f83` (branch `main`) em 03/11/2026. Fonte do histórico: [1-toji-dani-contexto-auditoria.md](1-toji-dani-contexto-auditoria.md) (seções citadas como §).
+Estado conferido contra o HEAD `077dad7` (branch `main`) em 03/11/2026. O pacote de atualização foi preparado contra esse snapshot; o commit no remoto ainda está pendente. Fonte do histórico: [1-toji-dani-contexto-auditoria.md](1-toji-dani-contexto-auditoria.md) (seções citadas como §).
 
 **Estados:** `aprovada` · `pendente de implementação` · `implementada` · `substituída` · `descartada` · `não confirmada` (sugestão sem aceite registrado).
 **Origem:** *usuário* = decisão do dono do projeto; *Claude* / *GPT* = sugestão de assistente. Datas só quando constam na fonte.
@@ -20,20 +20,20 @@ Estado conferido contra o HEAD `2ba1f83` (branch `main`) em 03/11/2026. Fonte do
 | D-07 | 13/10/2026 | O PWA deve abrir direto no Toji, sem tela de seleção | Ajuste de interface | usuário | **não verificado** neste ciclo |
 | D-08 | 15/10/2026 | Abandonar o cable crunch | Equipamento não permite boa execução | usuário | aprovada → ver D-12 |
 
-## 2. Decisões posteriores à V4 (aprovadas, pendentes de implementação)
+## 2. Decisões posteriores à V4 (aprovadas; patch local preparado)
 
-Data de aprovação não registrada na fonte; todas são posteriores a 15/10/2026. **Nenhuma está aplicada no HEAD** (conferido: o site não contém máquina abdominal, adução nem dips; ainda tem puxada aberta e cable crunch).
+Data de aprovação não registrada na fonte; todas são posteriores a 15/10/2026. O HEAD remoto `077dad7` ainda contém a V4. O patch local acrescenta crossover alto-baixo, máquina abdominal, puxada neutra, dips em progressão e adução; o estado muda para implementado no repositório após commit.
 
 | ID | Dia | Decisão | Parâmetros | Estado |
 |---|---|---|---|---|
-| D-09 | Quarta | Substituir puxada aberta por **puxada neutra com pegador anatômico pequeno** | inicialmente 3 séries | pendente de implementação |
-| D-10 | Segunda | Adicionar **crossover alto-baixo** | 2×12–15, RIR 1–2 | pendente de implementação |
+| D-09 | Quarta | Substituir puxada aberta por **puxada neutra com pegador anatômico pequeno** | 3×10–12 | incluída no patch local; commit pendente |
+| D-10 | Segunda | Adicionar **crossover alto-baixo** | 2×12–15, RIR 1–2 | incluída no patch local; commit pendente |
 | D-11 | Quinta | **Manter** crossover baixo-alto | 3 séries | aprovada (já no site) |
-| D-12 | Segunda | Substituir **cable crunch** por **máquina abdominal** | inicialmente 3×12–15 | pendente de implementação |
-| D-13 | Quinta | Adicionar **dips na máquina assistida**; **não** substituir o supino declinado | 2×8–12, RIR 1–2, descanso 2–3 min | pendente de implementação (ver L-2) |
+| D-12 | Segunda | Substituir **cable crunch** por **máquina abdominal** | 3×12–15 | incluída no patch local; commit pendente |
+| D-13 | Quinta | Adicionar **dips nas paralelas**, começando na máquina assistida e reduzindo a assistência até a execução livre; **não** substituir o supino declinado | 2×8–12, RIR 1–2, descanso 2–3 min | incluída no patch local; commit pendente |
 | D-14 | Terça / Sexta | **Manter** flexora deitada (terça) e flexora sentada (sexta) | — | aprovada (já no site) |
 | D-15 | Terça | **Manter** extensora sentada | — | aprovada (já no site) |
-| D-16 | Sexta | **Manter** abdução; **adicionar adução** na máquina | adução 2×12–20 | adução pendente de implementação; abdução já no site |
+| D-16 | Sexta | **Manter** abdução; **adicionar adução** na máquina | adução 2×12–20 | incluída no patch local; commit pendente; abdução já no site |
 
 ## 3. Direção e arquitetura (aprovadas no briefing de 03/11/2026)
 
@@ -55,8 +55,8 @@ Data da decisão original não informada; consta no briefing de consolidação d
 ## Lacunas e contradições abertas
 
 - **L-1 — Relatório de 03/11/2026 ausente.** O relatório completo da auditoria técnica não está no repositório nem foi anexado a esta tarefa. Por isso **não foram preservadas as referências de arquivo e linha dele**; os achados aparecem apenas como o briefing os resumiu. Ação sugerida: o usuário adicionar o relatório em `auditoria/` (por exemplo `auditoria/auditoria-tecnica-2026-11-03.md`) e `CONTINUIDADE.md` passar a apontar para ele.
-- **L-2 — Dips: restrição vs. decisão.** O site (`docs/toji/index.html`, linhas ~854 e ~1125) e o histórico (§A/§D) declaram "sem dips". D-13 aprova dips na **máquina assistida**. Não está registrado se a restrição foi revista ou se a máquina assistida é considerada exceção. Resolver com o usuário antes de implementar.
-- **L-3 — Peck-deck reverso / crucifixo.** A V4 tem peck-deck reverso no **sábado** (`id: peck-deck-reverso`, linha ~1074), de modo que não deve ser adicionado de novo. Mas a discussão posterior (inclusive a pergunta de 15/10 sobre "fly", sem resposta registrada) pode se referir a um fly de peito na quinta, hoje inexistente. Reconciliar com o usuário e com a ficha efetiva.
+- **L-2 — Dips: resolvida em 03/11/2026.** A restrição antiga foi superada por uma progressão: começar com dips assistidos na máquina e reduzir a assistência até os dips livres. O supino declinado permanece; dips não o substituem.
+- **L-3 — Peck-deck reverso / fly: resolvida em 03/11/2026.** O peck-deck reverso continua no sábado. Os crossovers de peito são alto-baixo na segunda e baixo-alto na quinta. Fly de peito não é pendência atual.
 - **L-4 — Facial e mobilidade.** O conteúdo foi discutido em conversas separadas que não estão no repositório. Nada foi inventado; só a descrição do escopo consta em `docs/TOJI.md`.
 - **L-5 — Itens sem confirmação do usuário** (§H da fonte): remoção das isometrias (D-06), permanência do face pull (D-02), ausência da remada unilateral, front lever ainda citado em cards de Pull.
 - **L-6 — Datas.** As decisões D-09 a D-16 não têm data de aprovação registrada; a ordem relativa entre elas e a de 15/10 é desconhecida.
