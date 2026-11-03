@@ -1,50 +1,92 @@
-# CONTINUIDADE.md — Entrada para novas sessões
+# CONTINUIDADE.md — Onde estamos e como continuar
 
-Leia [CLAUDE.md](CLAUDE.md) primeiro. Este documento só resume e aponta; os detalhes ficam nos documentos indicados.
+Ponto de entrada para retomar o projeto. Leia [CLAUDE.md](CLAUDE.md) primeiro. Este documento responde **onde estamos e como continuar**; o *porquê* das decisões está em [DECISOES.md](DECISOES.md) e a *definição técnica do Toji* em [docs/TOJI.md](docs/TOJI.md).
 
-**Conferido em:** 03/11/2026 · HEAD `077dad7` (`main`). Patch de ficha aplicado localmente; commit/publicação pendentes.
+## Última versão conferida
 
-## Estado atual
+| Item | Valor |
+|---|---|
+| Branch / HEAD conferido | `main` · `f35f989` (merge do PR #2), em 03/11/2026 |
+| Commit de implementação da ficha | `0ca8442` (PR #2) |
+| Documentação anterior | `5228af3` (PR #1, mergeado em `077dad7`) |
+| Publicação | Deploy do GitHub Pages para `f35f989` com estado `success` (consultado via API em 03/11/2026) |
 
-- Desenvolvimento ativo **somente no Toji** (musculação, facial, mobilidade). Maki e Megumi congelados.
-- A **V4** foi atualizada localmente com o patch pós-V4. O commit/publicação no remoto ainda está pendente. Facial e mobilidade seguem sem conteúdo consolidado.
-- Houve uma auditoria técnica em 03/11/2026. **Não refazer.** O relatório completo não está no repositório (ver lacuna L-1 em `DECISOES.md`).
-- A etapa de documentação foi concluída sem alterar código, fichas, armazenamento nem históricos.
+O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao final do seu trabalho.
 
-## Decisões aprovadas
+## Estado em uma frase
 
-- **Escopo e frentes:** só Toji; três frentes (D-17, D-18).
-- **Arquitetura:** modular simples, HTML/CSS/JS nativos, GitHub Pages; armazenamento local versionado com IDs estáveis; backup (exportar/importar com validação) obrigatório; histórico independente da posição; privacidade; offline desejado (D-19 a D-24).
-- **Ficha pós-V4:** D-09, D-10, D-12, D-13 e D-16 aplicadas localmente; D-11, D-14 e D-15 já estavam na V4.
+O Toji é o único protocolo ativo. A ficha de musculação pós-V4 (D-09 a D-16) está **implementada, publicada e validada por Dani em dispositivo real**. A próxima frente técnica é o **backup (D-21)**; ainda não foi iniciada.
 
-## O que está implementado
+## Decidido · implementado · testado · validado · publicado
 
-- Ficha de musculação V4 (Push A, Legs A, Pull A, Push B, Legs B, Pull B) em `docs/toji/index.html`.
-- Registro de cargas com histórico no `localStorage`, reordenação manual, tema claro/escuro, tentativa de PWA (com falhas conhecidas).
+| Item | Decidido | Implementado | Testado / validado | Publicado |
+|---|---|---|---|---|
+| Ficha de musculação pós-V4 (D-09 a D-16) | sim | sim (código conferido em 03/11/2026, sem divergência) | Claude: Chromium headless antes do merge (ver abaixo). **Dani: validado em dispositivo real**, informado em 03/11/2026 | sim |
+| Armazenamento versionado com IDs (D-20, D-22) | sim | **parcial** (§Pendências) | não | parcial |
+| Backup: exportar/importar (D-21) | sim | **não** | — | — |
+| Privacidade (D-23) | sim | **não** | — | — |
+| Offline / service worker (D-24) | sim | **não funcional** (causa em `docs/TOJI.md` §8) | — | — |
+| Facial e mobilidade (D-18) | sim (escopo) | **não** (sem conteúdo) | — | — |
 
-## O que está pendente
+**O que foi testado, exatamente:**
+- *Claude, antes do merge:* Chromium headless com ordem e histórico antigos semeados no `localStorage`. Os seis dias carregam, os cinco IDs novos aparecem uma vez, os antigos saíram e não houve erro de JavaScript (os únicos erros eram do Google Fonts, bloqueado no sandbox).
+- *Dani, em dispositivo real:* validação concluída e **não é mais pendência**. Não há registro do dispositivo, do roteiro nem do resultado detalhado, e nada disso deve ser presumido.
+- *Nunca testado:* offline/PWA, instalação, comportamento com muito histórico, qualquer fluxo de backup (não existe).
 
-1. **Ficha:** testar no navegador, revisar o diff e commitar/publicar o patch. L-2 (dips) e L-3 (peck-deck/fly) estão resolvidas; não reabrir.
-2. **Técnico** (achados da auditoria): chaves de armazenamento, datas em UTC, histórico de um registro por data, backup, IDs permanentes, service worker via Blob.
-3. **Privacidade:** decidir o que fazer com os dados pessoais já expostos (D-23, L-9). Nada foi feito.
-4. **Conteúdo:** facial e mobilidade (L-4).
-5. **Documentos:** relatório de 03/11 em `auditoria/` (L-1); preencher ou remover os stubs `auditoria/*.md` (L-10).
+## Pendências reais, em ordem recomendada
+
+Ordem recomendada, **não autorização** para executar tudo; a tarefa concreta é definida por Dani.
+
+1. **D-21 — Backup e restauração** (próxima frente de código). Exportar e importar com validação antes de substituir dados. Pré-requisito das correções abaixo, que mexem no armazenamento.
+2. **D-20 / D-22 — Armazenamento e IDs.** Confirmado no código: a data do histórico usa UTC (`toISOString`), há no máximo um registro por exercício por dia, e a migração legada do Toji lê chaves `historico-<dia>-<índice>` no mesmo formato das do Maki, que partilha a origem do navegador. Detalhes em `docs/TOJI.md` §8.
+3. **D-24 — Offline/PWA.** Corrigir e testar o service worker; conferir D-07 (abrir direto no Toji).
+4. **D-18 — Facial e mobilidade.** Depende de Dani fornecer ou decidir o conteúdo. Não inventar.
+5. **D-23 — Privacidade.** Decisão de Dani sobre o que limpar, incluindo o histórico Git. Nada foi feito.
+6. **Documentos:** relatório de 03/11 ausente (L-1); stubs em `auditoria/` (L-10).
 
 ## Próxima tarefa
 
-**Próxima tarefa:** testar a ficha atualizada no navegador, revisar o diff e commitar/publicar. As correções técnicas de armazenamento permanecem separadas e exigem backup/validação.
+**D-21 (backup).** Não iniciada. Antes de codar: combinar o escopo com Dani e apresentar um plano curto. Não alterar armazenamento sem backup e validação.
+
+## Riscos conhecidos
+
+- O PR #2 mudou a quantidade de exercícios de segunda, quarta, quinta e sexta, então **a ordem personalizada nesses dias volta ao padrão** (por `getOrder`). Nada foi apagado. Comportamento deduzido do código; não confirmado no dispositivo.
+- Os registros antigos de cable crunch e puxada aberta continuam no navegador, mas não aparecem na tela atual (decisão D-25).
+- Dados pessoais e de saúde continuam expostos em arquivos públicos (L-9).
+
+## Caminhos descartados ou já resolvidos (não reabrir)
+
+- **Auditoria técnica de 03/11/2026:** feita. Não refazer; usar os achados para intervenções específicas.
+- **Dips:** a restrição "sem dips" foi superada pela progressão assistida→livre (L-2, D-13). **Fly de peito:** não é pendência (L-3).
+- **Migrar o histórico antigo para os exercícios novos:** descartado (D-25).
+- **Mover as pernas para quarta e sexta e redistribuir o core:** descartado (D-04).
+
+## Protocolo obrigatório de sessão
+
+**Ao começar**
+1. Consultar o HEAD atual da `main` no GitHub e comparar com a tabela acima.
+2. Ler `CLAUDE.md`, este documento e, conforme a tarefa, `DECISOES.md` e `docs/TOJI.md`.
+3. Conferir o **código** sempre que uma afirmação dependa da implementação. Documento descreve; o HEAD decide.
+4. Separar *decidido*, *implementado*, *testado*, *validado* e *publicado*. Um não implica o outro.
+5. Não ressuscitar tarefas concluídas nem inventar o que não está documentado (registre como lacuna).
+
+**Ao terminar** (parte do desenvolvimento, não opcional)
+6. Atualizar os documentos que mudaram: estado e próxima tarefa aqui, estados das decisões em `DECISOES.md`, definição em `docs/TOJI.md`.
+7. Registrar o **último commit efetivamente conferido** na tabela acima, sem hashes contraditórios entre os documentos.
+8. Preservar pendências, riscos e o próximo passo para a sessão seguinte.
+9. Informar arquivos alterados, testes realizados, limitações e pendências.
 
 ## Onde consultar
 
 | Assunto | Documento |
 |---|---|
 | Regras de trabalho, privacidade, o que exige autorização | [CLAUDE.md](CLAUDE.md) |
-| Por que e quando algo foi decidido; estado de cada decisão; lacunas | [DECISOES.md](DECISOES.md) |
-| Ficha atual, mudanças pós-V4, facial, mobilidade, preferências | [docs/TOJI.md](docs/TOJI.md) |
-| Histórico detalhado do Toji (V0–V4, comparações, origem de cada escolha) | [1-toji-dani-contexto-auditoria.md](1-toji-dani-contexto-auditoria.md) — *histórico; contém dados pessoais* |
+| Decisões, motivos, estados e lacunas | [DECISOES.md](DECISOES.md) |
+| Ficha publicada, estrutura semanal, armazenamento, problemas técnicos | [docs/TOJI.md](docs/TOJI.md) |
+| Histórico detalhado do Toji (V0–V4, origem de cada escolha) | [1-toji-dani-contexto-auditoria.md](1-toji-dani-contexto-auditoria.md) — *histórico; contém dados pessoais* |
 | Histórico do Maki / do Megumi (congelados) | `2-maki-helena-…md` / `3-megumi-diego-…md` — *histórico; contêm dados pessoais* |
-| Construção visual do site Toji (v2, skate/old-school) | [auditoria-protocolo-toji.md](auditoria-protocolo-toji.md) — *histórico; pode divergir da V4* |
+| Construção visual do site Toji (v2) | [auditoria-protocolo-toji.md](auditoria-protocolo-toji.md) — *histórico; pode divergir da V4* |
 | Auditoria técnica de 03/11/2026 | ausente do repositório (L-1) |
 | Código | `docs/index.html`, `docs/toji/`, `docs/maki/`, `docs/megumi/` |
 
-Também preservados sem alteração: `auditoria/` (stubs `TODO`) e `files (1).zip` (cópia dos três históricos).
+Preservados sem alteração: `auditoria/` (stubs `TODO`) e `files (1).zip` (cópia dos três históricos).

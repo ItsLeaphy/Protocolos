@@ -15,7 +15,7 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 
 - Antes de modificar qualquer coisa, consulte o **HEAD atual** da `main` de `ItsLeaphy/Protocolos`. O estado do código vem do repositório, nunca da memória de sessões anteriores nem dos documentos de contexto.
 - Se o HEAD divergir do que a documentação afirma, o HEAD vale; corrija a documentação e registre a divergência.
-- Ao registrar estado, anote o hash do commit conferido.
+- Ao registrar estado, anote o hash do commit conferido e diferencie *decidido*, *implementado*, *testado*, *validado* e *publicado*.
 
 ## Regras permanentes
 
@@ -28,7 +28,7 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 7. Não executar migrações destrutivas sem backup e validação.
 8. Não adicionar dados pessoais desnecessários ao repositório público.
 9. Testar alterações reais antes de afirmar que funcionam.
-10. Atualizar a documentação quando o estado do projeto mudar.
+10. **Ao terminar cada sessão de trabalho, atualizar a documentação correspondente e registrar o último commit efetivamente conferido.** Não é opcional: a documentação é a memória persistente do projeto. O protocolo de início e encerramento de sessão está em `CONTINUIDADE.md`.
 11. Ao concluir cada etapa, informar arquivos modificados, testes realizados, limitações e pendências.
 
 ## Preservação de dados
