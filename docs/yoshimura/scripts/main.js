@@ -6,8 +6,10 @@ import { renderHoje } from './pages/hoje.js';
 import { renderTreinos } from './pages/treinos.js';
 import { renderDados } from './pages/dados.js';
 import { renderTrilhas, renderMob } from './pages/outras.js';
+import { initInstall, onInstallChange } from './services/install.js';
 
 initTheme();
+initInstall();
 const app = createApp(browserStorage());
 const root = document.getElementById('app');
 const TABS = [['hoje', 'Hoje'], ['treinos', 'Treinos'], ['trilhas', 'Trilhas'], ['mob', 'Mob.']];
@@ -36,5 +38,6 @@ function render() {
       h('li', {}, h('a', { href: '#/' + k, 'aria-current': k === name ? 'page' : false }, l)))))].filter(Boolean));
 }
 app.subscribe(render);
+onInstallChange(render);
 window.addEventListener('hashchange', () => { app.notice = null; render(); window.scrollTo(0, 0); });
 render();

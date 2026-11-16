@@ -37,10 +37,10 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 - Isolado: não ler/escrever chaves de storage de Toji/Maki/Megumi; só `yoshimura:v1:*`. Não refatorar os outros protocolos nem criar código compartilhado sem decisão.
 - Só dados **sintéticos** rotulados como demonstração. Nunca inserir treino, cargas, nome completo, idade, medidas, fotos ou saúde reais da atleta.
 - Sem autenticação, backend ou sincronização até Dani decidir (ver `docs/YOSHIMURA.md`). `localStorage` não é privado nem backup; não dizer o contrário.
-- Texto dinâmico via `textContent`/`h()`; nunca `innerHTML`. Sem service worker via `Blob`; não declarar PWA/offline sem implementação e teste.
+- Texto dinâmico via `textContent`/`h()`; nunca `innerHTML`. Service worker só como arquivo real (`docs/yoshimura/sw.js`), nunca via `Blob`; ao mexer em arquivos do app, manter a lista `SHELL` do `sw.js` em dia (teste `shell.test.mjs`). Não declarar suporte que não foi testado.
 - Aparência vem do Figma (arquivo `.fig` de Dani). `styles/tokens.css` espelha as variáveis dele; desvios de acessibilidade ficam registrados em `docs/YOSHIMURA.md`. Sem asset de referência não licenciado.
 - Fontes só locais (`assets/fonts/`); não adicionar requisição a terceiros.
-- Testes: `node --test docs/yoshimura/tests/domain.test.mjs` e verificação em servidor HTTP (subdiretório).
+- Testes: `node --test docs/yoshimura/tests/*.test.mjs` e verificação em servidor HTTP (subdiretório).
 
 ## Preservação de dados
 

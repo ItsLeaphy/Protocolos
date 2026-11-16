@@ -54,6 +54,7 @@ Aprovadas no briefing de consolidação de 03/11/2026 (data da decisão original
 | D-27 | 16/11/2026 | **Adendo à D-17:** Yoshimura é nova frente de desenvolvimento independente. Toji segue como protocolo validado/ativo em sua frente; Maki e Megumi continuam preservados sem alterações. O texto da D-17 acima não foi reescrito | Nova frente aprovada por Dani no handoff v0.3 | usuário | aprovada; frente iniciada (ver `CONTINUIDADE.md`) |
 | D-28 | 16/11/2026 | Yoshimura: HTML/CSS/JS nativos com ES Modules, persistência atrás de adapter, namespace `yoshimura:v1:*`, apenas dados sintéticos; sem auth/backend até decisão | Privacidade (repositório público) e D-19 | handoff v0.3 (instrução de Dani) / Claude (escolha dos módulos) | implementada (demo); autenticação, backend e sincronização **pendentes de decisão de Dani** |
 | D-29 | 16/11/2026 | Yoshimura: tokens do Figma em CSS com tema claro (Risograph) e escuro (Afterhours) alternáveis, fontes hospedadas localmente (OFL-1.1) | Pedido de Dani: dois temas com botão e fontes locais | Dani | implementada |
+| D-30 | 16/11/2026 | Yoshimura: instalável no celular (manifesto + ícones + `sw.js` real, escopo da pasta) e usável offline; publicação direta na `main` | Pedido de Dani (uso no celular; "trabalhe na main") | Dani | implementada e testada em Chromium desktop; teste em aparelho real pendente |
 | D-26 | A documentação de continuidade é a memória persistente do projeto. Cada sessão termina atualizando os documentos e registrando o último commit conferido | Evitar dependência do histórico de conversas | usuário, 03/11/2026. **Implementada** no protocolo de sessão de `CONTINUIDADE.md` e em `CLAUDE.md` |
 
 ---
@@ -84,4 +85,4 @@ Aprovadas no briefing de consolidação de 03/11/2026 (data da decisão original
 | 03/11/2026 | D-24: referência de linhas do service worker atualizada de `~1602–1624` (HEAD `2ba1f83`) para `1606` e `1627` (HEAD `f35f989`). |
 | 03/11/2026 | Validação da ficha em dispositivo real registrada como **concluída**, conforme Dani. Detalhes do dispositivo e do roteiro não foram informados. |
 | 03/11/2026 | D-25 e D-26 incluídas; L-11 criada. |
-| 16/11/2026 | D-27 (adendo à D-17) D-28 e D-29 incluídas. A D-17 não foi alterada. HEAD real da `main` era `21f77ed`, não `f35f989` como citado nos documentos acima (merge do PR #3, só documental). |
+| 16/11/2026 | D-27 (adendo à D-17) D-28, D-29 e D-30 incluídas. A D-17 não foi alterada. HEAD real da `main` era `21f77ed`, não `f35f989` como citado nos documentos acima (merge do PR #3, só documental). |

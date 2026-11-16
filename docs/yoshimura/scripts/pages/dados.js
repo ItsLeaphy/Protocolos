@@ -3,6 +3,7 @@ import { buildDemoState } from '../data/demo-data.js';
 import { buildExport, parseImport, applyImport } from '../services/export-import.js';
 import { localDate } from '../domain/schema.js';
 import { screenHead } from '../components/ui.js';
+import { canPrompt, promptInstall, isStandalone, isIOS } from '../services/install.js';
 
 export function renderDados(app) {
   const msg = h('p', { class: 'msg', role: 'status' });
@@ -26,6 +27,13 @@ export function renderDados(app) {
   return h('section', {},
     ...screenHead('Utilitário', 'Dados.', null),
     h('p', { class: 'warn' }, 'Os dados deste app ficam apenas neste navegador e dispositivo. Não há login, backup automático nem sincronização, e o armazenamento local não é privado nem criptografado. Use somente dados de demonstração.'),
+    isStandalone() ? null : h('div', { class: 'card' }, h('h3', {}, 'Instalar no celular'),
+      canPrompt()
+        ? [h('p', {}, 'Instale para abrir como app, em tela cheia e com acesso offline ao app (os dados continuam só neste aparelho).'),
+           h('button', { class: 'btn', type: 'button', onclick: () => promptInstall() }, 'Instalar app')]
+        : isIOS()
+          ? h('p', {}, 'No iPhone/iPad (Safari): toque em Compartilhar e depois em "Adicionar à Tela de Início".')
+          : h('p', {}, 'No Android (Chrome): menu ⋮ e depois "Instalar app" ou "Adicionar à tela inicial". O botão direto aparece aqui quando o navegador permitir.')),
     h('div', { class: 'card' }, h('h3', {}, 'Demonstração'),
       h('button', { class: 'btn', type: 'button', onclick: () => {
         if (app.state.plan || app.state.logs.length) { if (!confirm('Isso substitui os dados atuais deste navegador. Continuar?')) return; app.storage.saveBackupBeforeImport(app.state); }
