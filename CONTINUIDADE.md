@@ -13,6 +13,19 @@ Ponto de entrada para retomar o projeto. Leia [CLAUDE.md](CLAUDE.md) primeiro. E
 
 O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao final do seu trabalho.
 
+## Frente Yoshimura (sessão de 16/11/2026)
+
+| Item | Valor |
+|---|---|
+| Branch / base | `feature/yoshimura-integration` a partir de `main` · `21f77ed` (merge do PR #3, conferido em 16/11/2026; difere do `f35f989` citado acima, que é histórico). O HEAD resultante é o commit local mais recente da branch (`git log`). Sem push |
+| Implementado | módulo `docs/yoshimura/` (árvore e responsabilidades em [docs/YOSHIMURA.md](docs/YOSHIMURA.md)); entrada no portal `docs/index.html`; docs de governança |
+| Testado (Claude) | 8 testes unitários `node --test`; Chromium (Playwright) via `python3 -m http.server` em subdiretório: portal→app, navegação, formulário, persistência após reload, isolamento de chaves, export/import (válido, inválido, confirmação, cópia prévia), ausência de injeção HTML, foco visível, sem overflow em 360/390/430/1440 px nas 3 telas, sem erros JS |
+| Não testado | dispositivo real; leitor de tela; contraste medido; offline (não existe); Figma |
+| **Bloqueio** | Figma inacessível (URL fora da allowlist, conector não instalado). Aparência é provisória. Falta: link acessível ou exports (frames, tokens, fontes) |
+| Validado / publicado | não / não |
+
+Decisões pendentes de Dani: acesso ao Figma; público genérico × painel privado; auth/backend/sincronização; conteúdo real da ficha (nunca inventar); saneamento de dados sensíveis legados (D-23, etapa separada). Próximo passo: com o Figma, aplicar tokens/tipografia/componentes e implementar as telas restantes (Exercícios, Progressões, Mobilidade, Evolução).
+
 ## Estado em uma frase
 
 O Toji é o único protocolo ativo. A ficha de musculação pós-V4 (D-09 a D-16) está **implementada, publicada e validada por Dani em dispositivo real**. A próxima frente técnica é o **backup (D-21)**; ainda não foi iniciada.
@@ -87,6 +100,7 @@ Ordem recomendada, **não autorização** para executar tudo; a tarefa concreta 
 | Histórico do Maki / do Megumi (congelados) | `2-maki-helena-…md` / `3-megumi-diego-…md` — *histórico; contêm dados pessoais* |
 | Construção visual do site Toji (v2) | [auditoria-protocolo-toji.md](auditoria-protocolo-toji.md) — *histórico; pode divergir da V4* |
 | Auditoria técnica de 03/11/2026 | ausente do repositório (L-1) |
-| Código | `docs/index.html`, `docs/toji/`, `docs/maki/`, `docs/megumi/` |
+| Yoshimura | [docs/YOSHIMURA.md](docs/YOSHIMURA.md) |
+| Código | `docs/index.html`, `docs/toji/`, `docs/maki/`, `docs/megumi/`, `docs/yoshimura/` |
 
 Preservados sem alteração: `auditoria/` (stubs `TODO`) e `files (1).zip` (cópia dos três históricos).

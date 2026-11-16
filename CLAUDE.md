@@ -4,11 +4,12 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 
 ## O que é o projeto
 
-**Protocolos** é um conjunto de fichas de treino em HTML de arquivo único, pensadas para GitHub Pages (pasta `docs/`). Há três protocolos: **Toji** (`docs/toji/`), **Maki** (`docs/maki/`) e **Megumi** (`docs/megumi/`), escolhidos em `docs/index.html`. Os dados de uso (cargas, ordem, tema) ficam no `localStorage` do navegador de cada pessoa. O repositório é **público**.
+**Protocolos** é um conjunto de fichas de treino em HTML de arquivo único, pensadas para GitHub Pages (pasta `docs/`). Há quatro protocolos: **Toji** (`docs/toji/`), **Maki** (`docs/maki/`), **Megumi** (`docs/megumi/`) e **Yoshimura** (`docs/yoshimura/`, módulos ES, não é arquivo único), escolhidos em `docs/index.html`. Os dados de uso (cargas, ordem, tema) ficam no `localStorage` do navegador de cada pessoa. O repositório é **público**.
 
 ## Protocolo ativo
 
 - **Toji é o único em desenvolvimento ativo.** Reúne três frentes: musculação, facial e mobilidade (detalhes em [docs/TOJI.md](docs/TOJI.md)).
+- **Yoshimura é frente nova e independente** (D-27, adendo à D-17): código e docs em `docs/yoshimura/` e `docs/YOSHIMURA.md`. Regras específicas na seção "Yoshimura" abaixo.
 - **Maki e Megumi estão congelados**: preservados como estão, sem apagar nem modificar.
 
 ## Consulta ao GitHub
@@ -30,6 +31,15 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 9. Testar alterações reais antes de afirmar que funcionam.
 10. **Ao terminar cada sessão de trabalho, atualizar a documentação correspondente e registrar o último commit efetivamente conferido.** Não é opcional: a documentação é a memória persistente do projeto. O protocolo de início e encerramento de sessão está em `CONTINUIDADE.md`.
 11. Ao concluir cada etapa, informar arquivos modificados, testes realizados, limitações e pendências.
+
+## Yoshimura (regras permanentes)
+
+- Isolado: não ler/escrever chaves de storage de Toji/Maki/Megumi; só `yoshimura:v1:*`. Não refatorar os outros protocolos nem criar código compartilhado sem decisão.
+- Só dados **sintéticos** rotulados como demonstração. Nunca inserir treino, cargas, nome completo, idade, medidas, fotos ou saúde reais da atleta.
+- Sem autenticação, backend ou sincronização até Dani decidir (ver `docs/YOSHIMURA.md`). `localStorage` não é privado nem backup; não dizer o contrário.
+- Texto dinâmico via `textContent`/`h()`; nunca `innerHTML`. Sem service worker via `Blob`; não declarar PWA/offline sem implementação e teste.
+- Aparência vem do Figma (`02_FIGMA` do handoff); sem Figma acessível, não inventar visual. `styles/tokens.css` é provisório.
+- Testes: `node --test docs/yoshimura/tests/domain.test.mjs` e verificação em servidor HTTP (subdiretório).
 
 ## Preservação de dados
 
@@ -60,7 +70,7 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 
 ## O que Claude não deve fazer sem autorização explícita
 
-- Alterar HTML, CSS ou JS de qualquer protocolo, ou a ficha de musculação.
+- Alterar HTML, CSS ou JS de Toji, Maki ou Megumi, ou a ficha de musculação (Yoshimura tem regras próprias acima).
 - Mexer em Maki ou Megumi.
 - Alterar armazenamento, chaves ou fazer migração de dados.
 - Implementar facial ou mobilidade antes de o conteúdo estar consolidado.

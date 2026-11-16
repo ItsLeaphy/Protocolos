@@ -1,0 +1,7 @@
+/* PROVISÓRIO: valores neutros (paleta "exata" do handoff). Substituir pelos tokens do Figma quando acessível. */
+:root {
+  --y-bg: #F6F4EE; --y-surface: #FFFFFF; --y-text: #111111; --y-text-2: #4A4A4A; --y-line: #BEBBAD;
+  --y-accent: #4A3440; --y-on-accent: #FFFFFF; --y-danger: #8A1C1C; --y-ok: #2F5D2F; --y-warn-bg: #ECD68A;
+  --y-radius: 12px; --y-focus: #1F4FD8; --y-font: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --y-content-max: 1440px;
+}
