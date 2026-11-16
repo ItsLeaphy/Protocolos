@@ -23,6 +23,7 @@ O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao fi
 | Não testado | dispositivo real; leitor de tela; contraste medido; offline (não existe); Figma |
 | Visual (2º commit da frente) | Figma lido pelo arquivo `.fig` enviado por Dani (fetch direto bloqueado por `robots_disallowed`). Aplicados: tokens dos dois temas, tipografia local, tab bar, telas Hoje/Treinos/Sessão, toggle de tema. Falta: ilustrações/texturas, tela Mob. e Dados sem frame, validação em celular real |
 | PWA (3º passo da frente) | manifesto, ícones, `sw.js` real e botão/instruções de instalação; offline testado em Chromium (15 checagens). Pendente: instalar em Android e iPhone reais |
+| Visual refeito (17/11/2026) | Hoje, Treinos e Sessão reconstruídas a partir das medidas do `.fig` (posições, raios, tracking, ilustrações SVG do disco e da onda), tema claro/escuro com botão, fontes locais. Verificado: 122 checagens Chromium (360/390/430/1440 px, dois temas, sem overflow, sem requisição externa, demo + registro + persistência, offline com SW v2). Falta: aparelho real, textura (não existe no Figma), frame de Mob. |
 | Publicação | autorizada por Dani em 16/11/2026: commits direto na `main` e push. O HEAD publicado é o `git log` da `main`; Pages serve `docs/` (configuração existente, não verificada nesta sessão) |
 | Validado / publicado | não / não |
 
