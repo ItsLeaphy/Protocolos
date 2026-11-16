@@ -3,12 +3,12 @@
 :root {
   --yoshimura-riso-canvas: #F6F4EE; --yoshimura-riso-surface: #E6E1D7; --yoshimura-riso-surfaceAlt: #FBF9F4;
   --yoshimura-riso-ink: #333333; --yoshimura-riso-muted: #5A514B; --yoshimura-riso-line: #BEBBAD;
-  --yoshimura-riso-plum: #4A3440; --yoshimura-riso-coral: #C76652; --yoshimura-riso-amber: #D8A86C;
+  --yoshimura-riso-plum: #3C1925; --yoshimura-riso-coral: #C76652; --yoshimura-riso-amber: #721322;
   --yoshimura-riso-blush: #F7EAEE; --yoshimura-riso-white: #FFFFFF;
 
   --yoshimura-dark-canvas: #080706; --yoshimura-dark-surface: #1C1612; --yoshimura-dark-surfaceAlt: #2A221B;
   --yoshimura-dark-ink: #E8DFCE; --yoshimura-dark-muted: #B7AA9B; --yoshimura-dark-line: #6F5A42;
-  --yoshimura-dark-plum: #564752; --yoshimura-dark-coral: #A56E96; --yoshimura-dark-amber: #D8A86C;
+  --yoshimura-dark-plum: #3C1925; --yoshimura-dark-coral: #A56E96; --yoshimura-dark-amber: #721322;
   --yoshimura-dark-blush: #3C3038; --yoshimura-dark-white: #F4EDE0;
 
   /* Tipografia (Figma): títulos Cormorant Garamond, texto Space Grotesk, rótulos Chakra Petch, marca Zen Maru Gothic */
