@@ -38,7 +38,8 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 - Só dados **sintéticos** rotulados como demonstração. Nunca inserir treino, cargas, nome completo, idade, medidas, fotos ou saúde reais da atleta.
 - Sem autenticação, backend ou sincronização até Dani decidir (ver `docs/YOSHIMURA.md`). `localStorage` não é privado nem backup; não dizer o contrário.
 - Texto dinâmico via `textContent`/`h()`; nunca `innerHTML`. Sem service worker via `Blob`; não declarar PWA/offline sem implementação e teste.
-- Aparência vem do Figma (`02_FIGMA` do handoff); sem Figma acessível, não inventar visual. `styles/tokens.css` é provisório.
+- Aparência vem do Figma (arquivo `.fig` de Dani). `styles/tokens.css` espelha as variáveis dele; desvios de acessibilidade ficam registrados em `docs/YOSHIMURA.md`. Sem asset de referência não licenciado.
+- Fontes só locais (`assets/fonts/`); não adicionar requisição a terceiros.
 - Testes: `node --test docs/yoshimura/tests/domain.test.mjs` e verificação em servidor HTTP (subdiretório).
 
 ## Preservação de dados

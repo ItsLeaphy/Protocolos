@@ -2,6 +2,7 @@ import { h } from '../components/dom.js';
 import { buildDemoState } from '../data/demo-data.js';
 import { buildExport, parseImport, applyImport } from '../services/export-import.js';
 import { localDate } from '../domain/schema.js';
+import { screenHead } from '../components/ui.js';
 
 export function renderDados(app) {
   const msg = h('p', { class: 'msg', role: 'status' });
@@ -23,7 +24,7 @@ export function renderDados(app) {
       h('button', { class: 'btn ghost', type: 'button', onclick: () => { importOut.replaceChildren(); file.value = ''; } }, 'Cancelar'));
   });
   return h('section', {},
-    h('h2', {}, 'Dados'),
+    ...screenHead('Utilitário', 'Dados.', null),
     h('p', { class: 'warn' }, 'Os dados deste app ficam apenas neste navegador e dispositivo. Não há login, backup automático nem sincronização, e o armazenamento local não é privado nem criptografado. Use somente dados de demonstração.'),
     h('div', { class: 'card' }, h('h3', {}, 'Demonstração'),
       h('button', { class: 'btn', type: 'button', onclick: () => {

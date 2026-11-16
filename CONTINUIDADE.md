@@ -21,10 +21,10 @@ O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao fi
 | Implementado | módulo `docs/yoshimura/` (árvore e responsabilidades em [docs/YOSHIMURA.md](docs/YOSHIMURA.md)); entrada no portal `docs/index.html`; docs de governança |
 | Testado (Claude) | 8 testes unitários `node --test`; Chromium (Playwright) via `python3 -m http.server` em subdiretório: portal→app, navegação, formulário, persistência após reload, isolamento de chaves, export/import (válido, inválido, confirmação, cópia prévia), ausência de injeção HTML, foco visível, sem overflow em 360/390/430/1440 px nas 3 telas, sem erros JS |
 | Não testado | dispositivo real; leitor de tela; contraste medido; offline (não existe); Figma |
-| **Bloqueio** | Figma inacessível (URL fora da allowlist, conector não instalado). Aparência é provisória. Falta: link acessível ou exports (frames, tokens, fontes) |
+| Visual (2º commit da frente) | Figma lido pelo arquivo `.fig` enviado por Dani (fetch direto bloqueado por `robots_disallowed`). Aplicados: tokens dos dois temas, tipografia local, tab bar, telas Hoje/Treinos/Sessão, toggle de tema. Falta: ilustrações/texturas, tela Mob. e Dados sem frame, validação em celular real |
 | Validado / publicado | não / não |
 
-Escopo (Dani, 16/11/2026): protótipo público para celular; por ora só a base, código e conteúdo depois; saneamento de dados sensíveis legados fica em outro projeto. Pendentes: acesso ao Figma (link enviado, mas `robots_disallowed` no fetch; precisa do conector Figma ou de exports); conteúdo real da ficha (nunca inventar). Próximo passo: com o Figma, aplicar tokens/tipografia/componentes e implementar as telas restantes (Exercícios, Progressões, Mobilidade, Evolução).
+Escopo (Dani, 16/11/2026): protótipo público para celular; por ora só a base, código e conteúdo depois; saneamento de dados sensíveis legados fica em outro projeto. Pendentes: conteúdo real da ficha (nunca inventar); ilustrações; frame de Mob.; decisão sobre o portal (ainda carrega Google Fonts). Próximo passo: com o Figma, aplicar tokens/tipografia/componentes e implementar as telas restantes (Exercícios, Progressões, Mobilidade, Evolução).
 
 ## Estado em uma frase
 

@@ -1,7 +1,50 @@
-/* PROVISÓRIO: valores neutros (paleta "exata" do handoff). Substituir pelos tokens do Figma quando acessível. */
+/* Tokens extraídos do arquivo Figma "Yoshimura | Direção Visual e Protótipo" (variáveis
+   "Yoshimura / Risograph" e "Yoshimura / Afterhours"). Nomes CSS seguem o codeSyntax do Figma. */
 :root {
-  --y-bg: #F6F4EE; --y-surface: #FFFFFF; --y-text: #111111; --y-text-2: #4A4A4A; --y-line: #BEBBAD;
-  --y-accent: #4A3440; --y-on-accent: #FFFFFF; --y-danger: #8A1C1C; --y-ok: #2F5D2F; --y-warn-bg: #ECD68A;
-  --y-radius: 12px; --y-focus: #1F4FD8; --y-font: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --y-content-max: 1440px;
+  --yoshimura-riso-canvas: #F6F4EE; --yoshimura-riso-surface: #E6E1D7; --yoshimura-riso-surfaceAlt: #FBF9F4;
+  --yoshimura-riso-ink: #333333; --yoshimura-riso-muted: #5A514B; --yoshimura-riso-line: #BEBBAD;
+  --yoshimura-riso-plum: #4A3440; --yoshimura-riso-coral: #C76652; --yoshimura-riso-amber: #D8A86C;
+  --yoshimura-riso-blush: #F7EAEE; --yoshimura-riso-white: #FFFFFF;
+
+  --yoshimura-dark-canvas: #080706; --yoshimura-dark-surface: #1C1612; --yoshimura-dark-surfaceAlt: #2A221B;
+  --yoshimura-dark-ink: #E8DFCE; --yoshimura-dark-muted: #B7AA9B; --yoshimura-dark-line: #6F5A42;
+  --yoshimura-dark-plum: #564752; --yoshimura-dark-coral: #A56E96; --yoshimura-dark-amber: #D8A86C;
+  --yoshimura-dark-blush: #3C3038; --yoshimura-dark-white: #F4EDE0;
+
+  /* Tipografia (Figma): títulos Cormorant Garamond, texto Space Grotesk, rótulos Chakra Petch, marca Zen Maru Gothic */
+  --y-font-display: "Cormorant Garamond", Georgia, serif;
+  --y-font-body: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --y-font-label: "Chakra Petch", system-ui, sans-serif;
+  --y-font-brand: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+  --y-radius-card: 12px; --y-radius-block: 22px;
+  --y-column: 480px;
+}
+
+/* Tokens semânticos. Padrão: tema claro (Risograph). Sistema escuro: Afterhours, a menos que o usuário force o claro. */
+:root, :root[data-theme="light"] {
+  color-scheme: light;
+  --y-canvas: var(--yoshimura-riso-canvas); --y-surface: var(--yoshimura-riso-surface); --y-surface-alt: var(--yoshimura-riso-surfaceAlt);
+  --y-ink: var(--yoshimura-riso-ink); --y-muted: var(--yoshimura-riso-muted); --y-line: var(--yoshimura-riso-line);
+  --y-plum: var(--yoshimura-riso-plum); --y-coral: var(--yoshimura-riso-coral); --y-amber: var(--yoshimura-riso-amber);
+  --y-blush: var(--yoshimura-riso-blush); --y-white: var(--yoshimura-riso-white);
+  --y-focus: var(--yoshimura-riso-plum);
+  --y-danger: #9B2C20; /* derivado: coral do Figma não atinge contraste de texto (3,5:1) */
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --y-canvas: var(--yoshimura-dark-canvas); --y-surface: var(--yoshimura-dark-surface); --y-surface-alt: var(--yoshimura-dark-surfaceAlt);
+    --y-ink: var(--yoshimura-dark-ink); --y-muted: var(--yoshimura-dark-muted); --y-line: var(--yoshimura-dark-line);
+    --y-plum: var(--yoshimura-dark-plum); --y-coral: var(--yoshimura-dark-coral); --y-amber: var(--yoshimura-dark-amber);
+    --y-blush: var(--yoshimura-dark-blush); --y-white: var(--yoshimura-dark-white);
+    --y-focus: var(--yoshimura-dark-amber); --y-danger: #E58C7B;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --y-canvas: var(--yoshimura-dark-canvas); --y-surface: var(--yoshimura-dark-surface); --y-surface-alt: var(--yoshimura-dark-surfaceAlt);
+  --y-ink: var(--yoshimura-dark-ink); --y-muted: var(--yoshimura-dark-muted); --y-line: var(--yoshimura-dark-line);
+  --y-plum: var(--yoshimura-dark-plum); --y-coral: var(--yoshimura-dark-coral); --y-amber: var(--yoshimura-dark-amber);
+  --y-blush: var(--yoshimura-dark-blush); --y-white: var(--yoshimura-dark-white);
+  --y-focus: var(--yoshimura-dark-amber); --y-danger: #E58C7B;
 }
