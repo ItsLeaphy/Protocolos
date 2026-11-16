@@ -25,7 +25,7 @@ export function renderDados(app) {
       h('button', { class: 'btn ghost', type: 'button', onclick: () => { importOut.replaceChildren(); file.value = ''; } }, 'Cancelar'));
   });
   return h('section', {},
-    ...screenHead('Utilitário', 'Dados.', null),
+    screenHead('Utilitário', 'Dados.', null),
     h('p', { class: 'warn' }, 'Os dados deste app ficam apenas neste navegador e dispositivo. Não há login, backup automático nem sincronização, e o armazenamento local não é privado nem criptografado. Use somente dados de demonstração.'),
     isStandalone() ? null : h('div', { class: 'card' }, h('h3', {}, 'Instalar no celular'),
       canPrompt()

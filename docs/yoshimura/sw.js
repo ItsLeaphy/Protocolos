@@ -2,7 +2,7 @@
    Estratégia: pré-cache do app shell na instalação; depois, rede primeiro com fallback ao cache
    (atualizações aparecem quando há rede; sem rede o app abre do cache). Dados do usuário (localStorage)
    nunca passam pelo cache. Ao alterar a lista, atualize SHELL e (opcional) incremente VERSION. */
-const VERSION = 'v1';
+const VERSION = 'v2';
 const PREFIX = 'yoshimura-shell-';
 const CACHE = PREFIX + VERSION;
 const SHELL = [
@@ -12,7 +12,7 @@ const SHELL = [
   'scripts/domain/schema.js', 'scripts/domain/validators.js', 'scripts/domain/operations.js',
   'scripts/data/demo-data.js',
   'scripts/services/storage.js', 'scripts/services/export-import.js', 'scripts/services/theme.js', 'scripts/services/install.js',
-  'scripts/components/dom.js', 'scripts/components/ui.js',
+  'scripts/components/dom.js', 'scripts/components/ui.js', 'scripts/components/art.js',
   'scripts/pages/hoje.js', 'scripts/pages/treinos.js', 'scripts/pages/outras.js', 'scripts/pages/dados.js',
   'assets/fonts/cormorant-garamond-latin-600-normal.woff2', 'assets/fonts/cormorant-garamond-latin-400-italic.woff2',
   'assets/fonts/space-grotesk-latin-400-normal.woff2', 'assets/fonts/space-grotesk-latin-500-normal.woff2',

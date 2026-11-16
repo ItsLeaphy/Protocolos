@@ -16,8 +16,9 @@
   --y-font-body: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
   --y-font-label: "Chakra Petch", system-ui, sans-serif;
   --y-font-brand: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
-  --y-radius-card: 12px; --y-radius-block: 22px;
-  --y-column: 480px;
+  --y-radius-card: 13px; --y-radius-block: 18px;
+  --y-column: 430px;
+  --y-on-coral: #1B1416; /* texto sobre a pílula coral/rosa: ink do Figma não atinge contraste */
 }
 
 /* Tokens semânticos. Padrão: tema claro (Risograph). Sistema escuro: Afterhours, a menos que o usuário force o claro. */
@@ -27,7 +28,7 @@
   --y-ink: var(--yoshimura-riso-ink); --y-muted: var(--yoshimura-riso-muted); --y-line: var(--yoshimura-riso-line);
   --y-plum: var(--yoshimura-riso-plum); --y-coral: var(--yoshimura-riso-coral); --y-amber: var(--yoshimura-riso-amber);
   --y-blush: var(--yoshimura-riso-blush); --y-white: var(--yoshimura-riso-white);
-  --y-focus: var(--yoshimura-riso-plum);
+  --y-focus: var(--yoshimura-riso-plum); --y-numeral: var(--yoshimura-riso-plum);
   --y-danger: #9B2C20; /* derivado: coral do Figma não atinge contraste de texto (3,5:1) */
 }
 @media (prefers-color-scheme: dark) {
@@ -37,7 +38,7 @@
     --y-ink: var(--yoshimura-dark-ink); --y-muted: var(--yoshimura-dark-muted); --y-line: var(--yoshimura-dark-line);
     --y-plum: var(--yoshimura-dark-plum); --y-coral: var(--yoshimura-dark-coral); --y-amber: var(--yoshimura-dark-amber);
     --y-blush: var(--yoshimura-dark-blush); --y-white: var(--yoshimura-dark-white);
-    --y-focus: var(--yoshimura-dark-amber); --y-danger: #E58C7B;
+    --y-focus: var(--yoshimura-dark-amber); --y-danger: #E58C7B; --y-numeral: var(--yoshimura-dark-amber);
   }
 }
 :root[data-theme="dark"] {
@@ -46,5 +47,5 @@
   --y-ink: var(--yoshimura-dark-ink); --y-muted: var(--yoshimura-dark-muted); --y-line: var(--yoshimura-dark-line);
   --y-plum: var(--yoshimura-dark-plum); --y-coral: var(--yoshimura-dark-coral); --y-amber: var(--yoshimura-dark-amber);
   --y-blush: var(--yoshimura-dark-blush); --y-white: var(--yoshimura-dark-white);
-  --y-focus: var(--yoshimura-dark-amber); --y-danger: #E58C7B;
+  --y-focus: var(--yoshimura-dark-amber); --y-danger: #E58C7B; --y-numeral: var(--yoshimura-dark-amber); /* plum do Figma sobre surface escuro dá ~1,7:1 */
 }

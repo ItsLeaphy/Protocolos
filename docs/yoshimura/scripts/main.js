@@ -24,16 +24,17 @@ function render() {
   const { name, arg } = route();
   const dark = currentTheme() === 'dark';
   const toggle = h('button', { class: 'theme-toggle', type: 'button', 'aria-label': dark ? 'Mudar para tema claro' : 'Mudar para tema escuro',
-    onclick: () => { toggleTheme(); render(); } }, dark ? 'CLARO' : 'ESCURO');
+    onclick: () => { toggleTheme(); render(); } }, h('i', { 'aria-hidden': 'true' }));
   clear(root).append(...[
-    h('header', { class: 'masthead' }, h('span', { class: 'brand', lang: 'ja' }, 'ヨシムラ'),
-      h('div', { class: 'meta' }, h('span', { class: 'label' }, 'Vol. 01'), h('span', { class: 'label' }, 'Training / field notes')), toggle),
+    h('header', { class: 'masthead' }, h('span', { class: 'seal', 'aria-hidden': 'true' }),
+      h('div', { class: 'brandbox' }, h('p', { class: 'brand', lang: 'ja' }, 'ヨシムラ'), h('p', { class: 'micro' }, 'Training / field notes')),
+      h('p', { class: 'micro vol' }, 'Vol. 01'), toggle),
     app.state.demo ? h('p', { class: 'banner' }, 'Dados de demonstração — sintéticos, não são treino real.') : null,
     app.loadError ? h('p', { class: 'msg error', role: 'alert' }, app.loadError) : null,
     app.notice ? h('p', { class: 'msg ' + app.notice.kind, role: 'status' }, app.notice.text) : null,
     h('main', { id: 'conteudo', tabindex: '-1' }, PAGES[name](app, arg)),
-    h('footer', { class: 'fieldnote' }, h('span', { class: 'label' }, 'Field note 01 · protocolo em preparação'),
-      h('a', { class: 'label', href: '#/dados' }, 'Dados'), h('a', { class: 'label', href: '../' }, 'Protocolos')),
+    h('footer', { class: 'fieldnote' }, h('span', { class: 'micro' }, 'Field note 01 · protocolo em preparação'),
+      h('a', { class: 'micro', href: '#/dados' }, 'Dados'), h('a', { class: 'micro', href: '../' }, 'Protocolos')),
     h('nav', { class: 'nav', 'aria-label': 'Principal' }, h('ul', {}, TABS.map(([k, l]) =>
       h('li', {}, h('a', { href: '#/' + k, 'aria-current': k === name ? 'page' : false }, l)))))].filter(Boolean));
 }

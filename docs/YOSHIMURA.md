@@ -9,7 +9,7 @@ Frente nova e independente (D-27, D-28). Código em `docs/yoshimura/`. Este docu
 | Estrutura modular, domínio, persistência, export/import, dados demo | implementado e testado (ver `CONTINUIDADE.md`) |
 | Telas: Hoje, Treinos (lista, sessão com registro), Trilhas, Mob., Dados | implementadas; Hoje, Treinos e Sessão seguem os frames do Figma (copy provisória do próprio design como estado vazio). Trilhas usa a copy do Figma; **Mob. e Dados não têm frame** (placeholder / utilitário) |
 | Tokens, tipografia, tema claro/escuro | aplicados a partir do arquivo `.fig` enviado por Dani (decodificado localmente; 21 variáveis nas coleções Risograph e Afterhours, 25 textos de fonte). Fontes hospedadas em `assets/fonts/` (OFL-1.1) |
-| Ilustrações/texturas (risografia, vetores dos frames) | **não implementadas** — 1100 vetores do Figma não foram portados; nenhum asset foi inventado |
+| Ilustrações | **portadas do Figma** (17/11/2026): disco risograph (com meio-tom e anéis) e onda sonora, como SVG em `scripts/components/art.js`, com cores `var(--y-*)` que trocam com o tema. Textura/grão de papel **não** existe no Figma e não foi inventada |
 | Biblioteca de exercícios, conteúdo de Trilhas/Mobilidade, Evolução | **não implementadas** (dependem de conteúdo e decisões) |
 | Instalação no celular (PWA) e offline | **implementado e testado em Chromium desktop**: `manifest.webmanifest`, ícones PNG, `sw.js` real (nunca Blob), escopo só de `docs/yoshimura/`. Android/Chrome: botão "Instalar app" na tela Dados quando o navegador permitir. iPhone: instrução manual (Compartilhar → Adicionar à Tela de Início). **Não testado em aparelho real** |
 | Autenticação, backend, sincronização | **não existem**; nenhuma alegação de privacidade |
@@ -63,9 +63,12 @@ Requer autenticação real e autorização validada no servidor/banco (política
 
 ## Desvios deliberados em relação ao Figma
 
-- **Tamanho de texto:** rótulos de 8–10 px e textos de 9–12 px no Figma subiram para mínimo 11 px (rótulos) e 14 px (corpo), por legibilidade no celular.
+- **Tamanho de texto:** rótulos de 8–9 px do Figma sobem para 10 px, os de 10–11 px para 11–12 px e o texto corrido de 9–11 px para 12 px (títulos e corpo de 13 px mantidos). O tracking do Figma está em % do corpo e foi usado em `em`.
+- **Pílula de status ("A DEFINIR"):** o texto `ink` do Figma sobre coral dá contraste ~3:1; usa `--y-on-coral` (`#1B1416`).
+- **Numerais (01–05):** `plum` do Figma sobre superfície escura dá ~1,7:1; no tema escuro usam `amber` (`--y-numeral`).
+- **Marca "+":** o disco do Figma inclui uma marca de registro; foi mantida.
 - **Cor de texto:** o `coral` do Figma tem contraste 3,5:1 (claro) sobre o canvas; não é usado para texto. Erros usam `--y-danger` (derivado: `#9B2C20` claro, `#E58C7B` escuro). Rótulos sobre `plum` usam `white`.
-- **Desktop:** o design é só mobile (390×844); em telas largas o app fica numa coluna central de 480 px.
+- **Desktop:** o design é só mobile (390×844); em telas largas o app fica numa coluna central de 430 px.
 - **Tab bar:** Hoje, Treinos, Trilhas, Mob. (como no Figma). Dados fica como utilitário no rodapé, fora do design.
 - **Tema:** claro (Risograph) e escuro (Afterhours) com botão; sem escolha salva, segue o sistema.
 
