@@ -24,7 +24,7 @@ O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao fi
 | **Bloqueio** | Figma inacessível (URL fora da allowlist, conector não instalado). Aparência é provisória. Falta: link acessível ou exports (frames, tokens, fontes) |
 | Validado / publicado | não / não |
 
-Decisões pendentes de Dani: acesso ao Figma; público genérico × painel privado; auth/backend/sincronização; conteúdo real da ficha (nunca inventar); saneamento de dados sensíveis legados (D-23, etapa separada). Próximo passo: com o Figma, aplicar tokens/tipografia/componentes e implementar as telas restantes (Exercícios, Progressões, Mobilidade, Evolução).
+Escopo (Dani, 16/11/2026): protótipo público para celular; por ora só a base, código e conteúdo depois; saneamento de dados sensíveis legados fica em outro projeto. Pendentes: acesso ao Figma (link enviado, mas `robots_disallowed` no fetch; precisa do conector Figma ou de exports); conteúdo real da ficha (nunca inventar). Próximo passo: com o Figma, aplicar tokens/tipografia/componentes e implementar as telas restantes (Exercícios, Progressões, Mobilidade, Evolução).
 
 ## Estado em uma frase
 

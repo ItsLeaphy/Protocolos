@@ -13,6 +13,10 @@ Frente nova e independente (D-27, D-28). Código em `docs/yoshimura/`. Este docu
 | Autenticação, backend, sincronização, offline/PWA | **não existem**; nenhuma alegação de privacidade |
 | Publicação | não publicado |
 
+## Escopo definido por Dani (16/11/2026)
+
+Protótipo **público**, para uso no celular. Esta etapa entrega só a base; código das telas e conteúdo vêm depois. O saneamento de dados sensíveis de Toji/Maki/Megumi é tratado em outro projeto e está fora do escopo do Yoshimura.
+
 ## Limites de privacidade
 
 O repositório e o GitHub Pages são públicos. Tudo em `docs/yoshimura/` é legível por qualquer pessoa. O app usa somente dados **sintéticos** (rotulados "demonstração"). Os dados digitados ficam no `localStorage` do navegador, sob `yoshimura:v1:*`: sem login, criptografia, backup automático ou sincronização. Não inserir dados reais de saúde ou de treino.
