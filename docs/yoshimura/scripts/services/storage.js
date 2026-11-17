@@ -2,6 +2,7 @@
 // ATENÇÃO: localStorage NÃO é autenticação, criptografia, backup nem sincronização.
 import { validateState } from '../domain/validators.js';
 import { emptyState } from '../domain/schema.js';
+import { buildPlanoState } from '../data/plano-integracao.js';
 
 export const NAMESPACE = 'yoshimura:v1:';
 export const KEY_STATE = NAMESPACE + 'state';
@@ -24,7 +25,7 @@ export function createStorage(backend) {
     load() {
       let raw;
       try { raw = backend.getItem(guard(KEY_STATE)); } catch (e) { return { state: emptyState(), error: 'Armazenamento indisponível neste navegador.' }; }
-      if (raw === null) return { state: emptyState(), error: null };
+      if (raw === null) return { state: buildPlanoState(), error: null }; // primeira abertura: já traz o plano; só é gravado ao primeiro registro
       try {
         const parsed = JSON.parse(raw);
         const v = validateState(parsed);

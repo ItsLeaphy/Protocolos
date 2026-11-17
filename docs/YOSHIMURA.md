@@ -61,6 +61,10 @@ docs/yoshimura/
 
 Requer autenticação real e autorização validada no servidor/banco (políticas por usuário/atleta), isolamento de dados, recuperação de conta e gestão de acesso; credenciais administrativas nunca no frontend. Opções (ex.: backend gerenciado com RLS, ou app privado fora do Pages) trazem custo de manutenção, conta/serviço de terceiro e política de backup. Escolha pendente.
 
+## Plano de integração (17/11/2026)
+
+`scripts/data/plano-integracao.js` traz o plano v0.2 enviado por Dani: 5 sessões (Push A, Legs A, Pull A, Push B, Legs B + Pull complementar), 7 exercícios cada, 2 séries. Na **primeira abertura** (sem dado salvo) o app já carrega esse plano; ele só é gravado no navegador ao primeiro registro. Dados > "Carregar plano" restaura. Ficaram de fora, por privacidade (repositório público), o nome da pessoa e as notas sobre ombro/mobilidade/progressão do texto original; mobilidade diária (5–8 min) e calistenia futura ainda não têm conteúdo estruturado (lacuna). Séries de tempo (hollow body, 15–20 s) e "por lado" ficam nas notas da prescrição.
+
 ## Desvios deliberados em relação ao Figma
 
 - **Tamanho de texto:** os tamanhos do Figma foram restaurados (medidas conferidas em 390 px: cartão destaque em y=184, dias em y=470, progresso em y=537, nav em y=754, iguais ao Figma). Único desvio: 8 px sobe para 9 px. O tracking do Figma está em % do corpo e foi usado em `em`.

@@ -1,5 +1,6 @@
 import { h } from '../components/dom.js';
 import { buildDemoState } from '../data/demo-data.js';
+import { buildPlanoState } from '../data/plano-integracao.js';
 import { buildExport, parseImport, applyImport } from '../services/export-import.js';
 import { localDate } from '../domain/schema.js';
 import { screenHead } from '../components/ui.js';
@@ -34,9 +35,15 @@ export function renderDados(app) {
         : isIOS()
           ? h('p', {}, 'No iPhone/iPad (Safari): toque em Compartilhar e depois em "Adicionar à Tela de Início".')
           : h('p', {}, 'No Android (Chrome): menu ⋮ e depois "Instalar app" ou "Adicionar à tela inicial". O botão direto aparece aqui quando o navegador permitir.')),
+    h('div', { class: 'card' }, h('h3', {}, 'Plano de integração'),
+      h('p', {}, 'Restaura o plano de 5 sessões (Push A, Legs A, Pull A, Push B, Legs B). Seus registros atuais são substituídos; uma cópia prévia é guardada.'),
+      h('button', { class: 'btn', type: 'button', onclick: () => {
+        if (app.state.logs.length) { if (!confirm('Isso substitui os dados atuais deste navegador. Continuar?')) return; app.storage.saveBackupBeforeImport(app.state); }
+        app.set(buildPlanoState(), { kind: 'ok', text: 'Plano de integração carregado.' });
+      } }, 'Carregar plano')),
     h('div', { class: 'card' }, h('h3', {}, 'Demonstração'),
       h('button', { class: 'btn', type: 'button', onclick: () => {
-        if (app.state.plan || app.state.logs.length) { if (!confirm('Isso substitui os dados atuais deste navegador. Continuar?')) return; app.storage.saveBackupBeforeImport(app.state); }
+        if (app.state.logs.length) { if (!confirm('Isso substitui os dados atuais deste navegador. Continuar?')) return; app.storage.saveBackupBeforeImport(app.state); }
         app.set(buildDemoState(), { kind: 'ok', text: 'Dados de demonstração carregados.' });
       } }, 'Carregar dados de demonstração')),
     h('div', { class: 'card' }, h('h3', {}, 'Exportar'),
