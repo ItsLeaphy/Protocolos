@@ -1,9 +1,9 @@
 /* Base e shell. Medidas vêm dos frames do Figma (390 × 844): margem de cartões 20 px, cabeçalho 24 px,
-   barra inferior 354 × 72. Tamanhos de fonte do Figma de 8–11 px sobem para 10–12 px por legibilidade
+   barra inferior 354 × 72. Tamanhos de fonte = os do Figma; único desvio: 8 px sobe para 9 px
    (registrado em docs/YOSHIMURA.md). Tracking do Figma está em % do corpo → usado em em. */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; background: var(--y-canvas); }
-body { margin: 0; background: var(--y-canvas); color: var(--y-ink); font: 400 .875rem/1.45 var(--y-font-body); overflow-wrap: anywhere; min-height: 100dvh; }
+body { margin: 0; background: var(--y-canvas); color: var(--y-ink); font: 400 13px/1.45 var(--y-font-body); overflow-wrap: anywhere; min-height: 100dvh; }
 .frame { max-width: var(--y-column); margin: 0 auto; padding: 0 20px calc(110px + env(safe-area-inset-bottom)); }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--y-focus); outline-offset: 2px; border-radius: 6px; }
@@ -12,37 +12,39 @@ h1, h2, h3, h4 { font-family: var(--y-font-display); font-weight: 600; margin: 0
 p { margin: 0; }
 
 /* Rótulos: Chakra Petch Bold, caixa alta, tracking largo */
-.label, .eyebrow { font: 700 .6875rem/1.3 var(--y-font-label); letter-spacing: .08em; text-transform: uppercase; color: var(--y-muted); margin: 0; }
-.micro { font: 700 .625rem/1.4 var(--y-font-label); letter-spacing: .06em; text-transform: uppercase; color: var(--y-muted); margin: 0; }
+.label, .eyebrow { font: 700 10px/18px var(--y-font-label); white-space: pre-wrap; letter-spacing: .08em; text-transform: uppercase; color: var(--y-muted); margin: 0; }
+.micro { font: 700 9px/18px var(--y-font-label); white-space: pre-wrap; letter-spacing: .06em; text-transform: uppercase; color: var(--y-muted); margin: 0; }
 
 /* Cabeçalho: selo + marca, descritor, volume, hairline */
-.masthead { display: flex; align-items: center; gap: 10px; padding: 18px 4px 13px; margin: 0 4px; border-bottom: 1px solid var(--y-line); }
-.seal { position: relative; width: 27px; height: 27px; border-radius: 50%; background: var(--y-plum); flex: none; }
+.masthead { display: flex; align-items: flex-start; gap: 10px; height: 59px; padding: 17px 0 0; margin: 0 4px; border-bottom: 1px solid var(--y-line); }
+.seal { position: relative; width: 27px; height: 27px; margin-top: 1px; border-radius: 50%; background: var(--y-plum); flex: none; }
 .seal::before { content: ""; position: absolute; inset: 7px; border-radius: 50%; border: 1.1px solid var(--y-amber); }
 .seal::after { content: ""; position: absolute; width: 4px; height: 4px; border-radius: 50%; background: var(--y-coral); right: -1px; top: 0; }
-.brandbox { display: grid; gap: 1px; flex: 1; min-width: 0; }
-.brand { font: 400 1rem/1.2 var(--y-font-brand); margin: 0; color: var(--y-ink); }
-.brandbox .micro { letter-spacing: .09em; }
-.vol { margin-left: auto; text-align: right; letter-spacing: .08em; }
-.theme-toggle { width: 44px; height: 44px; margin: -8px -10px -8px 0; display: grid; place-items: center; border: 0; background: transparent; color: var(--y-ink); cursor: pointer; border-radius: 50%; }
+.brandbox { display: grid; gap: 0; flex: 1; min-width: 0; margin-left: 0; }
+.brand { font: 400 16px/23px var(--y-font-brand); margin: 0; color: var(--y-ink); }
+.brandbox .micro { letter-spacing: .09em; font-size: 9px; margin-top: -5px; }
+.vol { margin-left: auto; margin-top: 5px; text-align: right; letter-spacing: .08em; }
+.theme-toggle { width: 44px; height: 44px; margin: -9px -12px 0 -6px; flex: none; display: grid; place-items: center; border: 0; background: transparent; color: var(--y-ink); cursor: pointer; border-radius: 50%; }
 .theme-toggle i { width: 17px; height: 17px; border-radius: 50%; border: 1.5px solid currentColor; background: linear-gradient(90deg, currentColor 50%, transparent 50%); display: block; }
 
 /* Cabeça de página */
 .page-head { padding: 0 4px; }
 .page-head .eyebrow { margin-top: 17px; line-height: 18px; letter-spacing: .08em; }
+.eyebrow a { display: inline-block; padding: 13px 0; margin: -13px 0; text-decoration: none; }
 .page-title { font-size: 2.6875rem; line-height: 52px; margin: -3px 0 0 -2px; } /* "Hoje." 43 px; Treinos 40; Detalhes 39 */
 .page-title.t40 { font-size: 2.5rem; } .page-title.t39 { font-size: 2.4375rem; }
-.page-sub { font-size: .875rem; line-height: 19px; color: var(--y-muted); margin: 0 0 22px; }
+.page-sub { font-size: 13px; line-height: 19px; color: var(--y-muted); margin: 0 0 22px; }
 
 /* Rodapé de nota + barra inferior */
 .fieldnote { margin: 21px 4px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; }
 .fieldnote .micro { letter-spacing: .05em; }
+.fieldnote { margin-top: 21px; padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
 .fieldnote a { min-height: 44px; display: inline-flex; align-items: center; text-decoration: none; }
 .nav { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(18px + env(safe-area-inset-bottom)); width: min(354px, calc(100% - 36px)); z-index: 20;
   background: var(--y-surface-alt); border: 1px solid color-mix(in srgb, var(--y-line) 60%, transparent); border-radius: 22px; }
 .nav ul { list-style: none; margin: 0; padding: 7px; display: grid; grid-template-columns: repeat(4, 1fr); }
-.nav a { height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; border-radius: 17px; text-decoration: none;
-  font: 700 .625rem/1 var(--y-font-label); letter-spacing: .05em; text-transform: uppercase; color: var(--y-muted); }
+.nav a { height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 7px; gap: 10px; border-radius: 17px; text-decoration: none;
+  font: 700 9px/1 var(--y-font-label); letter-spacing: .05em; text-transform: uppercase; color: var(--y-muted); }
 .nav a::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--y-line); }
 .nav a[aria-current="page"] { background: var(--y-plum); color: var(--y-white); }
 .nav a[aria-current="page"]::before { background: var(--y-amber); }

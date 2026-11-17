@@ -33,7 +33,7 @@ function render() {
     app.loadError ? h('p', { class: 'msg error', role: 'alert' }, app.loadError) : null,
     app.notice ? h('p', { class: 'msg ' + app.notice.kind, role: 'status' }, app.notice.text) : null,
     h('main', { id: 'conteudo', tabindex: '-1' }, PAGES[name](app, arg)),
-    h('footer', { class: 'fieldnote' }, h('span', { class: 'micro' }, 'Field note 01 · protocolo em preparação'),
+    h('footer', { class: 'fieldnote' }, h('span', { class: 'micro' }, 'Field note 01   ·   protocolo em preparação'),
       h('a', { class: 'micro', href: '#/dados' }, 'Dados'), h('a', { class: 'micro', href: '../' }, 'Protocolos')),
     h('nav', { class: 'nav', 'aria-label': 'Principal' }, h('ul', {}, TABS.map(([k, l]) =>
       h('li', {}, h('a', { href: '#/' + k, 'aria-current': k === name ? 'page' : false }, l)))))].filter(Boolean));

@@ -63,7 +63,7 @@ Requer autenticação real e autorização validada no servidor/banco (política
 
 ## Desvios deliberados em relação ao Figma
 
-- **Tamanho de texto:** rótulos de 8–9 px do Figma sobem para 10 px, os de 10–11 px para 11–12 px e o texto corrido de 9–11 px para 12 px (títulos e corpo de 13 px mantidos). O tracking do Figma está em % do corpo e foi usado em `em`.
+- **Tamanho de texto:** os tamanhos do Figma foram restaurados (medidas conferidas em 390 px: cartão destaque em y=184, dias em y=470, progresso em y=537, nav em y=754, iguais ao Figma). Único desvio: 8 px sobe para 9 px. O tracking do Figma está em % do corpo e foi usado em `em`.
 - **Pílula de status ("A DEFINIR"):** o texto `ink` do Figma sobre coral dá contraste ~3:1; usa `--y-on-coral` (`#1B1416`).
 - **Numerais (01–05):** `plum` do Figma sobre superfície escura dá ~1,7:1; no tema escuro usam `amber` (`--y-numeral`).
 - **Marca "+":** o disco do Figma inclui uma marca de registro; foi mantida.
@@ -82,3 +82,7 @@ Requer autenticação real e autorização validada no servidor/banco (política
 - Estratégia: rede primeiro, cache como reserva; com internet o app atualiza sozinho, sem internet abre do cache. Os dados do usuário ficam no `localStorage` e não passam pelo cache.
 - O portal e o Toji usam manifesto/service worker via `Blob` (padrão que não funciona de forma confiável) e **não foram alterados**; o SW do Yoshimura não os controla (escopo restrito, verificado).
 - Verificado (Chromium/Playwright, `localhost`): registro e ativação, abrir offline, navegar offline, persistência de dados offline, fontes offline, manifesto e ícones. **Não verificado:** instalação real em Android/iOS, comportamento do prompt de instalação (não dispara em headless) e atualização do SW entre versões.
+
+## Paleta: edição manual de Dani vs. Figma (registrado em 17/11/2026)
+
+`styles/tokens.css` tinha sido editado à mão (plum `#3C1925`, amber `#721322` nos dois temas). Originais do Figma: claro plum `#4A3440` e amber `#D8A86C`; escuro plum `#564752` e amber `#D8A86C`. No tema escuro o amber `#721322` ficava quase invisível (numerais, ondas, anel, pílula ativa), então o **escuro voltou aos valores do Figma**. O **claro mantém a edição de Dani**; nele o anel/amber do disco tem baixo contraste sobre o plum. Voltar ao Figma é trocar 2 valores na linha 6 de `tokens.css`.

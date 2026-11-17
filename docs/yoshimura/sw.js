@@ -2,7 +2,7 @@
    Estratégia: pré-cache do app shell na instalação; depois, rede primeiro com fallback ao cache
    (atualizações aparecem quando há rede; sem rede o app abre do cache). Dados do usuário (localStorage)
    nunca passam pelo cache. Ao alterar a lista, atualize SHELL e (opcional) incremente VERSION. */
-const VERSION = 'v2';
+const VERSION = 'v3';
 const PREFIX = 'yoshimura-shell-';
 const CACHE = PREFIX + VERSION;
 const SHELL = [

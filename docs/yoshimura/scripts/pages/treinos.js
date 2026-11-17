@@ -18,17 +18,17 @@ function targetText(t) {
 // Frame "02 Treinos": visão da semana + tracklist.
 function lista(app) {
   const plan = app.state.plan;
-  return h('div', {}, screenHead('Programação · 02', 'Treinos.', 'Uma semana de cada vez.', 't40'),
+  return h('div', {}, screenHead('Programação  ·  02', 'Treinos.', 'Uma semana de cada vez.', 't40'),
     h('section', { class: 'card overview', 'aria-labelledby': 'wk-t' },
-      h('p', { class: 'micro' }, 'Week index / 01'), h('h2', { id: 'wk-t' }, 'SEG — SEX'),
+      h('p', { class: 'micro' }, 'Week index  /  01'), h('h2', { id: 'wk-t' }, 'SEG  —  SEX'),
       h('p', { class: 'note' }, '5 dias previstos · ' + (plan ? 'plano carregado' : 'sessões a configurar')), soundwave('wave')),
-    h('div', { class: 'track-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist / programação'),
+    h('div', { class: 'track-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist  /  programação'),
       h('p', { class: 'note' }, plan ? 'Escolha uma sessão.' : 'A ordem e o conteúdo ainda não foram definidos.')),
     h('ul', { class: 'tracklist' }, DAYS.map(([n, , nome]) => {
       const sess = plan?.sessions.find((x) => x.weekday === n);
       return h('li', {}, h('a', { class: 'track' + (sess ? ' has' : ''), href: '#/treinos/' + (sess ? sess.id : 'dia-' + n) },
         h('span', { class: 'num' }, pad(n)),
-        h('span', {}, h('span', { class: 'day-name' }, nome), h('span', { class: 'status' }, 'Sessão · ' + (sess ? sess.title : 'a definir'))),
+        h('span', {}, h('span', { class: 'day-name' }, nome), h('span', { class: 'status' }, 'Sessão  ·  ' + (sess ? sess.title : 'a definir'))),
         h('span', { class: 'marker', 'aria-hidden': 'true' })));
     })),
     plan ? null : h('p', { class: 'footnote' }, 'A ficha será estruturada após avaliação e validação.'));
@@ -36,11 +36,10 @@ function lista(app) {
 
 // Frame "03 Sessão": sessão ainda sem prescrição (estado do design).
 function placeholder(n) {
-  return h('div', {}, h('a', { class: 'back label', href: '#/treinos' }, '← Treinos'),
-    screenHead('Treinos / sessão ' + pad(n), 'Detalhes.', 'Uma sessão ainda sem prescrição.', 't39'),
-    h('section', { class: 'card plum cover', 'aria-labelledby': 'cv-t' }, h('p', { class: 'micro' }, 'Side A / Movement archive'),
+  return h('div', {}, screenHead([h('a', { href: '#/treinos', 'aria-label': 'Voltar para Treinos' }, 'Treinos'), '  /  sessão ' + pad(n)], 'Detalhes.', 'Uma sessão ainda sem prescrição.', 't39'),
+    h('section', { class: 'card plum cover', 'aria-labelledby': 'cv-t' }, h('p', { class: 'micro' }, 'Side A   /   Movement archive'),
       h('h2', { id: 'cv-t' }, 'Em construção.'), h('p', { class: 'desc' }, 'Os movimentos e a prescrição serão adicionados depois.'), disc('disc')),
-    h('div', { class: 'section-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist / movimentos')),
+    h('div', { class: 'section-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist  /  movimentos')),
     h('article', { class: 'card movement' }, h('span', { class: 'num', 'aria-hidden': 'true' }, '01'),
       h('div', {}, h('p', { class: 'name' }, 'Movimento a definir'), h('p', { class: 'desc' }, 'O primeiro exercício será configurado aqui.'), h('span', { class: 'pill blush' }, 'Pendente'))),
     h('section', { class: 'card alt logging', 'aria-hidden': 'true' }, h('p', { class: 'label' }, 'Registro de execução'),
@@ -54,11 +53,10 @@ export function renderTreinos(app, arg) {
   const sess = app.state.plan?.sessions.find((x) => x.id === arg);
   if (!sess) return h('div', {}, h('p', { class: 'empty' }, 'Sessão não encontrada.'), h('a', { class: 'btn', href: '#/treinos' }, 'Voltar'));
   const exMap = new Map(app.state.exercises.map((e) => [e.id, e]));
-  return h('div', {}, h('a', { class: 'back label', href: '#/treinos' }, '← Treinos'),
-    screenHead('Treinos / sessão ' + pad(sess.weekday), 'Detalhes.', sess.title, 't39'),
-    h('section', { class: 'card plum cover', 'aria-labelledby': 'cv-t' }, h('p', { class: 'micro' }, 'Side A / Movement archive'),
+  return h('div', {}, screenHead([h('a', { href: '#/treinos', 'aria-label': 'Voltar para Treinos' }, 'Treinos'), '  /  sessão ' + pad(sess.weekday)], 'Detalhes.', sess.title, 't39'),
+    h('section', { class: 'card plum cover', 'aria-labelledby': 'cv-t' }, h('p', { class: 'micro' }, 'Side A   /   Movement archive'),
       h('h2', { id: 'cv-t' }, sess.title), h('p', { class: 'desc' }, sess.prescriptions.length + ' movimento(s) nesta sessão.'), disc('disc')),
-    h('div', { class: 'section-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist / movimentos')),
+    h('div', { class: 'section-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist  /  movimentos')),
     [...sess.prescriptions].sort((a, b) => a.order - b.order).map((rx, i) => {
       const ex = exMap.get(rx.exerciseId);
       const fields = ex.tracking.map((t) => {
