@@ -8,8 +8,9 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 
 ## Protocolo ativo
 
-- **Toji é o único em desenvolvimento ativo.** Reúne três frentes: musculação, facial e mobilidade (detalhes em [docs/TOJI.md](docs/TOJI.md)).
-- **Yoshimura é frente nova e independente** (D-27, adendo à D-17): código e docs em `docs/yoshimura/` e `docs/YOSHIMURA.md`. Regras específicas na seção "Yoshimura" abaixo.
+- **Duas frentes ativas e independentes**, cada uma com código, dados e documentação próprios; trabalhar em uma não autoriza alterar a outra.
+  - **Toji** (`docs/toji/`): musculação, facial e mobilidade (detalhes em [docs/TOJI.md](docs/TOJI.md)).
+  - **Yoshimura** (D-27, adendo à D-17): código e docs em `docs/yoshimura/` e `docs/YOSHIMURA.md`. Regras específicas na seção "Yoshimura" abaixo.
 - **Maki e Megumi estão congelados**: preservados como estão, sem apagar nem modificar.
 
 ## Consulta ao GitHub
@@ -25,7 +26,7 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 3. Consultar os documentos específicos conforme a tarefa (mapa em `CONTINUIDADE.md`).
 4. Não repetir auditorias já realizadas sem motivo técnico concreto.
 5. Não confundir decisões discutidas com funcionalidades implementadas.
-6. Não alterar Maki e Megumi durante o ciclo ativo do Toji.
+6. Não alterar Maki e Megumi (congelados).
 7. Não executar migrações destrutivas sem backup e validação.
 8. Não adicionar dados pessoais desnecessários ao repositório público.
 9. Testar alterações reais antes de afirmar que funcionam.
@@ -78,4 +79,8 @@ Leia este arquivo e depois [CONTINUIDADE.md](CONTINUIDADE.md) **antes de qualque
 - Corrigir o PWA/service worker, ou alterar o histórico Git.
 - Apagar documentos históricos.
 - Transformar uma proposta em decisão, ou inventar rotinas.
-- Publicar (`push`) mudanças sem o usuário pedir.
+- Usar force push, alterar o histórico Git ou publicar fora do fluxo abaixo.
+
+## Fluxo de publicação (autorizado por Dani em 16/11/2026)
+
+Claude trabalha direto na `main` (sem branch nem PR), testa, faz commit e `push` ao concluir a tarefa pedida, **sem force push**, e confirma o HEAD remoto (`git ls-remote`). Isso vale para o que Dani pediu; Maki, Megumi e o que a lista acima proíbe continuam exigindo autorização explícita.

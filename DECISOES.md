@@ -1,6 +1,6 @@
 # DECISOES.md — O que decidimos, por que e em que estado
 
-Estado conferido contra o HEAD `f35f989` (`main`) em 03/11/2026. Fonte do histórico: [1-toji-dani-contexto-auditoria.md](1-toji-dani-contexto-auditoria.md) (seções citadas como §). Ponto de entrada do projeto: [CONTINUIDADE.md](CONTINUIDADE.md).
+Estado conferido contra o HEAD `e2c3cb3` (`main`) em 24/11/2026 (decisões D-01 a D-26, do Toji, conferidas em `f35f989`, 03/11/2026; D-27 a D-32, do Yoshimura, acompanham o HEAD). Fonte do histórico: [1-toji-dani-contexto-auditoria.md](1-toji-dani-contexto-auditoria.md) (seções citadas como §). Ponto de entrada do projeto: [CONTINUIDADE.md](CONTINUIDADE.md).
 
 **Estados:** `aprovada` · `pendente de implementação` · `parcialmente implementada` · `implementada` · `substituída` · `descartada` · `não confirmada` (sugestão sem aceite registrado).
 **Origem:** *usuário* = decisão do dono do projeto; *Claude* / *GPT* = sugestão de assistente. Datas só quando constam na fonte.

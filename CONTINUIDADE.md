@@ -6,10 +6,11 @@ Ponto de entrada para retomar o projeto. Leia [CLAUDE.md](CLAUDE.md) primeiro. E
 
 | Item | Valor |
 |---|---|
-| Branch / HEAD conferido | `main` · `f35f989` (merge do PR #2), em 03/11/2026 |
+| Branch / HEAD conferido | `main` · `e2c3cb3` (gerenciador de programação do Yoshimura), em 24/11/2026; o `f35f989` (merge do PR #2, 03/11/2026) é o último estado conferido do Toji |
 | Commit de implementação da ficha | `0ca8442` (PR #2) |
 | Documentação anterior | `5228af3` (PR #1, mergeado em `077dad7`) |
-| Publicação | Deploy do GitHub Pages para `f35f989` com estado `success` (consultado via API em 03/11/2026) |
+| Publicação | Pages: `f35f989` com `success` (API, 03/11/2026); deploy de `e2c3cb3` **não verificado** |
+| Yoshimura | `e2c3cb3`: gerenciador de programação v1 **implementado e testado** (Claude), **não validado em aparelho real**; detalhes na seção Yoshimura abaixo |
 
 O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao final do seu trabalho.
 
@@ -34,7 +35,7 @@ Escopo (Dani, 16/11/2026): protótipo público para celular; por ora só a base,
 
 ## Estado em uma frase
 
-O Toji é o único protocolo ativo. A ficha de musculação pós-V4 (D-09 a D-16) está **implementada, publicada e validada por Dani em dispositivo real**. A próxima frente técnica é o **backup (D-21)**; ainda não foi iniciada.
+Há duas frentes ativas e independentes: **Toji** e **Yoshimura** (esta última, na seção própria acima). Sobre o Toji: a ficha de musculação pós-V4 (D-09 a D-16) está **implementada, publicada e validada por Dani em dispositivo real**. A próxima frente técnica é o **backup (D-21)**; ainda não foi iniciada.
 
 ## Decidido · implementado · testado · validado · publicado
 
@@ -65,7 +66,8 @@ Ordem recomendada, **não autorização** para executar tudo; a tarefa concreta 
 
 ## Próxima tarefa
 
-**D-21 (backup).** Não iniciada. Antes de codar: combinar o escopo com Dani e apresentar um plano curto. Não alterar armazenamento sem backup e validação.
+- **Toji:** D-21 (backup). Não iniciada. Antes de codar: combinar o escopo com Dani e apresentar um plano curto. Não alterar armazenamento sem backup e validação.
+- **Yoshimura:** Dani valida o gerenciador v1 em aparelho real; depois decide o próximo passo (ex.: player de sessão). Independente da tarefa do Toji.
 
 ## Riscos conhecidos
 
