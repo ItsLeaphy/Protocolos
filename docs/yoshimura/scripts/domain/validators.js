@@ -1,9 +1,8 @@
 // Valida estado e importações. Retorna { ok, errors } sem lançar exceção e sem mutar.
-import { SCHEMA_VERSION, MODALITIES, LIMITS } from './schema.js';
+import { SCHEMA_VERSION, MODALITIES, LIMITS, TRACKING } from './schema.js';
 
 const ID_RE = /^[a-z]{2}_[A-Za-z0-9-]{4,40}$/;
 const DATE_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
-const TRACKING = ['reps', 'load', 'time', 'distance', 'assist'];
 const SET_FIELDS = { reps: [0, 1000], load: [0, 2000], time: [0, 86400], distance: [0, 1000000], assist: [0, 2000] };
 const TOP_KEYS = ['schema', 'demo', 'exercises', 'plan', 'logs'];
 

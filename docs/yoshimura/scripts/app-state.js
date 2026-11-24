@@ -15,6 +15,8 @@ export function createApp(storage) {
       this.state = next; this.notice = notice; this.emit(); return true;
     },
     reset() { storage.clear(); this.state = emptyState(); this.notice = { kind: 'ok', text: 'Dados locais apagados.' }; this.emit(); },
+    // Navega mantendo o aviso atual (o handler de hashchange normalmente o limpa).
+    go(hash) { if (location.hash !== hash) { this.keepNotice = true; location.hash = hash; } },
     emit() { this.listeners.forEach((f) => f()); },
     storage,
   };

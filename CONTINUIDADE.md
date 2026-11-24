@@ -17,7 +17,7 @@ O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao fi
 
 | Item | Valor |
 |---|---|
-| Branch / base | `feature/yoshimura-integration` a partir de `main` · `21f77ed` (merge do PR #3, conferido em 16/11/2026; difere do `f35f989` citado acima, que é histórico). O HEAD resultante é o commit local mais recente da branch (`git log`). Sem push |
+| Branch / base | trabalho direto na `main` (autorizado por Dani). HEAD conferido em 24/11/2026: `55e95ab`; o `f35f989` acima é histórico |
 | Implementado | módulo `docs/yoshimura/` (árvore e responsabilidades em [docs/YOSHIMURA.md](docs/YOSHIMURA.md)); entrada no portal `docs/index.html`; docs de governança |
 | Testado (Claude) | 12 testes unitários `node --test` (domínio + lista do SW); Chromium (Playwright) via `python3 -m http.server` em subdiretório: portal→app, navegação, formulário, persistência após reload, isolamento de chaves, export/import (válido, inválido, confirmação, cópia prévia), ausência de injeção HTML, foco visível, sem overflow em 360/390/430/1440 px nas 3 telas, sem erros JS |
 | Não testado | dispositivo real; leitor de tela; contraste medido; offline (não existe); Figma |
@@ -25,9 +25,10 @@ O HEAD pode ter mudado. **Reconfira antes de agir** e atualize esta tabela ao fi
 | PWA (3º passo da frente) | manifesto, ícones, `sw.js` real e botão/instruções de instalação; offline testado em Chromium (15 checagens). Pendente: instalar em Android e iPhone reais |
 | Visual refeito (17/11/2026) | Hoje, Treinos e Sessão reconstruídas a partir das medidas do `.fig` (posições, raios, tracking, ilustrações SVG do disco e da onda), tema claro/escuro com botão, fontes locais. Verificado: 122 checagens Chromium (360/390/430/1440 px, dois temas, sem overflow, sem requisição externa, demo + registro + persistência, offline com SW v2). Falta: aparelho real, textura (não existe no Figma), frame de Mob. |
 | Fidelidade visual (17/11/2026) | pedido de Dani: ficar igual ao Figma. Ajustados tamanhos de fonte, alturas e espaços (medidos: batem com o Figma nas 3 telas), separadores, link "Treinos" no eyebrow da sessão, arte do disco fiel, rodapé acima da nav, `sw.js` v3. Paleta: ver YOSHIMURA.md (escuro restaurado; claro mantém a edição de Dani). Testes: 12 unitários, E2E e PWA em Chromium sem falhas. Não testado: celular real |
-| Plano de integração (17/11/2026) | 5 sessões carregadas por padrão na primeira abertura; ver YOSHIMURA.md. Testado em Chromium (E2E ajustado). Mobilidade diária e notas de ombro fora (privacidade/lacuna) |
+| Plano de integração (17/11/2026) | **substituído em 24/11/2026**: removido o plano embutido; ver linha abaixo |
+| Gerenciador de programação v1 (24/11/2026) | base conferida: `main` · `55e95ab`. Implementado: app abre vazio; criar/editar/excluir sessões e exercícios, montar e reordenar a sessão, editar prescrição (detalhes em YOSHIMURA.md). Testado (Claude): 21 testes `node --test`; Chromium via HTTP em 360/390/430 px sem erro JS nem requisição externa. Não testado: aparelho real, leitor de tela, atualização do SW entre versões (`sw.js` v5). Commit: `git log` da `main`. Próximo: Dani validar no celular; depois decidir player de sessão |
 | Publicação | autorizada por Dani em 16/11/2026: commits direto na `main` e push. O HEAD publicado é o `git log` da `main`; Pages serve `docs/` (configuração existente, não verificada nesta sessão) |
-| Validado / publicado | não / não |
+| Validado / publicado | não / commits na `main` (Pages não verificado) |
 
 Escopo (Dani, 16/11/2026): protótipo público para celular; por ora só a base, código e conteúdo depois; saneamento de dados sensíveis legados fica em outro projeto. Pendentes: conteúdo real da ficha (nunca inventar); ilustrações; frame de Mob.; decisão sobre o portal (ainda carrega Google Fonts). Próximo passo: com o Figma, aplicar tokens/tipografia/componentes e implementar as telas restantes (Exercícios, Progressões, Mobilidade, Evolução).
 

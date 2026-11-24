@@ -1,6 +1,5 @@
 import { h } from '../components/dom.js';
 import { buildDemoState } from '../data/demo-data.js';
-import { buildPlanoState } from '../data/plano-integracao.js';
 import { buildExport, parseImport, applyImport } from '../services/export-import.js';
 import { localDate } from '../domain/schema.js';
 import { screenHead } from '../components/ui.js';
@@ -27,7 +26,7 @@ export function renderDados(app) {
   });
   return h('section', {},
     screenHead('Utilitário', 'Dados.', null),
-    h('p', { class: 'warn' }, 'Os dados deste app ficam apenas neste navegador e dispositivo. Não há login, backup automático nem sincronização, e o armazenamento local não é privado nem criptografado. Use somente dados de demonstração.'),
+    h('p', { class: 'warn' }, 'Os dados deste app ficam apenas neste navegador e dispositivo. Não há login, backup automático nem sincronização, e o armazenamento local não é privado nem criptografado. Não registre dados pessoais de saúde. Exporte um backup de vez em quando.'),
     isStandalone() ? null : h('div', { class: 'card' }, h('h3', {}, 'Instalar no celular'),
       canPrompt()
         ? [h('p', {}, 'Instale para abrir como app, em tela cheia e com acesso offline ao app (os dados continuam só neste aparelho).'),
@@ -35,12 +34,6 @@ export function renderDados(app) {
         : isIOS()
           ? h('p', {}, 'No iPhone/iPad (Safari): toque em Compartilhar e depois em "Adicionar à Tela de Início".')
           : h('p', {}, 'No Android (Chrome): menu ⋮ e depois "Instalar app" ou "Adicionar à tela inicial". O botão direto aparece aqui quando o navegador permitir.')),
-    h('div', { class: 'card' }, h('h3', {}, 'Plano de integração'),
-      h('p', {}, 'Restaura o plano de 5 sessões (Push A, Legs A, Pull A, Push B, Legs B). Seus registros atuais são substituídos; uma cópia prévia é guardada.'),
-      h('button', { class: 'btn', type: 'button', onclick: () => {
-        if (app.state.logs.length) { if (!confirm('Isso substitui os dados atuais deste navegador. Continuar?')) return; app.storage.saveBackupBeforeImport(app.state); }
-        app.set(buildPlanoState(), { kind: 'ok', text: 'Plano de integração carregado.' });
-      } }, 'Carregar plano')),
     h('div', { class: 'card' }, h('h3', {}, 'Demonstração'),
       h('button', { class: 'btn', type: 'button', onclick: () => {
         if (app.state.logs.length) { if (!confirm('Isso substitui os dados atuais deste navegador. Continuar?')) return; app.storage.saveBackupBeforeImport(app.state); }

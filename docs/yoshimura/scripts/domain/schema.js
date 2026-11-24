@@ -2,6 +2,9 @@
 export const SCHEMA_VERSION = 1;
 export const BACKUP_FORMAT = 'yoshimura-backup';
 export const MODALITIES = ['musculacao', 'calistenia', 'core', 'mobilidade', 'flexibilidade', 'condicionamento', 'outro'];
+export const TRACKING = ['reps', 'load', 'time', 'distance', 'assist'];
+export const MODALITY_LABEL = { musculacao: 'Musculação', calistenia: 'Calistenia', core: 'Core', mobilidade: 'Mobilidade', flexibilidade: 'Flexibilidade', condicionamento: 'Condicionamento', outro: 'Outro' };
+export const TRACKING_LABEL = { reps: 'Repetições', load: 'Carga', time: 'Tempo', distance: 'Distância', assist: 'Assistência' };
 export const WEEKDAYS = { 1: 'Segunda', 2: 'Terça', 3: 'Quarta', 4: 'Quinta', 5: 'Sexta' };
 export const LIMITS = { exercises: 300, sessions: 14, prescriptions: 60, logs: 5000, sets: 60, text: 200, notes: 1000 };
 

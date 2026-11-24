@@ -2,18 +2,19 @@
 
 Frente nova e independente (D-27, D-28). Código em `docs/yoshimura/`. Este documento não contém dados pessoais e deve continuar assim.
 
-## Estado (16/11/2026)
+## Estado (24/11/2026)
 
 | Item | Estado |
 |---|---|
 | Estrutura modular, domínio, persistência, export/import, dados demo | implementado e testado (ver `CONTINUIDADE.md`) |
+| Gerenciador de programação v1 (24/11/2026) | **implementado e testado** (21 testes `node --test`; Chromium 360/390/430 px): criar/editar/excluir sessão (uma por dia, seg–sex), criar/editar exercício, adicionar/remover/reordenar exercícios na sessão, editar prescrição. Rotas dentro de Treinos (`#/treinos/editar`, `/nova`, `/exercicios`, `/<id>/editar`); sem nova aba. **Não testado:** aparelho real, leitor de tela |
 | Telas: Hoje, Treinos (lista, sessão com registro), Trilhas, Mob., Dados | implementadas; Hoje, Treinos e Sessão seguem os frames do Figma (copy provisória do próprio design como estado vazio). Trilhas usa a copy do Figma; **Mob. e Dados não têm frame** (placeholder / utilitário) |
 | Tokens, tipografia, tema claro/escuro | aplicados a partir do arquivo `.fig` enviado por Dani (decodificado localmente; 21 variáveis nas coleções Risograph e Afterhours, 25 textos de fonte). Fontes hospedadas em `assets/fonts/` (OFL-1.1) |
 | Ilustrações | **portadas do Figma** (17/11/2026): disco risograph (com meio-tom e anéis) e onda sonora, como SVG em `scripts/components/art.js`, com cores `var(--y-*)` que trocam com o tema. Textura/grão de papel **não** existe no Figma e não foi inventada |
 | Biblioteca de exercícios, conteúdo de Trilhas/Mobilidade, Evolução | **não implementadas** (dependem de conteúdo e decisões) |
 | Instalação no celular (PWA) e offline | **implementado e testado em Chromium desktop**: `manifest.webmanifest`, ícones PNG, `sw.js` real (nunca Blob), escopo só de `docs/yoshimura/`. Android/Chrome: botão "Instalar app" na tela Dados quando o navegador permitir. iPhone: instrução manual (Compartilhar → Adicionar à Tela de Início). **Não testado em aparelho real** |
 | Autenticação, backend, sincronização | **não existem**; nenhuma alegação de privacidade |
-| Publicação | não publicado |
+| Publicação | commits direto na `main` (autorizado por Dani); Pages não verificado |
 
 ## Escopo definido por Dani (16/11/2026)
 
@@ -39,15 +40,16 @@ docs/yoshimura/
   scripts/app-state.js        estado em memória + assinatura; persiste via adapter
   scripts/domain/schema.js    constantes, limites, IDs, data local, fábricas
   scripts/domain/validators.js validação de estado/importação (sem exceções)
-  scripts/domain/operations.js operações puras (editar prescrição, registrar log)
+  scripts/domain/operations.js operações puras (sessões, exercícios, prescrições, registro de log)
   scripts/data/demo-data.js   dados sintéticos
   scripts/services/storage.js adapter load/save/clear; namespace guardado
   scripts/services/export-import.js export JSON, parse validado, aplicação com cópia prévia
   scripts/services/theme.js   tema claro/escuro (chave yoshimura:v1:theme; padrão = sistema)
   scripts/components/dom.js   helper h(): só textContent, nunca innerHTML
   scripts/components/ui.js    cabeçalho de tela e dias da semana
-  scripts/pages/              hoje.js, treinos.js, outras.js (Trilhas, Mob.), dados.js
+  scripts/pages/              hoje.js, treinos.js, edicao.js (edição da programação), outras.js (Trilhas, Mob.), dados.js
   tests/domain.test.mjs       testes node:test (domínio, storage, import/export)
+  tests/programacao.test.mjs  testes do gerenciador (sessões, exercícios, prescrições, histórico, persistência)
   tests/shell.test.mjs        garante que a lista SHELL do sw.js bate com os arquivos
   assets/icons/               ícones do app (gerados a partir dos glifos da marca)
   assets/fonts/               Cormorant Garamond, Space Grotesk, Chakra Petch, Zen Maru Gothic (subset ヨシムラ) + LICENSES.md
@@ -61,9 +63,12 @@ docs/yoshimura/
 
 Requer autenticação real e autorização validada no servidor/banco (políticas por usuário/atleta), isolamento de dados, recuperação de conta e gestão de acesso; credenciais administrativas nunca no frontend. Opções (ex.: backend gerenciado com RLS, ou app privado fora do Pages) trazem custo de manutenção, conta/serviço de terceiro e política de backup. Escolha pendente.
 
-## Plano de integração (17/11/2026)
+## Gerenciamento de programação (24/11/2026)
 
-`scripts/data/plano-integracao.js` traz o plano v0.2 enviado por Dani: 5 sessões (Push A, Legs A, Pull A, Push B, Legs B + Pull complementar), 7 exercícios cada, 2 séries. Na **primeira abertura** (sem dado salvo) o app já carrega esse plano; ele só é gravado no navegador ao primeiro registro. Dados > "Carregar plano" restaura. Ficaram de fora, por privacidade (repositório público), o nome da pessoa e as notas sobre ombro/mobilidade/progressão do texto original; mobilidade diária (5–8 min) e calistenia futura ainda não têm conteúdo estruturado (lacuna). Séries de tempo (hollow body, 15–20 s) e "por lado" ficam nas notas da prescrição.
+- **Primeira abertura:** estado vazio (`emptyState()`), nada gravado até a primeira alteração. O plano de integração embutido foi removido; a programação é criada pelo usuário. Dados salvos antes (inclusive o plano antigo já gravado) não são tocados; namespace e esquema continuam `yoshimura:v1:*` / v1.
+- **Camadas:** Exercícios (`exercises`: nome, modalidade, tipos de registro), Programação (`plan.sessions`, uma por dia 1–5), Prescrição (`prescriptions[].target`, alvo começa vazio, nenhum número inventado), Execução (`logs`, com snapshot da prescrição). Tudo por ID permanente.
+- **Regras:** excluir sessão não apaga registros (`sessionId` do log vira `null`); remover exercício da sessão não apaga exercício nem registros; exercício só é excluído sem registros e fora de sessões; nomes de exercício únicos (sem distinguir caixa/acento); editar exercício vale para todas as sessões.
+- **Fora do escopo desta versão:** player de sessão, cronômetro de descanso, gráficos, biblioteca avançada, trilhas, mobilidade, multiatleta, contas, sincronização. Mais de um exercício por sessão em dias repetidos e arrastar para reordenar (hoje: Subir/Descer) ficam como melhoria.
 
 ## Desvios deliberados em relação ao Figma
 
@@ -78,7 +83,7 @@ Requer autenticação real e autorização validada no servidor/banco (política
 
 ## Cobertura de testes (16/11/2026)
 
-`node --test docs/yoshimura/tests/*.test.mjs` (12 testes) e verificação em Chromium via servidor HTTP em subdiretório (55 checagens: navegação, formulários, persistência, export/import, isolamento de chaves, tema, fontes locais, nenhuma requisição externa, sem overflow em 360/390/430/1440 px, sem texto "null"). O portal (`docs/index.html`) ainda carrega Google Fonts por conta própria; o Yoshimura não.
+`node --test docs/yoshimura/tests/*.test.mjs` (21 testes) e verificação em Chromium via servidor HTTP em subdiretório (55 checagens: navegação, formulários, persistência, export/import, isolamento de chaves, tema, fontes locais, nenhuma requisição externa, sem overflow em 360/390/430/1440 px, sem texto "null"). O portal (`docs/index.html`) ainda carrega Google Fonts por conta própria; o Yoshimura não.
 
 ## PWA e offline: como funciona e limites
 

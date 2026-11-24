@@ -1,62 +1,48 @@
 import { h } from '../components/dom.js';
-import { screenHead, DAYS } from '../components/ui.js';
+import { screenHead, DAYS, pad, targetText, FIELD_LABEL as LABEL } from '../components/ui.js';
 import { disc, soundwave } from '../components/art.js';
 import { addLog, logsForExercise } from '../domain/operations.js';
+import { renderEditarSessao, renderNovaSessao, renderEditarProgramacao, renderExercicios } from './edicao.js';
 
-const LABEL = { reps: 'Reps', load: 'Carga (kg)', time: 'Tempo (s)', distance: 'Distância (m)', assist: 'Assistência (kg)' };
-const pad = (n) => String(n).padStart(2, '0');
-function targetText(t) {
-  const p = [];
-  if (t.sets != null) p.push(t.sets + ' séries');
-  if (t.repsMin != null) p.push(t.repsMin + (t.repsMax != null ? '–' + t.repsMax : '') + ' reps');
-  if (t.time != null) p.push(t.time + ' s');
-  if (t.distance != null) p.push(t.distance + ' m');
-  if (t.load != null) p.push(t.load + ' kg');
-  return p.join(' · ') || 'sem alvo definido';
-}
-
-// Frame "02 Treinos": visão da semana + tracklist.
+// Frame "02 Treinos": visão da semana + tracklist. Sem programação: estado vazio com orientação para criar.
 function lista(app) {
   const plan = app.state.plan;
+  const n = plan?.sessions.length ?? 0;
   return h('div', {}, screenHead('Programação  ·  02', 'Treinos.', 'Uma semana de cada vez.', 't40'),
     h('section', { class: 'card overview', 'aria-labelledby': 'wk-t' },
       h('p', { class: 'micro' }, 'Week index  /  01'), h('h2', { id: 'wk-t' }, 'SEG  —  SEX'),
-      h('p', { class: 'note' }, '5 dias previstos · ' + (plan ? 'plano carregado' : 'sessões a configurar')), soundwave('wave')),
+      h('p', { class: 'note' }, n ? n + ' de 5 dias com sessão' : 'Nenhuma sessão criada ainda'), soundwave('wave')),
+    n ? null : h('section', { class: 'card alt', 'aria-labelledby': 'vz-t' }, h('h2', { id: 'vz-t', class: 'label' }, 'Comece sua programação'),
+      h('p', { class: 'desc' }, 'Crie uma sessão para cada dia de treino e adicione os exercícios. Tudo pode ser editado depois.'),
+      h('div', { class: 'actions' }, h('a', { class: 'btn', href: '#/treinos/nova' }, 'Criar primeira sessão'))),
     h('div', { class: 'track-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist  /  programação'),
-      h('p', { class: 'note' }, plan ? 'Escolha uma sessão.' : 'A ordem e o conteúdo ainda não foram definidos.')),
-    h('ul', { class: 'tracklist' }, DAYS.map(([n, , nome]) => {
-      const sess = plan?.sessions.find((x) => x.weekday === n);
-      return h('li', {}, h('a', { class: 'track' + (sess ? ' has' : ''), href: '#/treinos/' + (sess ? sess.id : 'dia-' + n) },
-        h('span', { class: 'num' }, pad(n)),
+      h('p', { class: 'note' }, n ? 'Escolha uma sessão.' : 'Toque em um dia para criar a sessão.')),
+    h('ul', { class: 'tracklist' }, DAYS.map(([d, , nome]) => {
+      const sess = plan?.sessions.find((x) => x.weekday === d);
+      return h('li', {}, h('a', { class: 'track' + (sess ? ' has' : ''), href: '#/treinos/' + (sess ? sess.id : 'dia-' + d) },
+        h('span', { class: 'num' }, pad(d)),
         h('span', {}, h('span', { class: 'day-name' }, nome), h('span', { class: 'status' }, 'Sessão  ·  ' + (sess ? sess.title : 'a definir'))),
         h('span', { class: 'marker', 'aria-hidden': 'true' })));
     })),
-    plan ? null : h('p', { class: 'footnote' }, 'A ficha será estruturada após avaliação e validação.'));
+    h('div', { class: 'actions' }, h('a', { class: 'btn', href: '#/treinos/editar' }, 'Editar programação'), h('a', { class: 'btn ghost', href: '#/treinos/exercicios' }, 'Exercícios')));
 }
 
-// Frame "03 Sessão": sessão ainda sem prescrição (estado do design).
-function placeholder(n) {
-  return h('div', {}, screenHead([h('a', { href: '#/treinos', 'aria-label': 'Voltar para Treinos' }, 'Treinos'), '  /  sessão ' + pad(n)], 'Detalhes.', 'Uma sessão ainda sem prescrição.', 't39'),
-    h('section', { class: 'card plum cover', 'aria-labelledby': 'cv-t' }, h('p', { class: 'micro' }, 'Side A   /   Movement archive'),
-      h('h2', { id: 'cv-t' }, 'Em construção.'), h('p', { class: 'desc' }, 'Os movimentos e a prescrição serão adicionados depois.'), disc('disc')),
-    h('div', { class: 'section-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist  /  movimentos')),
-    h('article', { class: 'card movement' }, h('span', { class: 'num', 'aria-hidden': 'true' }, '01'),
-      h('div', {}, h('p', { class: 'name' }, 'Movimento a definir'), h('p', { class: 'desc' }, 'O primeiro exercício será configurado aqui.'), h('span', { class: 'pill blush' }, 'Pendente'))),
-    h('section', { class: 'card alt logging', 'aria-hidden': 'true' }, h('p', { class: 'label' }, 'Registro de execução'),
-      h('div', { class: 'fields' }, ['Séries', 'Reps', 'Carga'].map((t) => h('div', { class: 'field' }, h('span', { class: 'micro' }, t), h('span', { class: 'placeholder' }, '—'))))),
-    h('p', { class: 'micro session-note' }, 'Campos ilustrativos · sem prescrição cadastrada'));
-}
-
-export function renderTreinos(app, arg) {
+export function renderTreinos(app, arg, sub) {
   if (!arg) return lista(app);
-  if (/^dia-[1-5]$/.test(arg)) return placeholder(arg.slice(4));
+  if (arg === 'editar') return renderEditarProgramacao(app);
+  if (arg === 'nova') return renderNovaSessao(app);
+  if (arg === 'exercicios') return renderExercicios(app);
+  if (/^dia-[1-5]$/.test(arg)) return renderNovaSessao(app, Number(arg.slice(4)));
   const sess = app.state.plan?.sessions.find((x) => x.id === arg);
   if (!sess) return h('div', {}, h('p', { class: 'empty' }, 'Sessão não encontrada.'), h('a', { class: 'btn', href: '#/treinos' }, 'Voltar'));
+  if (sub === 'editar') return renderEditarSessao(app, sess);
   const exMap = new Map(app.state.exercises.map((e) => [e.id, e]));
   return h('div', {}, screenHead([h('a', { href: '#/treinos', 'aria-label': 'Voltar para Treinos' }, 'Treinos'), '  /  sessão ' + pad(sess.weekday)], 'Detalhes.', sess.title, 't39'),
     h('section', { class: 'card plum cover', 'aria-labelledby': 'cv-t' }, h('p', { class: 'micro' }, 'Side A   /   Movement archive'),
       h('h2', { id: 'cv-t' }, sess.title), h('p', { class: 'desc' }, sess.prescriptions.length + ' movimento(s) nesta sessão.'), disc('disc')),
+    h('div', { class: 'actions' }, h('a', { class: 'btn', href: '#/treinos/' + sess.id + '/editar' }, 'Editar sessão')),
     h('div', { class: 'section-head' }, h('h2', { class: 'label', style: 'font-family:var(--y-font-label)' }, 'Tracklist  /  movimentos')),
+    sess.prescriptions.length ? null : h('p', { class: 'empty' }, 'Esta sessão ainda não tem exercícios. Toque em "Editar sessão" para adicionar.'),
     [...sess.prescriptions].sort((a, b) => a.order - b.order).map((rx, i) => {
       const ex = exMap.get(rx.exerciseId);
       const fields = ex.tracking.map((t) => {
